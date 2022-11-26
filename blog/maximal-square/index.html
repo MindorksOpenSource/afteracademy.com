@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#" xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>
+   Maximal Square
+  </title>
+  <meta charset="utf-8"/>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+  <meta content="minimum-scale=1,initial-scale=1,width=device-width,shrink-to-fit=no" name="viewport"/>
+  <link href="https://afteracademy.com/blog/maximal-square" rel="canonical"/>
+  <meta content="course, courses, best courses, best online courses, online courses, search best online courses" name="keywords"/>
+  <meta content="Maximal Square" property="og:title"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://afteracademy.com/blog/maximal-square" property="og:url"/>
+  <meta content="/images/maximal-square-banner-75543cf6248b4c65.png" property="og:image"/>
+  <meta content="You are given a 2D binary matrix arr[][] filled with 0's and 1's. The array contains a square of 1's. So, you need to find that square and return its area. The problem is a great example for practicing dynamic programming for technical interviews." property="og:description"/>
+  <meta content="Maximal Square" property="twitter:title"/>
+  <meta content="You are given a 2D binary matrix arr[][] filled with 0's and 1's. The array contains a square of 1's. So, you need to find that square and return its area. The problem is a great example for practicing dynamic programming for technical interviews." name="twitter:description"/>
+  <meta content="/images/maximal-square-banner-75543cf6248b4c65.png" name="twitter:image:src"/>
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="@after_academy" name="twitter:site"/>
+  <meta content="You are given a 2D binary matrix arr[][] filled with 0's and 1's. The array contains a square of 1's. So, you need to find that square and return its area. The problem is a great example for practicing dynamic programming for technical interviews." name="description"/>
+  <style id="jss-server-side">
+   .MuiGrid-container{width:100%;display:flex;flex-wrap:wrap;box-sizing:border-box}.MuiGrid-item{margin:0;box-sizing:border-box}.MuiGrid-zeroMinWidth{min-width:0}.MuiGrid-direction-xs-column{flex-direction:column}.MuiGrid-direction-xs-column-reverse{flex-direction:column-reverse}.MuiGrid-direction-xs-row-reverse{flex-direction:row-reverse}.MuiGrid-wrap-xs-nowrap{flex-wrap:nowrap}.MuiGrid-wrap-xs-wrap-reverse{flex-wrap:wrap-reverse}.MuiGrid-align-items-xs-center{align-items:center}.MuiGrid-align-items-xs-flex-start{align-items:flex-start}.MuiGrid-align-items-xs-flex-end{align-items:flex-end}.MuiGrid-align-items-xs-baseline{align-items:baseline}.MuiGrid-align-content-xs-center{align-content:center}.MuiGrid-align-content-xs-flex-start{align-content:flex-start}.MuiGrid-align-content-xs-flex-end{align-content:flex-end}.MuiGrid-align-content-xs-space-between{align-content:space-between}.MuiGrid-align-content-xs-space-around{align-content:space-around}.MuiGrid-justify-xs-center{justify-content:center}.MuiGrid-justify-xs-flex-end{justify-content:flex-end}.MuiGrid-justify-xs-space-between{justify-content:space-between}.MuiGrid-justify-xs-space-around{justify-content:space-around}.MuiGrid-justify-xs-space-evenly{justify-content:space-evenly}.MuiGrid-spacing-xs-1{width:calc(100% + 8px);margin:-4px}.MuiGrid-spacing-xs-1>.MuiGrid-item{padding:4px}.MuiGrid-spacing-xs-2{width:calc(100% + 16px);margin:-8px}.MuiGrid-spacing-xs-2>.MuiGrid-item{padding:8px}.MuiGrid-spacing-xs-3{width:calc(100% + 24px);margin:-12px}.MuiGrid-spacing-xs-3>.MuiGrid-item{padding:12px}.MuiGrid-spacing-xs-4{width:calc(100% + 32px);margin:-16px}.MuiGrid-spacing-xs-4>.MuiGrid-item{padding:16px}.MuiGrid-spacing-xs-5{width:calc(100% + 40px);margin:-20px}.MuiGrid-spacing-xs-5>.MuiGrid-item{padding:20px}.MuiGrid-spacing-xs-6{width:calc(100% + 48px);margin:-24px}.MuiGrid-spacing-xs-6>.MuiGrid-item{padding:24px}.MuiGrid-spacing-xs-7{width:calc(100% + 56px);margin:-28px}.MuiGrid-spacing-xs-7>.MuiGrid-item{padding:28px}.MuiGrid-spacing-xs-8{width:calc(100% + 64px);margin:-32px}.MuiGrid-spacing-xs-8>.MuiGrid-item{padding:32px}.MuiGrid-spacing-xs-9{width:calc(100% + 72px);margin:-36px}.MuiGrid-spacing-xs-9>.MuiGrid-item{padding:36px}.MuiGrid-spacing-xs-10{width:calc(100% + 80px);margin:-40px}.MuiGrid-spacing-xs-10>.MuiGrid-item{padding:40px}.MuiGrid-grid-xs-auto{flex-grow:0;max-width:none;flex-basis:auto}.MuiGrid-grid-xs-true{flex-grow:1;max-width:100%;flex-basis:0}.MuiGrid-grid-xs-1{flex-grow:0;max-width:8.333333%;flex-basis:8.333333%}.MuiGrid-grid-xs-2{flex-grow:0;max-width:16.666667%;flex-basis:16.666667%}.MuiGrid-grid-xs-3{flex-grow:0;max-width:25%;flex-basis:25%}.MuiGrid-grid-xs-4{flex-grow:0;max-width:33.333333%;flex-basis:33.333333%}.MuiGrid-grid-xs-5{flex-grow:0;max-width:41.666667%;flex-basis:41.666667%}.MuiGrid-grid-xs-6{flex-grow:0;max-width:50%;flex-basis:50%}.MuiGrid-grid-xs-7{flex-grow:0;max-width:58.333333%;flex-basis:58.333333%}.MuiGrid-grid-xs-8{flex-grow:0;max-width:66.666667%;flex-basis:66.666667%}.MuiGrid-grid-xs-9{flex-grow:0;max-width:75%;flex-basis:75%}.MuiGrid-grid-xs-10{flex-grow:0;max-width:83.333333%;flex-basis:83.333333%}.MuiGrid-grid-xs-11{flex-grow:0;max-width:91.666667%;flex-basis:91.666667%}.MuiGrid-grid-xs-12{flex-grow:0;max-width:100%;flex-basis:100%}@media (min-width:600px){.MuiGrid-grid-sm-auto{flex-grow:0;max-width:none;flex-basis:auto}.MuiGrid-grid-sm-true{flex-grow:1;max-width:100%;flex-basis:0}.MuiGrid-grid-sm-1{flex-grow:0;max-width:8.333333%;flex-basis:8.333333%}.MuiGrid-grid-sm-2{flex-grow:0;max-width:16.666667%;flex-basis:16.666667%}.MuiGrid-grid-sm-3{flex-grow:0;max-width:25%;flex-basis:25%}.MuiGrid-grid-sm-4{flex-grow:0;max-width:33.333333%;flex-basis:33.333333%}.MuiGrid-grid-sm-5{flex-grow:0;max-width:41.666667%;flex-basis:41.666667%}.MuiGrid-grid-sm-6{flex-grow:0;max-width:50%;flex-basis:50%}.MuiGrid-grid-sm-7{flex-grow:0;max-width:58.333333%;flex-basis:58.333333%}.MuiGrid-grid-sm-8{flex-grow:0;max-width:66.666667%;flex-basis:66.666667%}.MuiGrid-grid-sm-9{flex-grow:0;max-width:75%;flex-basis:75%}.MuiGrid-grid-sm-10{flex-grow:0;max-width:83.333333%;flex-basis:83.333333%}.MuiGrid-grid-sm-11{flex-grow:0;max-width:91.666667%;flex-basis:91.666667%}.MuiGrid-grid-sm-12{flex-grow:0;max-width:100%;flex-basis:100%}}@media (min-width:960px){.MuiGrid-grid-md-auto{flex-grow:0;max-width:none;flex-basis:auto}.MuiGrid-grid-md-true{flex-grow:1;max-width:100%;flex-basis:0}.MuiGrid-grid-md-1{flex-grow:0;max-width:8.333333%;flex-basis:8.333333%}.MuiGrid-grid-md-2{flex-grow:0;max-width:16.666667%;flex-basis:16.666667%}.MuiGrid-grid-md-3{flex-grow:0;max-width:25%;flex-basis:25%}.MuiGrid-grid-md-4{flex-grow:0;max-width:33.333333%;flex-basis:33.333333%}.MuiGrid-grid-md-5{flex-grow:0;max-width:41.666667%;flex-basis:41.666667%}.MuiGrid-grid-md-6{flex-grow:0;max-width:50%;flex-basis:50%}.MuiGrid-grid-md-7{flex-grow:0;max-width:58.333333%;flex-basis:58.333333%}.MuiGrid-grid-md-8{flex-grow:0;max-width:66.666667%;flex-basis:66.666667%}.MuiGrid-grid-md-9{flex-grow:0;max-width:75%;flex-basis:75%}.MuiGrid-grid-md-10{flex-grow:0;max-width:83.333333%;flex-basis:83.333333%}.MuiGrid-grid-md-11{flex-grow:0;max-width:91.666667%;flex-basis:91.666667%}.MuiGrid-grid-md-12{flex-grow:0;max-width:100%;flex-basis:100%}}@media (min-width:1280px){.MuiGrid-grid-lg-auto{flex-grow:0;max-width:none;flex-basis:auto}.MuiGrid-grid-lg-true{flex-grow:1;max-width:100%;flex-basis:0}.MuiGrid-grid-lg-1{flex-grow:0;max-width:8.333333%;flex-basis:8.333333%}.MuiGrid-grid-lg-2{flex-grow:0;max-width:16.666667%;flex-basis:16.666667%}.MuiGrid-grid-lg-3{flex-grow:0;max-width:25%;flex-basis:25%}.MuiGrid-grid-lg-4{flex-grow:0;max-width:33.333333%;flex-basis:33.333333%}.MuiGrid-grid-lg-5{flex-grow:0;max-width:41.666667%;flex-basis:41.666667%}.MuiGrid-grid-lg-6{flex-grow:0;max-width:50%;flex-basis:50%}.MuiGrid-grid-lg-7{flex-grow:0;max-width:58.333333%;flex-basis:58.333333%}.MuiGrid-grid-lg-8{flex-grow:0;max-width:66.666667%;flex-basis:66.666667%}.MuiGrid-grid-lg-9{flex-grow:0;max-width:75%;flex-basis:75%}.MuiGrid-grid-lg-10{flex-grow:0;max-width:83.333333%;flex-basis:83.333333%}.MuiGrid-grid-lg-11{flex-grow:0;max-width:91.666667%;flex-basis:91.666667%}.MuiGrid-grid-lg-12{flex-grow:0;max-width:100%;flex-basis:100%}}@media (min-width:1920px){.MuiGrid-grid-xl-auto{flex-grow:0;max-width:none;flex-basis:auto}.MuiGrid-grid-xl-true{flex-grow:1;max-width:100%;flex-basis:0}.MuiGrid-grid-xl-1{flex-grow:0;max-width:8.333333%;flex-basis:8.333333%}.MuiGrid-grid-xl-2{flex-grow:0;max-width:16.666667%;flex-basis:16.666667%}.MuiGrid-grid-xl-3{flex-grow:0;max-width:25%;flex-basis:25%}.MuiGrid-grid-xl-4{flex-grow:0;max-width:33.333333%;flex-basis:33.333333%}.MuiGrid-grid-xl-5{flex-grow:0;max-width:41.666667%;flex-basis:41.666667%}.MuiGrid-grid-xl-6{flex-grow:0;max-width:50%;flex-basis:50%}.MuiGrid-grid-xl-7{flex-grow:0;max-width:58.333333%;flex-basis:58.333333%}.MuiGrid-grid-xl-8{flex-grow:0;max-width:66.666667%;flex-basis:66.666667%}.MuiGrid-grid-xl-9{flex-grow:0;max-width:75%;flex-basis:75%}.MuiGrid-grid-xl-10{flex-grow:0;max-width:83.333333%;flex-basis:83.333333%}.MuiGrid-grid-xl-11{flex-grow:0;max-width:91.666667%;flex-basis:91.666667%}.MuiGrid-grid-xl-12{flex-grow:0;max-width:100%;flex-basis:100%}}.MuiPaper-root{color:rgba(0,0,0,.87);transition:box-shadow .3s cubic-bezier(.4,0,.2,1) 0s;background-color:#fff}.MuiPaper-rounded{border-radius:4px}.MuiPaper-outlined{border:1px solid rgba(0,0,0,.12)}.MuiPaper-elevation0{box-shadow:none}.MuiPaper-elevation1{box-shadow:0 1px 3px 0 rgba(0,0,0,.12),0 1px 1px 0 rgba(0,0,0,.1),0 2px 1px -1px rgba(0,0,0,.08)}.MuiPaper-elevation2{box-shadow:0 1px 5px 0 rgba(0,0,0,.12),0 2px 2px 0 rgba(0,0,0,.1),0 3px 1px -2px rgba(0,0,0,.08)}.MuiPaper-elevation3{box-shadow:0 1px 8px 0 rgba(0,0,0,.12),0 3px 4px 0 rgba(0,0,0,.1),0 3px 3px -2px rgba(0,0,0,.08)}.MuiPaper-elevation4{box-shadow:0 2px 4px -1px rgba(0,0,0,.12),0 4px 5px 0 rgba(0,0,0,.1),0 1px 10px 0 rgba(0,0,0,.08)}.MuiPaper-elevation5{box-shadow:0 3px 5px -1px rgba(0,0,0,.12),0 5px 8px 0 rgba(0,0,0,.1),0 1px 14px 0 rgba(0,0,0,.08)}.MuiPaper-elevation6{box-shadow:0 3px 5px -1px rgba(0,0,0,.12),0 6px 10px 0 rgba(0,0,0,.1),0 1px 18px 0 rgba(0,0,0,.08)}.MuiPaper-elevation7{box-shadow:0 4px 5px -2px rgba(0,0,0,.12),0 7px 10px 1px rgba(0,0,0,.1),0 2px 16px 1px rgba(0,0,0,.08)}.MuiPaper-elevation8{box-shadow:0 5px 5px -3px rgba(0,0,0,.12),0 8px 10px 1px rgba(0,0,0,.1),0 3px 14px 2px rgba(0,0,0,.08)}.MuiPaper-elevation9{box-shadow:0 5px 6px -3px rgba(0,0,0,.12),0 9px 12px 1px rgba(0,0,0,.1),0 3px 16px 2px rgba(0,0,0,.08)}.MuiPaper-elevation10{box-shadow:0 6px 6px -3px rgba(0,0,0,.12),0 10px 14px 1px rgba(0,0,0,.1),0 4px 18px 3px rgba(0,0,0,.08)}.MuiPaper-elevation11{box-shadow:0 6px 7px -4px rgba(0,0,0,.12),0 11px 15px 1px rgba(0,0,0,.1),0 4px 20px 3px rgba(0,0,0,.08)}.MuiPaper-elevation12{box-shadow:0 7px 8px -4px rgba(0,0,0,.12),0 12px 17px 2px rgba(0,0,0,.1),0 5px 22px 4px rgba(0,0,0,.08)}.MuiPaper-elevation13{box-shadow:0 7px 8px -4px rgba(0,0,0,.12),0 13px 19px 2px rgba(0,0,0,.1),0 5px 24px 4px rgba(0,0,0,.08)}.MuiPaper-elevation14{box-shadow:0 7px 9px -4px rgba(0,0,0,.12),0 14px 21px 2px rgba(0,0,0,.1),0 5px 26px 4px rgba(0,0,0,.08)}.MuiPaper-elevation15{box-shadow:0 8px 9px -5px rgba(0,0,0,.12),0 15px 22px 2px rgba(0,0,0,.1),0 6px 28px 5px rgba(0,0,0,.08)}.MuiPaper-elevation16{box-shadow:0 8px 10px -5px rgba(0,0,0,.12),0 16px 24px 2px rgba(0,0,0,.1),0 6px 30px 5px rgba(0,0,0,.08)}.MuiPaper-elevation17{box-shadow:0 8px 11px -5px rgba(0,0,0,.12),0 17px 26px 2px rgba(0,0,0,.1),0 6px 32px 5px rgba(0,0,0,.08)}.MuiPaper-elevation18{box-shadow:0 9px 11px -5px rgba(0,0,0,.12),0 18px 28px 2px rgba(0,0,0,.1),0 7px 34px 6px rgba(0,0,0,.08)}.MuiPaper-elevation19{box-shadow:0 9px 12px -6px rgba(0,0,0,.12),0 19px 29px 2px rgba(0,0,0,.1),0 7px 36px 6px rgba(0,0,0,.08)}.MuiPaper-elevation20{box-shadow:0 10px 13px -6px rgba(0,0,0,.12),0 20px 31px 3px rgba(0,0,0,.1),0 8px 38px 7px rgba(0,0,0,.08)}.MuiPaper-elevation21{box-shadow:0 10px 13px -6px rgba(0,0,0,.12),0 21px 33px 3px rgba(0,0,0,.1),0 8px 40px 7px rgba(0,0,0,.08)}.MuiPaper-elevation22{box-shadow:0 10px 14px -6px rgba(0,0,0,.12),0 22px 35px 3px rgba(0,0,0,.1),0 8px 42px 7px rgba(0,0,0,.08)}.MuiPaper-elevation23{box-shadow:0 11px 14px -7px rgba(0,0,0,.12),0 23px 36px 3px rgba(0,0,0,.1),0 9px 44px 8px rgba(0,0,0,.08)}.MuiPaper-elevation24{box-shadow:0 11px 15px -7px rgba(0,0,0,.12),0 24px 38px 3px rgba(0,0,0,.1),0 9px 46px 8px rgba(0,0,0,.08)}.MuiTypography-root{margin:0}.MuiTypography-body2{font-size:.875rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:400;line-height:1.43;letter-spacing:.01071em}.MuiTypography-body1{font-size:1rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:400;line-height:1.5;letter-spacing:.00938em}.MuiTypography-caption{font-size:.75rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:400;line-height:1.66;letter-spacing:.03333em}.MuiTypography-button{font-size:.875rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:500;line-height:1.75;letter-spacing:.02857em;text-transform:uppercase}.MuiTypography-h1{font-size:6rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:300;line-height:1.167;letter-spacing:-.01562em}.MuiTypography-h2{font-size:3.75rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:300;line-height:1.2;letter-spacing:-.00833em}.MuiTypography-h3{font-size:3rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:400;line-height:1.167;letter-spacing:0}.MuiTypography-h4{font-size:2.125rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:400;line-height:1.235;letter-spacing:.00735em}.MuiTypography-h5{font-size:1.5rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:400;line-height:1.334;letter-spacing:0}.MuiTypography-h6{font-size:1.25rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:500;line-height:1.6;letter-spacing:.0075em}.MuiTypography-subtitle1{font-size:1rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:400;line-height:1.75;letter-spacing:.00938em}.MuiTypography-subtitle2{font-size:.875rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:500;line-height:1.57;letter-spacing:.00714em}.MuiTypography-overline{font-size:.75rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:400;line-height:2.66;letter-spacing:.08333em;text-transform:uppercase}.MuiTypography-srOnly{width:1px;height:1px;overflow:hidden;position:absolute}.MuiTypography-alignLeft{text-align:left}.MuiTypography-alignCenter{text-align:center}.MuiTypography-alignRight{text-align:right}.MuiTypography-alignJustify{text-align:justify}.MuiTypography-noWrap{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.MuiTypography-gutterBottom{margin-bottom:.35em}.MuiTypography-paragraph{margin-bottom:16px}.MuiTypography-colorInherit{color:inherit}.MuiTypography-colorPrimary{color:#11209f}.MuiTypography-colorSecondary{color:#f5a623}.MuiTypography-colorTextPrimary{color:rgba(0,0,0,.87)}.MuiTypography-colorTextSecondary{color:rgba(0,0,0,.54)}.MuiTypography-colorError{color:#ff1744}.MuiTypography-displayInline{display:inline}.MuiTypography-displayBlock{display:block}.MuiButtonBase-root{color:inherit;border:0;cursor:pointer;margin:0;display:inline-flex;outline:0;padding:0;position:relative;align-items:center;user-select:none;border-radius:0;vertical-align:middle;-moz-appearance:none;justify-content:center;text-decoration:none;background-color:transparent;-webkit-appearance:none;-webkit-tap-highlight-color:transparent}.MuiButtonBase-root::-moz-focus-inner{border-style:none}.MuiButtonBase-root.Mui-disabled{cursor:default;pointer-events:none}.MuiSvgIcon-root{fill:currentColor;width:1em;height:1em;display:inline-block;font-size:1.5rem;transition:fill .2s cubic-bezier(.4,0,.2,1) 0s;flex-shrink:0;user-select:none}.MuiSvgIcon-colorPrimary{color:#11209f}.MuiSvgIcon-colorSecondary{color:#f5a623}.MuiSvgIcon-colorAction{color:rgba(0,0,0,.54)}.MuiSvgIcon-colorError{color:#ff1744}.MuiSvgIcon-colorDisabled{color:rgba(0,0,0,.26)}.MuiSvgIcon-fontSizeInherit{font-size:inherit}.MuiSvgIcon-fontSizeSmall{font-size:1.25rem}.MuiSvgIcon-fontSizeLarge{font-size:2.1875rem}.MuiAvatar-root{width:40px;height:40px;display:flex;overflow:hidden;position:relative;font-size:1.25rem;align-items:center;flex-shrink:0;font-family:Roboto,Helvetica,Arial,sans-serif;line-height:1;user-select:none;border-radius:50%;justify-content:center}.MuiAvatar-colorDefault{color:#fff;background-color:#bdbdbd}.MuiAvatar-rounded{border-radius:4px}.MuiAvatar-square{border-radius:0}.MuiAvatar-img{color:transparent;width:100%;height:100%;object-fit:cover;text-align:center;text-indent:10000px}.MuiAvatar-fallback{width:75%;height:75%}.MuiFab-root{color:rgba(0,0,0,.87);width:56px;height:56px;padding:0;font-size:.875rem;min-width:0;box-shadow:0 3px 5px -1px rgba(0,0,0,.12),0 6px 10px 0 rgba(0,0,0,.1),0 1px 18px 0 rgba(0,0,0,.08);box-sizing:border-box;min-height:36px;transition:background-color 250ms cubic-bezier(.4,0,.2,1) 0s,box-shadow 250ms cubic-bezier(.4,0,.2,1) 0s,border 250ms cubic-bezier(.4,0,.2,1) 0s;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:500;line-height:1.75;border-radius:50%;letter-spacing:.02857em;text-transform:uppercase;background-color:#e0e0e0}.MuiFab-root:active{box-shadow:0 7px 8px -4px rgba(0,0,0,.12),0 12px 17px 2px rgba(0,0,0,.1),0 5px 22px 4px rgba(0,0,0,.08)}.MuiFab-root.Mui-focusVisible{box-shadow:0 3px 5px -1px rgba(0,0,0,.12),0 6px 10px 0 rgba(0,0,0,.1),0 1px 18px 0 rgba(0,0,0,.08)}.MuiFab-root:hover{text-decoration:none;background-color:#d5d5d5}.MuiFab-root.Mui-disabled{color:rgba(0,0,0,.26);box-shadow:none;background-color:rgba(0,0,0,.12)}@media (hover:none){.MuiFab-root:hover{background-color:#e0e0e0}}.MuiFab-root:hover.Mui-disabled{background-color:rgba(0,0,0,.12)}.MuiFab-label{width:100%;display:inherit;align-items:inherit;justify-content:inherit}.MuiFab-primary{color:#fff;background-color:#11209f}.MuiFab-primary:hover{background-color:#0b166f}@media (hover:none){.MuiFab-primary:hover{background-color:#11209f}}.MuiFab-secondary{color:#000;background-color:#f5a623}.MuiFab-secondary:hover{background-color:#ab7418}@media (hover:none){.MuiFab-secondary:hover{background-color:#f5a623}}.MuiFab-extended{width:auto;height:48px;padding:0 16px;min-width:48px;min-height:auto;border-radius:24px}.MuiFab-extended.MuiFab-sizeSmall{width:auto;height:34px;padding:0 8px;min-width:34px;border-radius:17px}.MuiFab-extended.MuiFab-sizeMedium{width:auto;height:40px;padding:0 16px;min-width:40px;border-radius:20px}.MuiFab-colorInherit{color:inherit}.MuiFab-sizeSmall{width:40px;height:40px}.MuiFab-sizeMedium{width:48px;height:48px}.MuiCard-root{overflow:hidden}.MuiCardActionArea-root{width:100%;display:block;text-align:inherit}.MuiCardActionArea-root:hover .MuiCardActionArea-focusHighlight{opacity:.08}.MuiCardActionArea-root.Mui-focusVisible .MuiCardActionArea-focusHighlight{opacity:.12}.MuiCardActionArea-focusHighlight{top:0;left:0;right:0;bottom:0;opacity:0;overflow:hidden;position:absolute;transition:opacity 250ms cubic-bezier(.4,0,.2,1) 0s;border-radius:inherit;pointer-events:none;background-color:currentcolor}.MuiCardContent-root{padding:16px}.MuiCardContent-root:last-child{padding-bottom:24px}.MuiCardMedia-root{display:block;background-size:cover;background-repeat:no-repeat;background-position:center}.MuiCardMedia-media{width:100%}.MuiCardMedia-img{object-fit:cover}.MuiCardHeader-root{display:flex;padding:16px;align-items:center}.MuiCardHeader-avatar{flex:0 0 auto;margin-right:16px}.MuiCardHeader-action{flex:0 0 auto;align-self:flex-start;margin-top:-8px;margin-right:-8px}.MuiCardHeader-content{flex:1 1 auto}.MuiButton-root{color:rgba(0,0,0,.87);padding:6px 16px;font-size:.875rem;min-width:64px;box-sizing:border-box;transition:background-color 250ms cubic-bezier(.4,0,.2,1) 0s,box-shadow 250ms cubic-bezier(.4,0,.2,1) 0s,border 250ms cubic-bezier(.4,0,.2,1) 0s;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:500;line-height:1.75;border-radius:4px;letter-spacing:.02857em;text-transform:uppercase}.MuiButton-root:hover{text-decoration:none;background-color:rgba(0,0,0,.08)}.MuiButton-root.Mui-disabled{color:rgba(0,0,0,.26)}@media (hover:none){.MuiButton-root:hover{background-color:transparent}}.MuiButton-root:hover.Mui-disabled{background-color:transparent}.MuiButton-label{width:100%;display:inherit;align-items:inherit;justify-content:inherit}.MuiButton-text{padding:6px 8px}.MuiButton-textPrimary{color:#11209f}.MuiButton-textPrimary:hover{background-color:rgba(17,32,159,.08)}@media (hover:none){.MuiButton-textPrimary:hover{background-color:transparent}}.MuiButton-textSecondary{color:#f5a623}.MuiButton-textSecondary:hover{background-color:rgba(245,166,35,.08)}@media (hover:none){.MuiButton-textSecondary:hover{background-color:transparent}}.MuiButton-outlined{border:1px solid rgba(0,0,0,.23);padding:5px 15px}.MuiButton-outlined.Mui-disabled{border:1px solid rgba(0,0,0,.26)}.MuiButton-outlinedPrimary{color:#11209f;border:1px solid rgba(17,32,159,.5)}.MuiButton-outlinedPrimary:hover{border:1px solid #11209f;background-color:rgba(17,32,159,.08)}@media (hover:none){.MuiButton-outlinedPrimary:hover{background-color:transparent}}.MuiButton-outlinedSecondary{color:#f5a623;border:1px solid rgba(245,166,35,.5)}.MuiButton-outlinedSecondary:hover{border:1px solid #f5a623;background-color:rgba(245,166,35,.08)}.MuiButton-outlinedSecondary.Mui-disabled{border:1px solid rgba(0,0,0,.26)}@media (hover:none){.MuiButton-outlinedSecondary:hover{background-color:transparent}}.MuiButton-contained{color:rgba(0,0,0,.87);box-shadow:0 1px 5px 0 rgba(0,0,0,.12),0 2px 2px 0 rgba(0,0,0,.1),0 3px 1px -2px rgba(0,0,0,.08);background-color:#e0e0e0}.MuiButton-contained:hover{box-shadow:0 2px 4px -1px rgba(0,0,0,.12),0 4px 5px 0 rgba(0,0,0,.1),0 1px 10px 0 rgba(0,0,0,.08);background-color:#d5d5d5}.MuiButton-contained.Mui-focusVisible{box-shadow:0 3px 5px -1px rgba(0,0,0,.12),0 6px 10px 0 rgba(0,0,0,.1),0 1px 18px 0 rgba(0,0,0,.08)}.MuiButton-contained:active{box-shadow:0 5px 5px -3px rgba(0,0,0,.12),0 8px 10px 1px rgba(0,0,0,.1),0 3px 14px 2px rgba(0,0,0,.08)}.MuiButton-contained.Mui-disabled{color:rgba(0,0,0,.26);box-shadow:none;background-color:rgba(0,0,0,.12)}@media (hover:none){.MuiButton-contained:hover{box-shadow:0 1px 5px 0 rgba(0,0,0,.12),0 2px 2px 0 rgba(0,0,0,.1),0 3px 1px -2px rgba(0,0,0,.08);background-color:#e0e0e0}}.MuiButton-contained:hover.Mui-disabled{background-color:rgba(0,0,0,.12)}.MuiButton-containedPrimary{color:#fff;background-color:#11209f}.MuiButton-containedPrimary:hover{background-color:#0b166f}@media (hover:none){.MuiButton-containedPrimary:hover{background-color:#11209f}}.MuiButton-containedSecondary{color:#000;background-color:#f5a623}.MuiButton-containedSecondary:hover{background-color:#ab7418}@media (hover:none){.MuiButton-containedSecondary:hover{background-color:#f5a623}}.MuiButton-disableElevation{box-shadow:none}.MuiButton-disableElevation:hover{box-shadow:none}.MuiButton-disableElevation.Mui-focusVisible{box-shadow:none}.MuiButton-disableElevation:active{box-shadow:none}.MuiButton-disableElevation.Mui-disabled{box-shadow:none}.MuiButton-colorInherit{color:inherit;border-color:currentColor}.MuiButton-textSizeSmall{padding:4px 5px;font-size:.8125rem}.MuiButton-textSizeLarge{padding:8px 11px;font-size:.9375rem}.MuiButton-outlinedSizeSmall{padding:3px 9px;font-size:.8125rem}.MuiButton-outlinedSizeLarge{padding:7px 21px;font-size:.9375rem}.MuiButton-containedSizeSmall{padding:4px 10px;font-size:.8125rem}.MuiButton-containedSizeLarge{padding:8px 22px;font-size:.9375rem}.MuiButton-fullWidth{width:100%}.MuiButton-startIcon{display:inherit;margin-left:-4px;margin-right:8px}.MuiButton-startIcon.MuiButton-iconSizeSmall{margin-left:-2px}.MuiButton-endIcon{display:inherit;margin-left:8px;margin-right:-4px}.MuiButton-endIcon.MuiButton-iconSizeSmall{margin-right:-2px}.MuiButton-iconSizeSmall>:first-child{font-size:18px}.MuiButton-iconSizeMedium>:first-child{font-size:20px}.MuiButton-iconSizeLarge>:first-child{font-size:22px}.MuiIconButton-root{flex:0 0 auto;color:rgba(0,0,0,.54);padding:12px;overflow:visible;font-size:1.5rem;text-align:center;transition:background-color 150ms cubic-bezier(.4,0,.2,1) 0s;border-radius:50%}.MuiIconButton-root:hover{background-color:rgba(0,0,0,.08)}.MuiIconButton-root.Mui-disabled{color:rgba(0,0,0,.26);background-color:transparent}@media (hover:none){.MuiIconButton-root:hover{background-color:transparent}}.MuiIconButton-edgeStart{margin-left:-12px}.MuiIconButton-sizeSmall.MuiIconButton-edgeStart{margin-left:-3px}.MuiIconButton-edgeEnd{margin-right:-12px}.MuiIconButton-sizeSmall.MuiIconButton-edgeEnd{margin-right:-3px}.MuiIconButton-colorInherit{color:inherit}.MuiIconButton-colorPrimary{color:#11209f}.MuiIconButton-colorPrimary:hover{background-color:rgba(17,32,159,.08)}@media (hover:none){.MuiIconButton-colorPrimary:hover{background-color:transparent}}.MuiIconButton-colorSecondary{color:#f5a623}.MuiIconButton-colorSecondary:hover{background-color:rgba(245,166,35,.08)}@media (hover:none){.MuiIconButton-colorSecondary:hover{background-color:transparent}}.MuiIconButton-sizeSmall{padding:3px;font-size:1.125rem}.MuiIconButton-label{width:100%;display:flex;align-items:inherit;justify-content:inherit}.jss335{flex-grow:1}.jss336{border:none;height:auto;padding:32px;box-shadow:0 7px 9px -4px rgba(17,32,159,.12),0 14px 21px 2px rgba(17,32,159,.1),0 5px 26px 4px rgba(17,32,159,.08);margin-top:32px;margin-left:32px;margin-right:16px;margin-bottom:16px;background-image:linear-gradient(141deg,#1fa2ff,#12d8fa,#a6ffcb)}@media (max-width:959.95px){.jss336{margin:8px;padding:16px}}.jss337{width:100%;height:auto;background-size:cover;background-image:url(/assets/landing-site-cover-image.svg);background-repeat:no-repeat;background-position:center center}.jss338{border-bottom:4px;border-bottom-color:#f5a623;border-bottom-style:solid}.jss339{margin-top:16px}.jss340{width:32px;height:32px;background-color:#11209f}.jss341{color:#fff;width:24px;height:24px}.jss342{font-size:42px;font-weight:300}@media (max-width:599.95px){.jss342{font-size:28px}}.jss343{color:#11209f;font-size:42px;font-weight:600}@media (max-width:599.95px){.jss343{font-size:28px}}.jss344{font-size:20px;font-weight:400}@media (max-width:599.95px){.jss344{font-size:16px}}.jss345{padding:48px;background:linear-gradient(to right,#4ca1af,#c4e0e5);margin-top:48px}@media (max-width:599.95px){.jss345{padding:16px;margin-top:32px}}.jss346{color:#212121;padding:16px;font-weight:600}@media (max-width:599.95px){.jss346{padding:16px}}.jss347{margin:8px;background:#3c5a99}.jss348{margin:8px;background:#1da1f2}.jss349{margin:8px;background:#212121}.jss350{color:#444;padding:64px 8px 40px 8px;font-size:28px;font-weight:500}@media (max-width:599.95px){.jss350{font-size:24px}}.jss351{width:100%}.jss352{height:100%}.jss353{height:100%;box-shadow:0 11px 15px -7px rgba(17,32,159,.12),0 24px 38px 3px rgba(17,32,159,.1),0 9px 46px 8px rgba(17,32,159,.08)}.jss354{height:100%}.jss355{height:100%}.jss356{margin-top:64px;padding-bottom:64px;background-color:#f0f8ff}.jss357{width:60px;height:60px}.jss359{font-size:16px;padding-left:50px;margin-bottom:20px;padding-right:50px}.jss360{min-height:50px}.jss361{padding-top:64px}@media (max-width:959.95px){.jss361{padding-top:32px;padding-left:16px;padding-right:16px}}.jss362{margin-top:-24px}.jss363{padding-top:48px}.jss364{color:#1c4c7a;font-family:Roboto Condensed,Roboto,sans-serif;margin-bottom:8px}@media (max-width:599.95px){.jss364{font-size:32px}}.jss365{font-size:22px;font-weight:200;line-height:1.8;margin-bottom:8px}.jss366{font-size:22px;line-height:1.8;margin-bottom:8px}.jss367{font-size:22px;line-height:1.8}.jss368{color:#fff;border:0;padding:10px 30px 10px 30px;font-size:18px;background:linear-gradient(45deg,#2196f3 30%,#21cbf3 90%);box-shadow:0 3px 5px 2px rgba(33,203,243,.3);margin-top:24px;border-radius:3px}.jss369{padding:16px}.jss370{padding-bottom:16px}.jss371{width:200px;height:200px}@media (max-width:599.95px){.jss371{width:100px;height:100px}}.jss372{color:#fff;background:#006192}@media (max-width:599.95px){.jss373{font-size:20px}}@media (max-width:599.95px){.jss374{font-size:16px}}.jss375{margin-top:64px;padding-bottom:64px;background-color:#f0f8ff}.jss310{text-align:center}.MuiAppBar-root{width:100%;display:flex;z-index:1100;box-sizing:border-box;flex-shrink:0;flex-direction:column}.MuiAppBar-positionFixed{top:0;left:auto;right:0;position:fixed}@media print{.MuiAppBar-positionFixed{position:absolute}}.MuiAppBar-positionAbsolute{top:0;left:auto;right:0;position:absolute}.MuiAppBar-positionSticky{top:0;left:auto;right:0;position:sticky}.MuiAppBar-positionStatic{position:static;transform:translateZ(0)}.MuiAppBar-positionRelative{position:relative}.MuiAppBar-colorDefault{color:rgba(0,0,0,.87);background-color:#f5f5f5}.MuiAppBar-colorPrimary{color:#fff;background-color:#11209f}.MuiAppBar-colorSecondary{color:#000;background-color:#f5a623}.jss311{flex-grow:1}.jss312{background:#fff;box-shadow:0 2px 4px 0 rgba(0,0,0,.1)}.jss313{font-size:16px;min-height:65px;text-transform:none}.jss314{width:100%;height:350px;padding:0;background-size:cover;background-image:url(/assets/blog-site-cover.jpg);background-repeat:no-repeat;background-position:center center}@media (max-width:599.95px){.jss314{height:200px}}.jss315{height:100%;padding:80px;background:rgba(0,0,0,.2)}@media (max-width:599.95px){.jss315{padding:64px}}.jss316{color:#fff;font-size:80px;font-weight:400}@media (max-width:599.95px){.jss316{font-size:40px}}.jss317{height:100%}.jss318{height:100%}.jss319{height:220px}.jss320{padding-top:32px}.jss321{left:0;bottom:0;height:55px;position:absolute;margin-bottom:8px}.jss322{line-height:1.3}.jss323{margin-top:8px;margin-bottom:50px}.jss324{padding:16px}.jss325{background:#f0f8ff}.jss326{display:none}@media (min-width:960px){.jss326{margin:16px;display:flex}}.jss179{flex-grow:1;padding-top:5px}.jss180{padding-top:0;padding-block-start:80}.jss181{margin-top:24px}.jss182{margin-top:24px}.jss183{margin-top:24px}.jss184{margin:8px}.jss185{margin-right:8px}.jss186{margin-left:8px}.jss187{font-size:20px}.jss188{color:#fff;padding-top:8px;padding-bottom:8px}.jss189{color:#999;margin-top:24px;margin-left:8px;margin-right:8px;margin-bottom:24px}.jss190{padding-top:32px}.jss191{margin-left:8px;margin-right:8px}.jss192{background:#f0f8ff}.jss193{margin:16px;display:flex}.MuiDivider-root{border:none;height:1px;margin:0;flex-shrink:0;background-color:rgba(0,0,0,.12)}.MuiDivider-absolute{left:0;width:100%;bottom:0;position:absolute}.MuiDivider-inset{margin-left:72px}.MuiDivider-light{background-color:rgba(0,0,0,.08)}.MuiDivider-middle{margin-left:16px;margin-right:16px}.MuiDivider-vertical{width:1px;height:100%}.MuiPopover-paper{outline:0;position:absolute;max-width:calc(100% - 32px);min-width:16px;max-height:calc(100% - 32px);min-height:16px;overflow-x:hidden;overflow-y:auto}.MuiMenu-paper{max-height:calc(100% - 96px);-webkit-overflow-scrolling:touch}.MuiMenu-list{outline:0}.MuiToolbar-root{display:flex;position:relative;align-items:center}.MuiToolbar-gutters{padding-left:16px;padding-right:16px}@media (min-width:600px){.MuiToolbar-gutters{padding-left:24px;padding-right:24px}}.MuiToolbar-regular{min-height:56px}@media (min-width:0px) and (orientation:landscape){.MuiToolbar-regular{min-height:48px}}@media (min-width:600px){.MuiToolbar-regular{min-height:64px}}.MuiToolbar-dense{min-height:48px}@media print{.MuiDialog-root{position:absolute!important}}.MuiDialog-scrollPaper{display:flex;align-items:center;justify-content:center}.MuiDialog-scrollBody{overflow-x:hidden;overflow-y:auto;text-align:center}.MuiDialog-scrollBody:after{width:0;height:100%;content:"";display:inline-block;vertical-align:middle}.MuiDialog-container{height:100%;outline:0}@media print{.MuiDialog-container{height:auto}}.MuiDialog-paper{margin:32px;position:relative;overflow-y:auto}@media print{.MuiDialog-paper{box-shadow:none;overflow-y:visible}}.MuiDialog-paperScrollPaper{display:flex;max-height:calc(100% - 64px);flex-direction:column}.MuiDialog-paperScrollBody{display:inline-block;text-align:left;vertical-align:middle}.MuiDialog-paperWidthFalse{max-width:calc(100% - 64px)}.MuiDialog-paperWidthXs{max-width:444px}@media (max-width:507.95px){.MuiDialog-paperWidthXs.MuiDialog-paperScrollBody{max-width:calc(100% - 64px)}}.MuiDialog-paperWidthSm{max-width:600px}@media (max-width:663.95px){.MuiDialog-paperWidthSm.MuiDialog-paperScrollBody{max-width:calc(100% - 64px)}}.MuiDialog-paperWidthMd{max-width:960px}@media (max-width:1023.95px){.MuiDialog-paperWidthMd.MuiDialog-paperScrollBody{max-width:calc(100% - 64px)}}.MuiDialog-paperWidthLg{max-width:1280px}@media (max-width:1343.95px){.MuiDialog-paperWidthLg.MuiDialog-paperScrollBody{max-width:calc(100% - 64px)}}.MuiDialog-paperWidthXl{max-width:1920px}@media (max-width:1983.95px){.MuiDialog-paperWidthXl.MuiDialog-paperScrollBody{max-width:calc(100% - 64px)}}.MuiDialog-paperFullWidth{width:calc(100% - 64px)}.MuiDialog-paperFullScreen{width:100%;height:100%;margin:0;max-width:100%;max-height:none;border-radius:0}.MuiDialog-paperFullScreen.MuiDialog-paperScrollBody{margin:0;max-width:100%}.jss160{margin-left:16px;margin-right:16px;margin-bottom:24px}.jss161{background:#11209f}.jss162{margin-right:16px}.jss163{display:flex;flex-wrap:wrap}html{box-sizing:border-box;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}*,::after,::before{box-sizing:inherit}b,strong{font-weight:bolder}body{color:rgba(0,0,0,.87);margin:0;font-size:.875rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:400;line-height:1.43;letter-spacing:.01071em;background-color:#fff}@media print{body{background-color:#fff}}body::backdrop{background-color:#fff}.MuiDrawer-docked{flex:0 0 auto}.MuiDrawer-paper{top:0;flex:1 0 auto;height:100%;display:flex;outline:0;z-index:1200;position:fixed;overflow-y:auto;flex-direction:column;-webkit-overflow-scrolling:touch}.MuiDrawer-paperAnchorLeft{left:0;right:auto}.MuiDrawer-paperAnchorRight{left:auto;right:0}.MuiDrawer-paperAnchorTop{top:0;left:0;right:0;bottom:auto;height:auto;max-height:100%}.MuiDrawer-paperAnchorBottom{top:auto;left:0;right:0;bottom:0;height:auto;max-height:100%}.MuiDrawer-paperAnchorDockedLeft{border-right:1px solid rgba(0,0,0,.12)}.MuiDrawer-paperAnchorDockedTop{border-bottom:1px solid rgba(0,0,0,.12)}.MuiDrawer-paperAnchorDockedRight{border-left:1px solid rgba(0,0,0,.12)}.MuiDrawer-paperAnchorDockedBottom{border-top:1px solid rgba(0,0,0,.12)}.jss1{flex-grow:1}.jss2{color:#000;background:#fff;box-shadow:0 4px 8px 0 rgba(0,0,0,.1)}.jss3{margin-right:16px}.jss4{flex-grow:1}.jss5{margin:10px}.jss6{margin:8px;font-size:16px;text-transform:none}.jss7{margin:8px;padding-left:40}.jss8{display:none}@media (min-width:960px){.jss8{display:flex}}.jss9{display:flex}@media (min-width:960px){.jss9{display:none}}.jss10{padding-top:8px;padding-left:16px;padding-right:16px;padding-bottom:8px}.jss11{color:#666}.jss12{margin-left:45%}.jss13{margin:8px}.jss14{width:40px;height:40px;margin:5px}.jss15{min-width:300px}.jss386{flex-grow:1;margin-top:0}.jss387{padding:16px}.jss388{margin-right:8px}.jss389{display:flex;align-items:center;margin-bottom:10px}.jss390{margin-top:0;padding-top:0;margin-bottom:0;padding-bottom:0}
+  </style>
+  <link href="/styles/vendor-1.4.7.css" rel="stylesheet" type="text/css"/>
+  <link href="/styles/app-1.4.7.css" rel="stylesheet" type="text/css"/>
+  <link href="/assets/github-markdown.css" rel="stylesheet" type="text/css"/>
+  <link href="/assets/pilcrow.css" rel="stylesheet" type="text/css"/>
+  <link href="/assets/hljs-github.min.css" rel="stylesheet" type="text/css"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap" rel="stylesheet"/>
+  <script async="" defer="defer" src="https://www.google.com/recaptcha/api.js?render=explicit" type="text/javascript">
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-91686131-4">
+  </script>
+  <script>
+   function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-91686131-4")
+  </script>
+  <script>
+   !function(e,t,n,c,o,a,f){e.fbq||(o=e.fbq=function(){o.callMethod?o.callMethod.apply(o,arguments):o.queue.push(arguments)},e._fbq||(e._fbq=o),(o.push=o).loaded=!0,o.version="2.0",o.queue=[],(a=t.createElement(n)).async=!0,a.src="https://connect.facebook.net/en_US/fbevents.js",(f=t.getElementsByTagName(n)[0]).parentNode.insertBefore(a,f))}(window,document,"script"),fbq("init","784211865395927"),fbq("track","PageView")
+  </script>
+  <noscript>
+   <img height="1" src="https://www.facebook.com/tr?id=784211865395927&amp;ev=PageView&amp;noscript=1" style="display:none" width="1"/>
+  </noscript>
+  <!-- End Facebook Pixel Code -->
+ </head>
+ <body>
+  <div id="root">
+   <div style="max-width:1444px;margin:0 auto;float:float: none">
+    <div class="jss1">
+     <header class="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed jss2 MuiAppBar-colorPrimary mui-fixed MuiPaper-elevation4">
+      <div class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters">
+       <a class="MuiAvatar-root MuiAvatar-circle jss5" href="/">
+        <img alt="Logo" class="MuiAvatar-img" src="/assets/AfterAcademyLogo.svg"/>
+       </a>
+       <h6 class="MuiTypography-root jss4 MuiTypography-h6">
+        AfterAcademy
+       </h6>
+       <div class="jss8">
+        <a aria-disabled="false" class="MuiButtonBase-root MuiButton-root MuiButton-text jss6 MuiButton-colorInherit" href="/tech-interview" role="button" tabindex="0">
+         <span class="MuiButton-label">
+          Interview Kit
+         </span>
+        </a>
+        <a aria-disabled="false" class="MuiButtonBase-root MuiButton-root MuiButton-text jss6 MuiButton-colorInherit" href="/blogs" role="button" tabindex="0">
+         <span class="MuiButton-label">
+          Blogs
+         </span>
+        </a>
+        <a aria-disabled="false" class="MuiButtonBase-root MuiButton-root MuiButton-text jss6 MuiButton-colorInherit" href="https://janisharali.com" tabindex="0" target="_blank">
+         <span class="MuiButton-label">
+          Mentor Ali
+         </span>
+        </a>
+        <a aria-disabled="false" class="MuiButtonBase-root MuiButton-root MuiButton-text jss6 MuiButton-colorInherit" href="https://amitshekhar.me" tabindex="0" target="_blank">
+         <span class="MuiButton-label">
+          Mentor Amit
+         </span>
+        </a>
+       </div>
+       <div class="jss9">
+        <button aria-haspopup="true" aria-label="show more" class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit" tabindex="0" type="button">
+         <span class="MuiIconButton-label">
+          <svg aria-hidden="true" class="MuiSvgIcon-root" focusable="false" role="presentation" viewbox="0 0 24 24">
+           <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z">
+           </path>
+          </svg>
+         </span>
+        </button>
+       </div>
+      </div>
+     </header>
+    </div>
+    <div style="margin-top:60px">
+     <div class="jss179">
+      <div class="MuiGrid-root jss192 MuiGrid-container MuiGrid-align-items-xs-center MuiGrid-justify-xs-center">
+       <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-sm-11 MuiGrid-grid-md-10">
+       </div>
+      </div>
+      <div class="MuiGrid-root jss180 MuiGrid-container MuiGrid-justify-xs-center">
+       <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-7">
+        <div class="jss181">
+         <div class="MuiCardHeader-root">
+          <div class="MuiCardHeader-avatar">
+           <div aria-label="Admin AfterAcademy" class="MuiAvatar-root MuiAvatar-circle">
+            <img class="MuiAvatar-img" src="https://afteracademy.com/assets/AfterAcademyLogo.svg"/>
+           </div>
+          </div>
+          <div class="MuiCardHeader-content">
+           <span class="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock">
+            Admin AfterAcademy
+           </span>
+           <span class="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock">
+            18 Jul 2020
+           </span>
+          </div>
+         </div>
+        </div>
+        <div class="typewriter-blog-content">
+         <div id="content">
+          <article class="template">
+           <div class="postContent">
+            <div class="notesSource">
+             <div class="postField postField--body" id="editor">
+              <section class="section--first section--last">
+               <div class="section-divider layoutSingleColumn-template">
+                <hr class="section-divider"/>
+               </div>
+               <div class="section-content">
+                <div class="section-inner layoutSingleColumn-template">
+                 <div>
+                  <h2 class="graf--h1">
+                   Maximal Square
+                  </h2>
+                  <div class="graf-image graf-caption">
+                   <img class="graf-image" src="/images/maximal-square-banner-75543cf6248b4c65.png"/>
+                  </div>
+                  <p class="graf--p">
+                   <b class="graf--bold">
+                    Asked in:
+                   </b>
+                   Medium
+                  </p>
+                  <p class="graf--p">
+                   <b class="graf--bold">
+                    Difficulty:
+                   </b>
+                   Google, Microsoft
+                  </p>
+                  <h4 class="graf--h3">
+                   Understanding The Problem
+                  </h4>
+                  <p class="graf--p">
+                   <b class="graf--bold">
+                    Problem Description
+                   </b>
+                  </p>
+                  <p class="graf--p">
+                   You are given a
+                   <b class="graf--bold">
+                    2D
+                   </b>
+                   binary matrix
+                   <code class="graf--code-inline">
+                    arr[][]
+                   </code>
+                   filled with 0's and 1's. The array contains a square of 1's. So, you need to find that square and return its area.
+                  </p>
+                  <p class="graf--p">
+                   <b class="graf--bold">
+                    Example 1
+                   </b>
+                  </p>
+                  <pre><code class="language-java graf graf--code">Input: 
+1 1 1 1 0
+1 1 1 1 1
+1 1 1 1 1
+1 0 1 0 0
+Output: 9
+Explanation: The largest square in the given matrix has an area of 9 sq. units.</code></pre>
+                  <p class="graf--p">
+                   <b class="graf--bold">
+                    Example 2
+                   </b>
+                  </p>
+                  <pre><code class="language-java graf graf--code">Input: 
+0  0  0  0  1  1
+0  1  1  1  1  0
+0  1  1  1  1  0
+0  1  1  1  1  0
+1  1  1  1  1  1
+1  0  0  0  0  0
+Output: 16
+Explanation: The largest square in the given matrix has an area of 16 sq. units.</code></pre>
+                  <p class="graf--p">
+                   Narrowing down, the problem simply asks for the maximum length of the side of a square that can be noticed in the input matrix. In other words, the largest set of connected ones that forms a square.
+                  </p>
+                  <h4 class="graf--h3">
+                   Solutions
+                  </h4>
+                  <p class="graf--p">
+                   We will be discussing three solutions from brute force to the most optimized approach
+                  </p>
+                  <ol>
+                   <li>
+                    <b class="graf--bold">
+                     Brute Force
+                    </b>
+                    → For each occurring 1's in the given matrix, move diagonally towards the bottom right while checking the rows and columns contains only 1's.
+                   </li>
+                   <li>
+                    <b class="graf--bold">
+                     Dynamic Programming
+                    </b>
+                    → Create a DP array whose each element
+                    <code class="graf--code-inline">
+                     dp[i][j]
+                    </code>
+                    will store the side length corresponding to the maximum square considering
+                    <code class="graf--code-inline">
+                     mat[i][j]
+                    </code>
+                    as the bottom right cell of the square.
+                   </li>
+                   <li>
+                    <b class="graf--bold">
+                     Space Optimized DP →
+                    </b>
+                    Try to use a 1D DP array following the similar elements of DP as of approach 2.
+                   </li>
+                  </ol>
+                  <p class="graf--p">
+                   You may try this problem
+                   <a class="markup--anchor" href="https://afteracademy.com/problems/maximal-square" target="_blank">
+                    yourself from here.
+                   </a>
+                  </p>
+                  <h4 class="graf--h3">
+                   1. Brute Force
+                  </h4>
+                  <p class="graf--p">
+                   A straight forward solution will be finding out every possible square of 1’s and return the area of the biggest square.
+                  </p>
+                  <p class="graf--p">
+                   To find all possible squares, we will start searching for 1’s in the input matrix from the top left, and for each occurrence of 1 for some
+                   <code class="graf--code-inline">
+                    mat[i][j]
+                   </code>
+                   , we will start descending through the diagonal to the bottom right in search of squares and thereby we will keep updating
+                   <code class="graf--code-inline">
+                    maxSideLength
+                   </code>
+                   .
+                  </p>
+                  <p class="graf--p">
+                   For 0’s we don’t need to search for squares as the question demands the max square area consisting of only 1's.
+                  </p>
+                  <p class="graf--p">
+                   More formally, for each
+                   <code class="graf--code-inline">
+                    mat[i][j] = 1
+                   </code>
+                   , goto
+                   <code class="graf--code-inline">
+                    mat[i+1][j+1]
+                   </code>
+                   and check that the corresponding row and column only consist of 1’s and then goto
+                   <code class="graf--code-inline">
+                    mat[i+2][j+2]
+                   </code>
+                   and repeat the process until the condition fails.
+                  </p>
+                  <p class="graf--p">
+                   <b class="graf--bold">
+                    Solution Steps
+                   </b>
+                  </p>
+                  <p class="graf--p">
+                   For each
+                   <code class="graf--code-inline">
+                    matrix[i][j] = 1
+                   </code>
+                  </p>
+                  <ul>
+                   <li>
+                    Set
+                    <code class="graf--code-inline">
+                     sqlen
+                    </code>
+                    with
+                    <code class="graf--code-inline">
+                     1
+                    </code>
+                    and
+                    <code class="graf--code-inline">
+                     k
+                    </code>
+                    with
+                    <code class="graf--code-inline">
+                     j
+                    </code>
+                   </li>
+                   <li>
+                    Check the row
+                    <code class="graf--code-inline">
+                     matrix[i][j+sqlen] … matrix[i+sqlen][j+sqlen]
+                    </code>
+                    and the column
+                    <code class="graf--code-inline">
+                     matrix[i+sqlen][j] … matrix[i+sqlen][j+sqlen]
+                    </code>
+                    are only consist of 1’s.
+                   </li>
+                   <li>
+                    Increment
+                    <code class="graf--code-inline">
+                     sqlen
+                    </code>
+                    , otherwise move to some other
+                    <code class="graf--code-inline">
+                     matrix[i][j]
+                    </code>
+                    while storing the
+                    <code class="graf--code-inline">
+                     maxSqLen
+                    </code>
+                    .
+                   </li>
+                  </ul>
+                  <p class="graf--p">
+                   <b class="graf--bold">
+                    Pseudo Code
+                   </b>
+                  </p>
+                  <pre><code class="language-java graf graf--code">int maximalSquare(char[][] matrix) {
+    rows = matrix.length
+    cols = matrix[0].length
+    maxsqlen = 0
+    for (int i = 0 to i &lt; rows) {
+        for (int j = 0 to j &lt; cols) {
+            if (matrix[i][j] is '1') {
+                sqlen = 1
+                bool isOkay = true
+                while(sqlen + i &lt; rows and sqlen + j &lt; cols and isOkay) {
+                    for (int k = j to k &lt;= sqlen + j) {
+                        if (matrix[i + sqlen][k] is '0') {
+                            isOkay = false
+                            break
+                        }
+                    }
+                    for (int k = i to k &lt;= sqlen + i) {
+                        if (matrix[k][j + sqlen] is '0') {
+                            isOkay = false
+                            break
+                        }
+                    }
+                    if (isOkay)
+                        sqlen = sqlen + 1
+                }
+                if (maxsqlen &lt; sqlen) {
+                    maxsqlen = sqlen
+                }
+            }
+        }
+    }
+    return maxsqlen * maxsqlen
+}</code></pre>
+                  <p class="graf--p">
+                   <b class="graf--bold">
+                    Complexity Analysis
+                   </b>
+                  </p>
+                  <p class="graf--p">
+                   Time Complexity:
+                   <i class="graf--italic">
+                    O(mn)²
+                   </i>
+                  </p>
+                  <p class="graf--p">
+                   Space Complexity:
+                   <i class="graf--italic">
+                    O(1)
+                   </i>
+                  </p>
+                  <p class="graf--p">
+                   <b class="graf--bold">
+                    Critical Ideas To Think
+                   </b>
+                  </p>
+                  <ul>
+                   <li>
+                    Why didn’t we looked for some index
+                    <code class="graf--code-inline">
+                     k,l
+                    </code>
+                    for each
+                    <code class="graf--code-inline">
+                     i,j
+                    </code>
+                    indices with
+                    <code class="graf--code-inline">
+                     matrix[i][j] = 1
+                    </code>
+                    in search of squares of 1’s instead of moving diagonally downward? Yes, That will also be a solution, can you guess what would be the time complexity in that case?
+                   </li>
+                   <li>
+                    What role does
+                    <code class="graf--code-inline">
+                     isOkay
+                    </code>
+                    variable playing?
+                   </li>
+                   <li>
+                    While we were incrementing
+                    <code class="graf--code-inline">
+                     sqlen
+                    </code>
+                    variable moving downward, though it was representing the square length with respect to
+                    <code class="graf--code-inline">
+                     i,j
+                    </code>
+                    . How?
+                   </li>
+                  </ul>
+                  <h4>
+                   2. Dynamic Programming
+                  </h4>
+                  <p class="graf--p">
+                   We define
+                   <code class="graf--code-inline">
+                    dp[i][j]
+                   </code>
+                   the maximal ending at position (i, j). Thus, the current state (
+                   <code class="graf--code-inline">
+                    dp[i][j]
+                   </code>
+                   ) depends on the left (
+                   <code class="graf--code-inline">
+                    dp[i][j - 1]
+                   </code>
+                   ), up (
+                   <code class="graf--code-inline">
+                    dp[i - 1][j]
+                   </code>
+                   ), and left-up's (
+                   <code class="graf--code-inline">
+                    dp[i - 1][j - 1]
+                   </code>
+                   ) states.
+                  </p>
+                  <p class="graf--p">
+                   The current state equals to the minimum of these three states plus
+                   <code class="graf--code-inline">
+                    matrix[i][j]
+                   </code>
+                   because any smaller value will lead to a smaller square (holes in somewhere). I use
+                   <code class="graf--code-inline">
+                    maxArea
+                   </code>
+                   to track the maximal square. When
+                   <code class="graf--code-inline">
+                    matrix[i][j] == '0'
+                   </code>
+                   , the maximal square ending at position (i, j) is obviously 0.
+                  </p>
+                  <p class="graf--p">
+                   Let’s consider the following example:
+                  </p>
+                  <div class="graf-image graf-caption">
+                   <img class="graf-image" src="/images/maximal-square-example-dynamic-programming-1-6bbc225e7f517cfa.png"/>
+                  </div>
+                  <p class="graf--p">
+                   An entry 2 at (i,j) ~ (1,3) implies that we have a square of side 2 up to that index in the original matrix. Similarly, a 2 at (1,2) and (2,2) implies that a square of side 2 exists up to that index in the original matrix. Now to make a square of side 3, only a single entry of 1 is pending at (2,3). So, we enter a 3 corresponding to that position in the
+                   <code class="graf--code-inline">
+                    DP
+                   </code>
+                   array.
+                  </p>
+                  <p class="graf--p">
+                   <b class="graf--bold">
+                    Elements of Dynamic Programming →
+                   </b>
+                  </p>
+                  <ol>
+                   <li>
+                    <b class="graf--bold">
+                     Define the problem variable and decide the states:
+                    </b>
+                    We found that there are two parameters
+                    <code class="graf--code-inline">
+                     i
+                    </code>
+                    and
+                    <code class="graf--code-inline">
+                     j
+                    </code>
+                    on which state of the problem depends.
+                    <code class="graf--code-inline">
+                     i
+                    </code>
+                    and
+                    <code class="graf--code-inline">
+                     j
+                    </code>
+                    indicates that
+                    <code class="graf--code-inline">
+                     dp[i][j]
+                    </code>
+                    will store the maximum side of the square consisting of 1’s that could be formed while
+                    <code class="graf--code-inline">
+                     matrix[i][j]
+                    </code>
+                    be the bottom-most and right-most cell of the square.
+                   </li>
+                   <li>
+                    <b class="graf--bold">
+                     Define Table Structure and Size:
+                    </b>
+                    The table structure is defined by the number of problem variables. Since the number of problem variables, in this case, is 2, we can construct a two-dimensional array to store the solution of the sub-problems. Let’s name it
+                    <code class="graf--code-inline">
+                     dp
+                    </code>
+                    .
+                   </li>
+                   <li>
+                    <b class="graf--bold">
+                     Table Initialization:
+                    </b>
+                    <code class="graf--code-inline">
+                     fn(i, j) = int(matrix[i][j])
+                    </code>
+                    for
+                    <code class="graf--code-inline">
+                     i == 0 or j == 0
+                    </code>
+                   </li>
+                   <li>
+                    <b class="graf--bold">
+                     Iterative Structure to fill the table:
+                    </b>
+                   </li>
+                  </ol>
+                  <ul>
+                   <li>
+                    <code class="graf--code-inline">
+                     fn(i, j) = 1 + min(fn(i-1, j), fn(i-1, j-1), fn(i, j-1))
+                    </code>
+                    if
+                    <code class="graf--code-inline">
+                     matrix[i][j] == "1"
+                    </code>
+                   </li>
+                   <li>
+                    <code class="graf--code-inline">
+                     fn(i, j) = 0
+                    </code>
+                    if
+                    <code class="graf--code-inline">
+                     matrix[i][j] == "0"
+                    </code>
+                   </li>
+                  </ul>
+                  <p class="graf--p">
+                   <b class="graf--bold">
+                    Solution Step
+                   </b>
+                  </p>
+                  <ol>
+                   <li>
+                    Create a DP array of the same size and dimensions as of the input matrix and initialize it with 0.
+                   </li>
+                   <li>
+                    For each element of the matrix, check if it is 1 and then fill the
+                    <code class="graf--code-inline">
+                     DP
+                    </code>
+                    array as below
+                   </li>
+                  </ol>
+                  <ul>
+                   <li>
+                    <code class="graf--code-inline">
+                     dp
+                     <b class="graf--bold">
+                      [
+                     </b>
+                     i
+                     <b class="graf--bold">
+                      ][
+                     </b>
+                     j
+                     <b class="graf--bold">
+                      ]
+                     </b>
+                    </code>
+                    <code class="graf--code-inline">
+                     <b class="graf--bold">
+                      =
+                     </b>
+                     min
+                     <b class="graf--bold">
+                      (
+                     </b>
+                     dp
+                     <b class="graf--bold">
+                      [
+                     </b>
+                     i
+                     <b class="graf--bold">
+                      ][
+                     </b>
+                     j
+                     <b class="graf--bold">
+                      -
+                     </b>
+                     1
+                     <b class="graf--bold">
+                      ],
+                     </b>
+                     dp
+                     <b class="graf--bold">
+                      [
+                     </b>
+                     i
+                     <b class="graf--bold">
+                      -
+                     </b>
+                     1
+                     <b class="graf--bold">
+                      ][
+                     </b>
+                     j
+                     <b class="graf--bold">
+                      ],
+                     </b>
+                     dp
+                     <b class="graf--bold">
+                      [
+                     </b>
+                     i
+                     <b class="graf--bold">
+                      -
+                     </b>
+                     1
+                     <b class="graf--bold">
+                      ][
+                     </b>
+                     j
+                     <b class="graf--bold">
+                      -
+                     </b>
+                     1
+                     <b class="graf--bold">
+                      ])
+                     </b>
+                    </code>
+                    <code class="graf--code-inline">
+                     <b class="graf--bold">
+                      +
+                     </b>
+                     1
+                    </code>
+                   </li>
+                  </ul>
+                  <p class="graf--p">
+                   3. Return the square of the maximum value of DP array.
+                  </p>
+                  <p class="graf--p">
+                   <b class="graf--bold">
+                    Pseudo Code
+                   </b>
+                  </p>
+                  <pre><code class="language-java graf graf--code">int maximalSquare( char[][] matrix ) {
+    m = matrix.size()
+    n = matrix[0].size()
+    maxSquareLen = 0
+    int[m][n] dp
+    for( int i=1 to i &lt;= m) {
+        for( int j=1 to j &lt;= n) {
+           if( matrix[i-1][j-1] == '1')
+                dp[i][j] = min( dp[i-1][j], dp[i][j-1], dp[i-1][j-1] ) + 1
+            if( dp[i][j] &gt; maxSquareLen ) 
+                maxSquareLen = dp[i][j]
+        }
+    }
+    return maxSquareLen*maxSquareLen
+}</code></pre>
+                  <p class="graf--p">
+                   <b class="graf--bold">
+                    Complexity Analysis
+                   </b>
+                  </p>
+                  <p class="graf--p">
+                   Time Complexity: O(mn)
+                  </p>
+                  <p class="graf--p">
+                   Space Complexity: O(mn)
+                  </p>
+                  <p class="graf--p">
+                   <b class="graf--bold">
+                    Critical Ideas To Think
+                   </b>
+                  </p>
+                  <ul>
+                   <li>
+                    How did we make sure that dp[i][j] will store the longest length of the square which ends at matrix[i][j]? Can you prove the authenticity of this approach using some examples?
+                   </li>
+                   <li>
+                    Why we are returning the square of
+                    <code class="graf--code-inline">
+                     maxSquareLen
+                    </code>
+                    ?
+                   </li>
+                   <li>
+                    How did we derive the recurrence relation?
+                   </li>
+                  </ul>
+                  <h4 class="graf--h3">
+                   3. Space Optimized DP
+                  </h4>
+                  <p class="graf--p">
+                   In the previous approach for calculating
+                   <code class="graf--code-inline">
+                    dp
+                   </code>
+                   of
+                   <i class="graf--italic">
+                    ith
+                   </i>
+                   row we were using only the previous element and the (
+                   <i class="graf--italic">
+                    i
+                   </i>
+                   −1)
+                   <i class="graf--italic">
+                    th
+                   </i>
+                   row. Therefore, we don’t need a 2D DP-matrix as 1D DP-array will be sufficient for this.
+                  </p>
+                  <p class="graf--p">
+                   <b class="graf--bold">
+                    Solution Steps
+                   </b>
+                  </p>
+                  <ol>
+                   <li>
+                    Create a 1-D
+                    <code class="graf--code-inline">
+                     dp
+                    </code>
+                    array containing all 0’s.
+                   </li>
+                   <li>
+                    As we scan the elements of the original matrix across a row, we keep on updating the
+                    <code class="graf--code-inline">
+                     dp
+                    </code>
+                    array
+                   </li>
+                  </ol>
+                  <ul>
+                   <li>
+                    <code class="graf--code-inline">
+                     <i class="graf--italic">
+                      dp
+                     </i>
+                     [
+                     <i class="graf--italic">
+                      j
+                     </i>
+                     ] =
+                     <i class="graf--italic">
+                      min
+                     </i>
+                     (
+                     <i class="graf--italic">
+                      dp
+                     </i>
+                     [
+                     <i class="graf--italic">
+                      j
+                     </i>
+                     −1],
+                     <i class="graf--italic">
+                      dp
+                     </i>
+                     [
+                     <i class="graf--italic">
+                      j
+                     </i>
+                     ],
+                     <i class="graf--italic">
+                      prev
+                     </i>
+                     )
+                    </code>
+                    , where
+                    <code class="graf--code-inline">
+                     prev
+                    </code>
+                    refers to the old
+                    <code class="graf--code-inline">
+                     <i class="graf--italic">
+                      dp
+                     </i>
+                     [
+                     <i class="graf--italic">
+                      j
+                     </i>
+                     −1]
+                    </code>
+                    .
+                   </li>
+                  </ul>
+                  <p class="graf--p">
+                   3. Update Dp for every row, and repeat the above steps
+                  </p>
+                  <p class="graf--p">
+                   <b class="graf--bold">
+                    Pseudo Code
+                   </b>
+                  </p>
+                  <pre><code class="language-java graf graf--code">int maximalSquare(char[][] matrix) {
+    maxlen = 0
+    m = matrix.size()
+    n = matrix[0].size()
+    int[n+1] dp = {0}
+    for(int i = 0 to i &lt; m) {
+        int prev = 0
+        for(int j = 1 to j &lt;= n) {
+            int tmp = dp[j]
+            if(matrix[i][j-1] == '1') {
+                dp[j] = min(prev, min(dp[j], dp[j-1])) + 1
+                maxlen = max(maxlen, dp[j])
+            }
+            else 
+                dp[j] = 0
+            prev = tmp
+        }
+    }
+    return maxlen * maxlen
+}</code></pre>
+                  <p class="graf--p">
+                   <b class="graf--bold">
+                    Complexity Analysis
+                   </b>
+                  </p>
+                  <p class="graf--p">
+                   Time Complexity: O(mn)
+                  </p>
+                  <p class="graf--p">
+                   Space Complexity: O(m)
+                   <b class="graf--bold">
+                    (why?)
+                   </b>
+                  </p>
+                  <p class="graf--p">
+                   <b class="graf--bold">
+                    Critical Ideas To Think
+                   </b>
+                  </p>
+                  <ul>
+                   <li>
+                    How we are updating
+                    <code class="graf--code-inline">
+                     prev
+                    </code>
+                    ?
+                   </li>
+                   <li>
+                    Do you think, whatever we were storing in a 2D Dp array for each row in the previous approach is storing the exact value in a 1D Dp array in this approach with the only difference that it is updating the same 1D Dp array again and again for each row?
+                   </li>
+                   <li>
+                    Does this approach have the same elements of dynamic programming than the previous approach? If something has changed, then can you point it out?
+                   </li>
+                  </ul>
+                  <h4 class="graf--h3">
+                   Comparison Of Different Approaches
+                  </h4>
+                  <div class="graf-image graf-caption">
+                   <img class="graf-image" src="/images/maximal-square-comparison-4607c5a6049420d7.png"/>
+                  </div>
+                  <h4 class="graf--h3">
+                   Suggested Problems to Solve
+                  </h4>
+                  <ul>
+                   <li>
+                    The maximum rectangular area in a histogram
+                   </li>
+                   <li>
+                    Maximal Rectangle of 1’s in a binary matrix
+                   </li>
+                   <li>
+                    Largest Plus sign
+                   </li>
+                  </ul>
+                  <p class="graf--p">
+                   If you have any more approaches or you find an error/bug in the above solutions, please comment down below.
+                  </p>
+                  <p class="graf--p">
+                   <b class="graf--bold">
+                    Happy Coding! Enjoy Algorithms!
+                   </b>
+                  </p>
+                 </div>
+                </div>
+               </div>
+              </section>
+             </div>
+            </div>
+           </div>
+          </article>
+         </div>
+        </div>
+       </div>
+       <div class="MuiGrid-root jss190 MuiGrid-container MuiGrid-align-items-xs-center MuiGrid-justify-xs-center">
+        <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-11 MuiGrid-grid-sm-11 MuiGrid-grid-md-10">
+         <div class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-4">
+          <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-10 MuiGrid-grid-md-9">
+           <hr class="MuiDivider-root"/>
+          </div>
+          <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-12">
+           <h5 class="MuiTypography-root MuiTypography-h5">
+            <div class="MuiBox-root jss310">
+             Recommended for You
+            </div>
+           </h5>
+          </div>
+          <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4">
+           <div class="MuiPaper-root MuiCard-root jss317 MuiPaper-elevation8 MuiPaper-rounded">
+            <a aria-disabled="false" class="MuiButtonBase-root MuiCardActionArea-root jss318" href="/blog/knight-on-chessboard" role="button" tabindex="0">
+             <img alt="Knight on chessboard" class="MuiCardMedia-root jss319 MuiCardMedia-media MuiCardMedia-img" src="/images/knight-on-chessboard-banner-56b65d951f683fa2.png" title="Knight on chessboard"/>
+             <div class="MuiCardContent-root">
+              <h2 class="MuiTypography-root jss322 MuiTypography-h6">
+               Knight on chessboard
+              </h2>
+              <p class="MuiTypography-root jss323 MuiTypography-body2 MuiTypography-colorTextSecondary">
+               Given a square chessboard of A x B size, the position of Knight (C, D) and the position of a target (E, F) is given. Write a program to find out the minimum steps a Knight will take to reach the target position. This problem is a good example of BFS algorithm.
+              </p>
+             </div>
+             <div class="MuiCardHeader-root jss321">
+              <div class="MuiCardHeader-avatar">
+               <div aria-label="Admin AfterAcademy" class="MuiAvatar-root MuiAvatar-circle">
+                <img class="MuiAvatar-img" src="https://afteracademy.com/assets/AfterAcademyLogo.svg"/>
+               </div>
+              </div>
+              <div class="MuiCardHeader-content">
+               <span class="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock">
+                Admin AfterAcademy
+               </span>
+               <span class="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock">
+                7 Sep 2020
+               </span>
+              </div>
+             </div>
+             <span class="MuiCardActionArea-focusHighlight">
+             </span>
+            </a>
+           </div>
+          </div>
+          <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4">
+           <div class="MuiPaper-root MuiCard-root jss317 MuiPaper-elevation8 MuiPaper-rounded">
+            <a aria-disabled="false" class="MuiButtonBase-root MuiCardActionArea-root jss318" href="/blog/rotate-matrix" role="button" tabindex="0">
+             <img alt="Rotate Matrix" class="MuiCardMedia-root jss319 MuiCardMedia-media MuiCardMedia-img" src="/images/rotate-matrix-banner-bec38989a36265c7.png" title="Rotate Matrix"/>
+             <div class="MuiCardContent-root">
+              <h2 class="MuiTypography-root jss322 MuiTypography-h6">
+               Rotate Matrix
+              </h2>
+              <p class="MuiTypography-root jss323 MuiTypography-body2 MuiTypography-colorTextSecondary">
+               Given a square matrix, turn it by 90 degrees in the clockwise direction.
+              </p>
+             </div>
+             <div class="MuiCardHeader-root jss321">
+              <div class="MuiCardHeader-avatar">
+               <div aria-label="Admin AfterAcademy" class="MuiAvatar-root MuiAvatar-circle">
+                <img class="MuiAvatar-img" src="https://afteracademy.com/assets/AfterAcademyLogo.svg"/>
+               </div>
+              </div>
+              <div class="MuiCardHeader-content">
+               <span class="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock">
+                Admin AfterAcademy
+               </span>
+               <span class="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock">
+                11 Feb 2020
+               </span>
+              </div>
+             </div>
+             <span class="MuiCardActionArea-focusHighlight">
+             </span>
+            </a>
+           </div>
+          </div>
+          <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4">
+           <div class="MuiPaper-root MuiCard-root jss317 MuiPaper-elevation8 MuiPaper-rounded">
+            <a aria-disabled="false" class="MuiButtonBase-root MuiCardActionArea-root jss318" href="/blog/find-the-square-root-of-a-given-integer" role="button" tabindex="0">
+             <img alt="Find the Square Root of a given Integer-Interview Problem" class="MuiCardMedia-root jss319 MuiCardMedia-media MuiCardMedia-img" src="/images/find-the-square-root-of-a-given-integer-banner-d348ee3908d43059.png" title="Find the Square Root of a given Integer-Interview Problem"/>
+             <div class="MuiCardContent-root">
+              <h2 class="MuiTypography-root jss322 MuiTypography-h6">
+               Find the Square Root of a given Integer-Interview Problem
+              </h2>
+              <p class="MuiTypography-root jss323 MuiTypography-body2 MuiTypography-colorTextSecondary">
+               Given an integer, your task is to find the square root of the integer. For an integer x to be the square root of the given integer N, x*x must be equal to N. This is an interview problem asked in companies like Amazon, Microsoft and Facebook.
+              </p>
+             </div>
+             <div class="MuiCardHeader-root jss321">
+              <div class="MuiCardHeader-avatar">
+               <div aria-label="Admin AfterAcademy" class="MuiAvatar-root MuiAvatar-circle">
+                <img class="MuiAvatar-img" src="https://afteracademy.com/assets/AfterAcademyLogo.svg"/>
+               </div>
+              </div>
+              <div class="MuiCardHeader-content">
+               <span class="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock">
+                Admin AfterAcademy
+               </span>
+               <span class="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock">
+                29 Feb 2020
+               </span>
+              </div>
+             </div>
+             <span class="MuiCardActionArea-focusHighlight">
+             </span>
+            </a>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="MuiGrid-root jss345 MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center MuiGrid-justify-xs-center">
+       <h4 class="MuiTypography-root jss346 MuiTypography-h4 MuiTypography-alignCenter">
+        Connect With Your Mentors
+       </h4>
+       <div class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-center">
+        <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4">
+         <div class="MuiGrid-root jss369 MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center MuiGrid-justify-xs-center">
+          <div class="MuiGrid-root jss370 MuiGrid-item">
+           <div class="MuiAvatar-root MuiAvatar-circle jss371">
+            <img alt="/assets/ali.jpg" class="MuiAvatar-img" src="/assets/ali.jpg"/>
+           </div>
+          </div>
+          <div class="MuiGrid-root MuiGrid-item">
+           <h5 class="MuiTypography-root jss373 MuiTypography-h5 MuiTypography-alignCenter">
+            Janishar Ali
+            <!-- -->
+           </h5>
+          </div>
+          <div class="MuiGrid-root MuiGrid-item">
+           <div class="MuiTypography-root jss374 MuiTypography-subtitle1 MuiTypography-alignCenter">
+            Founder | IIT-BHU | 10 Yrs Exp.
+           </div>
+          </div>
+          <div class="MuiGrid-root MuiGrid-item">
+           <a aria-disabled="false" class="MuiButtonBase-root MuiFab-root jss349 MuiFab-primary" href="https://janisharali.com" tabindex="0" target="_blank">
+            <span class="MuiFab-label">
+             <svg aria-hidden="true" class="MuiSvgIcon-root" focusable="false" role="presentation" viewbox="0 0 24 24">
+              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 14H4v-4h11v4zm0-5H4V9h11v4zm5 5h-4V9h4v9z">
+              </path>
+             </svg>
+            </span>
+           </a>
+           <a aria-disabled="false" class="MuiButtonBase-root MuiFab-root jss348 MuiFab-primary" href="https://twitter.com/janisharali" tabindex="0" target="_blank">
+            <span class="MuiFab-label">
+             <svg aria-hidden="true" class="MuiSvgIcon-root" focusable="false" role="presentation" viewbox="0 0 24 24">
+              <path d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z">
+              </path>
+             </svg>
+            </span>
+           </a>
+          </div>
+         </div>
+        </div>
+        <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4">
+         <div class="MuiGrid-root jss369 MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center MuiGrid-justify-xs-center">
+          <div class="MuiGrid-root jss370 MuiGrid-item">
+           <div class="MuiAvatar-root MuiAvatar-circle jss371">
+            <img alt="/assets/amit.jpg" class="MuiAvatar-img" src="/assets/amit.jpg"/>
+           </div>
+          </div>
+          <div class="MuiGrid-root MuiGrid-item">
+           <h5 class="MuiTypography-root jss373 MuiTypography-h5 MuiTypography-alignCenter">
+            Amit Shekhar
+            <!-- -->
+           </h5>
+          </div>
+          <div class="MuiGrid-root MuiGrid-item">
+           <div class="MuiTypography-root jss374 MuiTypography-subtitle1 MuiTypography-alignCenter">
+            Founder | IIT-BHU | 10 Yrs Exp.
+           </div>
+          </div>
+          <div class="MuiGrid-root MuiGrid-item">
+           <a aria-disabled="false" class="MuiButtonBase-root MuiFab-root jss349 MuiFab-primary" href="https://amitshekhar.me" tabindex="0" target="_blank">
+            <span class="MuiFab-label">
+             <svg aria-hidden="true" class="MuiSvgIcon-root" focusable="false" role="presentation" viewbox="0 0 24 24">
+              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 14H4v-4h11v4zm0-5H4V9h11v4zm5 5h-4V9h4v9z">
+              </path>
+             </svg>
+            </span>
+           </a>
+           <a aria-disabled="false" class="MuiButtonBase-root MuiFab-root jss348 MuiFab-primary" href="https://twitter.com/amitiitbhu" tabindex="0" target="_blank">
+            <span class="MuiFab-label">
+             <svg aria-hidden="true" class="MuiSvgIcon-root" focusable="false" role="presentation" viewbox="0 0 24 24">
+              <path d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z">
+              </path>
+             </svg>
+            </span>
+           </a>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <footer style="flex-grow:1;margin-top:0">
+     <hr class="MuiDivider-root"/>
+     <div class="MuiGrid-root MuiGrid-container" style="padding:16px">
+      <div class="MuiGrid-root" style="padding:8px">
+       <p class="MuiTypography-root MuiTypography-body2" style="display:flex;align-items:center">
+        <svg aria-hidden="true" class="MuiSvgIcon-root" focusable="false" role="presentation" style="margin-right:8px" viewbox="0 0 24 24">
+         <defs>
+          <path d="M24 0v24H0V0h24z" id="a">
+          </path>
+         </defs>
+         <path d="M10.08 10.86c.05-.33.16-.62.3-.87s.34-.46.59-.62c.24-.15.54-.22.91-.23.23.01.44.05.63.13.2.09.38.21.52.36s.25.33.34.53.13.42.14.64h1.79c-.02-.47-.11-.9-.28-1.29s-.4-.73-.7-1.01-.66-.5-1.08-.66-.88-.23-1.39-.23c-.65 0-1.22.11-1.7.34s-.88.53-1.2.92-.56.84-.71 1.36S8 11.29 8 11.87v.27c0 .58.08 1.12.23 1.64s.39.97.71 1.35.72.69 1.2.91 1.05.34 1.7.34c.47 0 .91-.08 1.32-.23s.77-.36 1.08-.63.56-.58.74-.94.29-.74.3-1.15h-1.79c-.01.21-.06.4-.15.58s-.21.33-.36.46-.32.23-.52.3c-.19.07-.39.09-.6.1-.36-.01-.66-.08-.89-.23-.25-.16-.45-.37-.59-.62s-.25-.55-.3-.88-.08-.67-.08-1v-.27c0-.35.03-.68.08-1.01zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z">
+         </path>
+        </svg>
+        Copyright 2022, MindOrks Nextgen Private Limited
+       </p>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script type="text/javascript">
+   window.__PRELOADED_STATE__={contactData:{formData:{email:"",name:"",phone:"",message:"",isWriting:!1,isNameError:!1,isEmailError:!1,isPhoneError:!1,isMessageError:!1,dismissMsg:!1},successMessage:null,errorMessage:null,isSending:!1},loginData:{data:null,isLoggingIn:!1,isLoggingOut:!1,isLoggedIn:!1,isForcedLogout:!1,isTokenRefreshed:!1,isRedirectHome:!1,message:""},recaptchaData:{verified:!1,successMessage:null,errorMessage:null},blogListData:{data:{},latestBlogs:null,isFetching:!0,isFetchingLatestBlogs:!1,currentCategory:null,categories:[]},blogPageData:{blogId:"5ee93b217bf61d38b90d803f",data:{_id:"5ee93b217bf61d38b90d803f",likes:0,rank:0,title:"Maximal Square",description:"You are given a 2D binary matrix arr[][] filled with 0's and 1's. The array contains a square of 1's. So, you need to find that square and return its area. The problem is a great example for practicing dynamic programming for technical interviews.",category:{_id:"5d232c8f8cadc249eef5d0cc",name:"ds-algo",title:"Data Structure & Algorithms"},author:{_id:"5d8dc1ce52e77816c998cb97",name:"Admin AfterAcademy",googleProfilePicUrl:"https://afteracademy.com/assets/AfterAcademyLogo.svg"},blogUrl:"maximal-square",createdAt:"2020-06-16T21:35:29.191Z",updatedAt:"2020-07-18T02:29:27.758Z",imgUrl:"/images/maximal-square-banner-75543cf6248b4c65.png",publishedAt:"2020-07-18T02:29:27.758Z",text:'<h2 class="graf--h1">Maximal Square</h2> <div class=\'graf-image graf-caption\'>\n\t\t\t\t\t\t\t\t\t<img src=/images/maximal-square-banner-75543cf6248b4c65.png class=\'graf-image\' />\n\t\t\t\t\t\t\t\t</div ><p class="graf--p"><b class="graf--bold">Asked in: </b>Medium</p><p class="graf--p"><b class="graf--bold">Difficulty: </b>Google, Microsoft</p><h4 class="graf--h3">Understanding The Problem</h4><p class="graf--p"><b class="graf--bold">Problem Description</b></p><p class="graf--p">You are given a <b class="graf--bold">2D</b> binary matrix <code class="graf--code-inline">arr[][]</code> filled with 0&#x27;s and 1&#x27;s. The array contains a square of 1&#x27;s. So, you need to find that square and return its area.</p><p class="graf--p"><b class="graf--bold">Example 1</b></p><pre><code class="language-java graf graf--code">Input: \n1 1 1 1 0\n1 1 1 1 1\n1 1 1 1 1\n1 0 1 0 0\nOutput: 9\nExplanation: The largest square in the given matrix has an area of 9 sq. units.</code></pre><p class="graf--p"><b class="graf--bold">Example 2</b></p><pre><code class="language-java graf graf--code">Input: \n0  0  0  0  1  1\n0  1  1  1  1  0\n0  1  1  1  1  0\n0  1  1  1  1  0\n1  1  1  1  1  1\n1  0  0  0  0  0\nOutput: 16\nExplanation: The largest square in the given matrix has an area of 16 sq. units.</code></pre><p class="graf--p">Narrowing down, the problem simply asks for the maximum length of the side of a square that can be noticed in the input matrix. In other words, the largest set of connected ones that forms a square.</p><h4 class="graf--h3">Solutions</h4><p class="graf--p">We will be discussing three solutions from brute force to the most optimized approach</p><ol><li><b class="graf--bold">Brute Force</b> → For each occurring 1&#x27;s in the given matrix, move diagonally towards the bottom right while checking the rows and columns contains only 1&#x27;s.</li><li><b class="graf--bold">Dynamic Programming</b> → Create a DP array whose each element <code class="graf--code-inline">dp[i][j]</code> will store the side length corresponding to the maximum square considering <code class="graf--code-inline">mat[i][j]</code> as the bottom right cell of the square.</li><li><b class="graf--bold">Space Optimized DP → </b>Try to use a 1D DP array following the similar elements of DP as of approach 2.</li></ol><p class="graf--p">You may try this problem <a class="markup--anchor" target="_blank" href="https://afteracademy.com/problems/maximal-square">yourself from here.</a></p><h4 class="graf--h3">1. Brute Force</h4><p class="graf--p">A straight forward solution will be finding out every possible square of 1’s and return the area of the biggest square.</p><p class="graf--p">To find all possible squares, we will start searching for 1’s in the input matrix from the top left, and for each occurrence of 1 for some <code class="graf--code-inline">mat[i][j]</code>, we will start descending through the diagonal to the bottom right in search of squares and thereby we will keep updating <code class="graf--code-inline">maxSideLength</code>. </p><p class="graf--p">For 0’s we don’t need to search for squares as the question demands the max square area consisting of only 1&#x27;s.</p><p class="graf--p">More formally, for each <code class="graf--code-inline">mat[i][j] = 1</code>, goto <code class="graf--code-inline">mat[i+1][j+1]</code> and check that the corresponding row and column only consist of 1’s and then goto <code class="graf--code-inline">mat[i+2][j+2]</code> and repeat the process until the condition fails.</p><p class="graf--p"><b class="graf--bold">Solution Steps</b></p><p class="graf--p">For each <code class="graf--code-inline">matrix[i][j] = 1</code></p><ul><li>Set <code class="graf--code-inline">sqlen</code> with <code class="graf--code-inline">1</code> and <code class="graf--code-inline">k</code> with <code class="graf--code-inline">j</code></li><li>Check the row <code class="graf--code-inline">matrix[i][j+sqlen] … matrix[i+sqlen][j+sqlen]</code> and the column <code class="graf--code-inline">matrix[i+sqlen][j] … matrix[i+sqlen][j+sqlen]</code> are only consist of 1’s.</li><li>Increment <code class="graf--code-inline">sqlen</code>, otherwise move to some other <code class="graf--code-inline">matrix[i][j]</code> while storing the <code class="graf--code-inline">maxSqLen</code> .</li></ul><p class="graf--p"><b class="graf--bold">Pseudo Code</b></p><pre><code class="language-java graf graf--code">int maximalSquare(char[][] matrix) {\n    rows = matrix.length\n    cols = matrix[0].length\n    maxsqlen = 0\n    for (int i = 0 to i &lt; rows) {\n        for (int j = 0 to j &lt; cols) {\n            if (matrix[i][j] is \'1\') {\n                sqlen = 1\n                bool isOkay = true\n                while(sqlen + i &lt; rows and sqlen + j &lt; cols and isOkay) {\n                    for (int k = j to k &lt;= sqlen + j) {\n                        if (matrix[i + sqlen][k] is \'0\') {\n                            isOkay = false\n                            break\n                        }\n                    }\n                    for (int k = i to k &lt;= sqlen + i) {\n                        if (matrix[k][j + sqlen] is \'0\') {\n                            isOkay = false\n                            break\n                        }\n                    }\n                    if (isOkay)\n                        sqlen = sqlen + 1\n                }\n                if (maxsqlen &lt; sqlen) {\n                    maxsqlen = sqlen\n                }\n            }\n        }\n    }\n    return maxsqlen * maxsqlen\n}</code></pre><p class="graf--p"><b class="graf--bold">Complexity Analysis</b></p><p class="graf--p">Time Complexity: <i class="graf--italic">O(mn)²</i></p><p class="graf--p">Space Complexity: <i class="graf--italic">O(1)</i></p><p class="graf--p"><b class="graf--bold">Critical Ideas To Think</b></p><ul><li>Why didn’t we looked for some index <code class="graf--code-inline">k,l</code> for each <code class="graf--code-inline">i,j</code> indices with <code class="graf--code-inline">matrix[i][j] = 1</code> in search of squares of 1’s instead of moving diagonally downward? Yes, That will also be a solution, can you guess what would be the time complexity in that case?</li><li>What role does <code class="graf--code-inline">isOkay</code> variable playing?</li><li>While we were incrementing <code class="graf--code-inline">sqlen</code> variable moving downward, though it was representing the square length with respect to <code class="graf--code-inline">i,j</code> . How?</li></ul><h4>2. Dynamic Programming</h4><p class="graf--p">We define <code class="graf--code-inline">dp[i][j]</code> the maximal ending at position (i, j). Thus, the current state (<code class="graf--code-inline">dp[i][j]</code>) depends on the left (<code class="graf--code-inline">dp[i][j - 1]</code>), up (<code class="graf--code-inline">dp[i - 1][j]</code>), and left-up&#x27;s (<code class="graf--code-inline">dp[i - 1][j - 1]</code>) states.</p><p class="graf--p">The current state equals to the minimum of these three states plus <code class="graf--code-inline">matrix[i][j]</code> because any smaller value will lead to a smaller square (holes in somewhere). I use <code class="graf--code-inline">maxArea</code> to track the maximal square. When <code class="graf--code-inline">matrix[i][j] == &#x27;0&#x27;</code>, the maximal square ending at position (i, j) is obviously 0.</p><p class="graf--p">Let’s consider the following example:</p> <div class=\'graf-image graf-caption\'>\n\t\t\t\t\t\t\t\t\t<img src=/images/maximal-square-example-dynamic-programming-1-6bbc225e7f517cfa.png class=\'graf-image\' />\n\t\t\t\t\t\t\t\t</div ><p class="graf--p">An entry 2 at (i,j) ~ (1,3) implies that we have a square of side 2 up to that index in the original matrix. Similarly, a 2 at (1,2) and (2,2) implies that a square of side 2 exists up to that index in the original matrix. Now to make a square of side 3, only a single entry of 1 is pending at (2,3). So, we enter a 3 corresponding to that position in the <code class="graf--code-inline">DP</code> array.</p><p class="graf--p"><b class="graf--bold">Elements of Dynamic Programming →</b></p><ol><li><b class="graf--bold">Define the problem variable and decide the states: </b>We found that there are two parameters <code class="graf--code-inline">i</code> and <code class="graf--code-inline">j</code> on which state of the problem depends. <code class="graf--code-inline">i</code> and <code class="graf--code-inline">j</code> indicates that <code class="graf--code-inline">dp[i][j]</code> will store the maximum side of the square consisting of 1’s that could be formed while <code class="graf--code-inline">matrix[i][j]</code> be the bottom-most and right-most cell of the square.</li><li><b class="graf--bold">Define Table Structure and Size:</b> The table structure is defined by the number of problem variables. Since the number of problem variables, in this case, is 2, we can construct a two-dimensional array to store the solution of the sub-problems. Let’s name it <code class="graf--code-inline">dp</code> . </li><li><b class="graf--bold">Table Initialization: </b><code class="graf--code-inline">fn(i, j) = int(matrix[i][j])</code> for <code class="graf--code-inline">i == 0 or j == 0</code> </li><li><b class="graf--bold">Iterative Structure to fill the table: </b></li></ol><ul><li><code class="graf--code-inline">fn(i, j) = 1 + min(fn(i-1, j), fn(i-1, j-1), fn(i, j-1))</code> if <code class="graf--code-inline">matrix[i][j] == &quot;1&quot;</code></li><li><code class="graf--code-inline">fn(i, j) = 0</code> if <code class="graf--code-inline">matrix[i][j] == &quot;0&quot;</code> </li></ul><p class="graf--p"><b class="graf--bold">Solution Step</b></p><ol><li>Create a DP array of the same size and dimensions as of the input matrix and initialize it with 0.</li><li>For each element of the matrix, check if it is 1 and then fill the <code class="graf--code-inline">DP</code> array as below</li></ol><ul><li><code class="graf--code-inline">dp<b class="graf--bold">[</b>i<b class="graf--bold">][</b>j<b class="graf--bold">]</b></code> <code class="graf--code-inline"><b class="graf--bold">=</b> min<b class="graf--bold">(</b>dp<b class="graf--bold">[</b>i<b class="graf--bold">][</b>j <b class="graf--bold">-</b> 1<b class="graf--bold">],</b> dp<b class="graf--bold">[</b>i <b class="graf--bold">-</b> 1<b class="graf--bold">][</b>j<b class="graf--bold">],</b> dp<b class="graf--bold">[</b>i <b class="graf--bold">-</b> 1<b class="graf--bold">][</b>j <b class="graf--bold">-</b> 1<b class="graf--bold">])</b></code> <code class="graf--code-inline"><b class="graf--bold">+</b> 1</code> </li></ul><p class="graf--p">3. Return the square of the maximum value of DP array.</p><p class="graf--p"><b class="graf--bold">Pseudo Code</b></p><pre><code class="language-java graf graf--code">int maximalSquare( char[][] matrix ) {\n    m = matrix.size()\n    n = matrix[0].size()\n    maxSquareLen = 0\n    int[m][n] dp\n    for( int i=1 to i &lt;= m) {\n        for( int j=1 to j &lt;= n) {\n           if( matrix[i-1][j-1] == \'1\')\n                dp[i][j] = min( dp[i-1][j], dp[i][j-1], dp[i-1][j-1] ) + 1\n            if( dp[i][j] &gt; maxSquareLen ) \n                maxSquareLen = dp[i][j]\n        }\n    }\n    return maxSquareLen*maxSquareLen\n}</code></pre><p class="graf--p"><b class="graf--bold">Complexity Analysis</b></p><p class="graf--p">Time Complexity: O(mn)</p><p class="graf--p">Space Complexity: O(mn)</p><p class="graf--p"><b class="graf--bold">Critical Ideas To Think</b></p><ul><li>How did we make sure that dp[i][j] will store the longest length of the square which ends at matrix[i][j]? Can you prove the authenticity of this approach using some examples?</li><li>Why we are returning the square of<code class="graf--code-inline"> maxSquareLen</code> ?</li><li>How did we derive the recurrence relation?</li></ul><h4 class="graf--h3">3. Space Optimized DP</h4><p class="graf--p">In the previous approach for calculating <code class="graf--code-inline">dp</code> of <i class="graf--italic">ith</i> row we were using only the previous element and the (<i class="graf--italic">i</i>−1)<i class="graf--italic">th</i> row. Therefore, we don’t need a 2D DP-matrix as 1D DP-array will be sufficient for this. </p><p class="graf--p"><b class="graf--bold">Solution Steps</b></p><ol><li>Create a 1-D <code class="graf--code-inline">dp</code> array containing all 0’s. </li><li>As we scan the elements of the original matrix across a row, we keep on updating the <code class="graf--code-inline">dp</code> array </li></ol><ul><li><code class="graf--code-inline"><i class="graf--italic">dp</i>[<i class="graf--italic">j</i>] = <i class="graf--italic">min</i>(<i class="graf--italic">dp</i>[<i class="graf--italic">j</i>−1],<i class="graf--italic">dp</i>[<i class="graf--italic">j</i>],<i class="graf--italic">prev</i>)</code>, where <code class="graf--code-inline">prev</code> refers to the old <code class="graf--code-inline"><i class="graf--italic">dp</i>[<i class="graf--italic">j</i>−1]</code>. </li></ul><p class="graf--p">3. Update Dp for every row, and repeat the above steps</p><p class="graf--p"><b class="graf--bold">Pseudo Code</b></p><pre><code class="language-java graf graf--code">int maximalSquare(char[][] matrix) {\n    maxlen = 0\n    m = matrix.size()\n    n = matrix[0].size()\n    int[n+1] dp = {0}\n    for(int i = 0 to i &lt; m) {\n        int prev = 0\n        for(int j = 1 to j &lt;= n) {\n            int tmp = dp[j]\n            if(matrix[i][j-1] == \'1\') {\n                dp[j] = min(prev, min(dp[j], dp[j-1])) + 1\n                maxlen = max(maxlen, dp[j])\n            }\n            else \n                dp[j] = 0\n            prev = tmp\n        }\n    }\n    return maxlen * maxlen\n}</code></pre><p class="graf--p"><b class="graf--bold">Complexity Analysis</b></p><p class="graf--p">Time Complexity: O(mn)</p><p class="graf--p">Space Complexity: O(m) <b class="graf--bold">(why?)</b></p><p class="graf--p"><b class="graf--bold">Critical Ideas To Think</b></p><ul><li>How we are updating <code class="graf--code-inline">prev</code>?</li><li>Do you think, whatever we were storing in a 2D Dp array for each row in the previous approach is storing the exact value in a 1D Dp array in this approach with the only difference that it is updating the same 1D Dp array again and again for each row?</li><li>Does this approach have the same elements of dynamic programming than the previous approach? If something has changed, then can you point it out?</li></ul><h4 class="graf--h3">Comparison Of Different Approaches</h4> <div class=\'graf-image graf-caption\'>\n\t\t\t\t\t\t\t\t\t<img src=/images/maximal-square-comparison-4607c5a6049420d7.png class=\'graf-image\' />\n\t\t\t\t\t\t\t\t</div ><h4 class="graf--h3">Suggested Problems to Solve</h4><ul><li>The maximum rectangular area in a histogram</li><li>Maximal Rectangle of 1’s in a binary matrix</li><li>Largest Plus sign</li></ul><p class="graf--p">If you have any more approaches or you find an error/bug in the above solutions, please comment down below.</p><p class="graf--p"><b class="graf--bold">Happy Coding! Enjoy Algorithms!</b></p>'},author:{_id:"5d8dc1ce52e77816c998cb97",name:"Admin AfterAcademy",googleProfilePicUrl:"https://afteracademy.com/assets/AfterAcademyLogo.svg"},isFetching:!1,similarBlogs:[{_id:"5f55730eedeb1638409b1b4e",likes:0,rank:0,title:"Knight on chessboard",description:"Given a square chessboard of A x B size, the position of Knight (C, D) and the position of a target (E, F) is given. Write a program to find out the minimum steps a Knight will take to reach the target position. This problem is a good example of BFS algorithm.",category:{_id:"5d232c8f8cadc249eef5d0cc",name:"ds-algo",title:"Data Structure & Algorithms"},author:{_id:"5d8dc1ce52e77816c998cb97",name:"Admin AfterAcademy",googleProfilePicUrl:"https://afteracademy.com/assets/AfterAcademyLogo.svg"},blogUrl:"knight-on-chessboard",createdAt:"2020-09-06T23:38:54.799Z",updatedAt:"2020-09-07T09:01:04.955Z",imgUrl:"/images/knight-on-chessboard-banner-56b65d951f683fa2.png",publishedAt:"2020-09-07T09:01:04.955Z",similarity:.5161290322580645},{_id:"5e3fe003f6752c622773e08f",likes:0,rank:0,title:"Rotate Matrix",description:"Given a square matrix, turn it by 90 degrees in the clockwise direction.",category:{_id:"5d232c8f8cadc249eef5d0cc",name:"ds-algo",title:"Data Structure & Algorithms"},author:{_id:"5d8dc1ce52e77816c998cb97",name:"Admin AfterAcademy",googleProfilePicUrl:"https://afteracademy.com/assets/AfterAcademyLogo.svg"},blogUrl:"rotate-matrix",createdAt:"2020-02-09T10:33:39.699Z",updatedAt:"2020-05-01T06:47:16.175Z",imgUrl:"/images/rotate-matrix-banner-bec38989a36265c7.png",publishedAt:"2020-02-11T08:27:53.344Z",similarity:.5625},{_id:"5e53f744f902d968834fcd6b",likes:0,rank:0,title:"Find the Square Root of a given Integer-Interview Problem",description:"Given an integer, your task is to find the square root of the integer. For an integer x to be the square root of the given integer N, x*x must be equal to N. This is an interview problem asked in companies like Amazon, Microsoft and Facebook.",category:{_id:"5d232c8f8cadc249eef5d0cc",name:"ds-algo",title:"Data Structure & Algorithms"},author:{_id:"5d8dc1ce52e77816c998cb97",name:"Admin AfterAcademy",googleProfilePicUrl:"https://afteracademy.com/assets/AfterAcademyLogo.svg"},blogUrl:"find-the-square-root-of-a-given-integer",createdAt:"2020-02-24T16:18:12.339Z",updatedAt:"2020-03-21T10:52:35.204Z",imgUrl:"/images/find-the-square-root-of-a-given-integer-banner-d348ee3908d43059.png",publishedAt:"2020-02-29T11:31:19.488Z",similarity:2.5198412698412698}],isSimilarBlogsFetching:!1},blogEditorData:{blogId:null,blogDetailsFormData:{title:"",description:"",imgUrl:"",blogUrl:"",category:"",categories:[],isWriting:!1,isTitleError:!1,isDescriptionError:!1,isImgUrlError:!1,isBlogUrlError:!1,isCategoryError:!1,isUploadingImage:!1,uploadedImageUrl:null},editorState:null,editorText:null,successMessage:null,errorMessage:null,isSending:!1,isMsgToShow:!1,isPublished:!1,isSubmitted:!1,isDraft:!0,isEditOfExistingBlog:!1,isFetchingBlogCategories:!1,isUploadingImage:!1,uploadedImageUrl:null},myBlogsData:{data:null,isSubmittedBlogsFetching:!0,isDraftBlogsFetching:!0,isPublishedBlogsFetching:!0,successMessage:null,errorMessage:null,isMsgToShow:!1,tabNames:["DRAFTS","SUBMISSIONS","PUBLISHED"],selectedTab:"DRAFTS",isFetchingBlog:!1,isDeletingBlog:!1,openEditorPage:!1},profileData:{profile:null,blogs:null,submissions:null,countries:null,states:null,cities:null,submissionNoMoreToLoad:!1,submissionTotalCount:null,isFetchingProfile:!1,isFetchingBlogs:!1,isFetchingSubmissions:!1,isUpdatingProfile:!1,isFetchingCountries:!1,isFetchingStates:!1,isFetchingCities:!1,successMessage:null,errorMessage:null,isMsgToShow:!1},blogAdminData:{data:null,isSubmittedBlogsFetching:!0,isPublishedBlogsFetching:!0,isBlogDetailFetching:!1,successMessage:null,errorMessage:null,isMsgToShow:!1,tabNames:["SUBMISSIONS","PUBLISHED"],selectedTab:"SUBMISSIONS",showPreview:!1,blogPreview:null,isUpdatingStatus:!1},prelaunchRegistrationData:{formData:{name:"",email:"",phone:"",isWriting:!1,isNameError:!1,isEmailError:!1,isPhoneError:!1,dismissMsg:!1},successMessage:null,errorMessage:null,isSending:!1},snippetEditorData:{snippetId:null,snippetDetailFormData:{title:"",isWriting:!1,isTitleError:!1},editorState:null,text:null,successMessage:null,errorMessage:null,isSending:!1,isMsgToShow:!1,isEditOfExistingSnippet:!1},mySnippetsData:{data:null,isMySnippetsFetching:!0,successMessage:null,errorMessage:null,isMsgToShow:!1,isFetchingSnippetDetail:!1,isDeletingSnippet:!1,openSnippetEditorPage:!1},curriculumData:{data:null,isFetching:!1,successMessage:null,errorMessage:null,isMsgToShow:!1},subjectData:{data:null,isFetching:!1,successMessage:null,errorMessage:null,isMsgToShow:!1},topicData:{data:null,progress:null,isFetchingProgress:!1,isFetching:!1,successMessage:null,errorMessage:null,isMsgToShow:!1},materialData:{data:null,isFetching:!1,successMessage:null,errorMessage:null,isMsgToShow:!1},codeEditorData:{data:null,currentSourceCode:null,currentTestCase:null,isFetchingQuestion:!1,successMessage:null,errorMessage:null,isMsgToShow:!1,changeCounter:1},codeConsoleData:{data:null,isPollingResult:!1,successMessage:null,errorMessage:null,isMsgToShow:!1},codeSubmissionData:{historyData:null,resultData:null,isFetchingHistory:!1,isPollingSubmissionResult:!1,successMessage:null,errorMessage:null,isMsgToShow:!1},searchData:{data:null,isSearching:!1,successMessage:null,errorMessage:null,isMsgToShow:!1},feedbackData:{isSending:!1,successMessage:null,errorMessage:null},advertisementData:{data:null,slots:[],page:null,isFetching:!1,successMessage:null,errorMessage:null},puzzleData:{result:null,isSubmitting:!1,successMessage:null,errorMessage:null,isMsgToShow:!1},appData:{currentPageTitle:null,updatedUserName:null}}
+  </script>
+  <script src="/assets/highlight.js" type="text/javascript">
+  </script>
+  <script src="/js/vendor-bundle-1.4.7.js" type="text/javascript">
+  </script>
+  <script src="/js/app-bundle-1.4.7.js" type="text/javascript">
+  </script>
+  <script type="text/javascript">
+   window.hljs.initHighlightingOnLoad()
+  </script>
+ </body>
+</html>

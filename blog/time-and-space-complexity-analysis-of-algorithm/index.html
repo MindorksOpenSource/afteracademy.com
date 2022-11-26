@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#" xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>
+   Time and Space Complexity Analysis of Algorithm
+  </title>
+  <meta charset="utf-8"/>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+  <meta content="minimum-scale=1,initial-scale=1,width=device-width,shrink-to-fit=no" name="viewport"/>
+  <link href="https://afteracademy.com/blog/time-and-space-complexity-analysis-of-algorithm" rel="canonical"/>
+  <meta content="course, courses, best courses, best online courses, online courses, search best online courses" name="keywords"/>
+  <meta content="Time and Space Complexity Analysis of Algorithm" property="og:title"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://afteracademy.com/blog/time-and-space-complexity-analysis-of-algorithm" property="og:url"/>
+  <meta content="/images/time-and-space-complexity-analysis-of-algorithm-banner-695ba316ae0bd71d.png" property="og:image"/>
+  <meta content="In this blog, we will learn about the time and space complexity of an Algorithm. We will learn about worst case, average case, and best case of an algorithm. We will also see various asymptotic notations that are used to analyse an algorithm. So, let's learn the algorithm of an algorithm." property="og:description"/>
+  <meta content="Time and Space Complexity Analysis of Algorithm" property="twitter:title"/>
+  <meta content="In this blog, we will learn about the time and space complexity of an Algorithm. We will learn about worst case, average case, and best case of an algorithm. We will also see various asymptotic notations that are used to analyse an algorithm. So, let's learn the algorithm of an algorithm." name="twitter:description"/>
+  <meta content="/images/time-and-space-complexity-analysis-of-algorithm-banner-695ba316ae0bd71d.png" name="twitter:image:src"/>
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="@after_academy" name="twitter:site"/>
+  <meta content="In this blog, we will learn about the time and space complexity of an Algorithm. We will learn about worst case, average case, and best case of an algorithm. We will also see various asymptotic notations that are used to analyse an algorithm. So, let's learn the algorithm of an algorithm." name="description"/>
+  <style id="jss-server-side">
+   .MuiGrid-container{width:100%;display:flex;flex-wrap:wrap;box-sizing:border-box}.MuiGrid-item{margin:0;box-sizing:border-box}.MuiGrid-zeroMinWidth{min-width:0}.MuiGrid-direction-xs-column{flex-direction:column}.MuiGrid-direction-xs-column-reverse{flex-direction:column-reverse}.MuiGrid-direction-xs-row-reverse{flex-direction:row-reverse}.MuiGrid-wrap-xs-nowrap{flex-wrap:nowrap}.MuiGrid-wrap-xs-wrap-reverse{flex-wrap:wrap-reverse}.MuiGrid-align-items-xs-center{align-items:center}.MuiGrid-align-items-xs-flex-start{align-items:flex-start}.MuiGrid-align-items-xs-flex-end{align-items:flex-end}.MuiGrid-align-items-xs-baseline{align-items:baseline}.MuiGrid-align-content-xs-center{align-content:center}.MuiGrid-align-content-xs-flex-start{align-content:flex-start}.MuiGrid-align-content-xs-flex-end{align-content:flex-end}.MuiGrid-align-content-xs-space-between{align-content:space-between}.MuiGrid-align-content-xs-space-around{align-content:space-around}.MuiGrid-justify-xs-center{justify-content:center}.MuiGrid-justify-xs-flex-end{justify-content:flex-end}.MuiGrid-justify-xs-space-between{justify-content:space-between}.MuiGrid-justify-xs-space-around{justify-content:space-around}.MuiGrid-justify-xs-space-evenly{justify-content:space-evenly}.MuiGrid-spacing-xs-1{width:calc(100% + 8px);margin:-4px}.MuiGrid-spacing-xs-1>.MuiGrid-item{padding:4px}.MuiGrid-spacing-xs-2{width:calc(100% + 16px);margin:-8px}.MuiGrid-spacing-xs-2>.MuiGrid-item{padding:8px}.MuiGrid-spacing-xs-3{width:calc(100% + 24px);margin:-12px}.MuiGrid-spacing-xs-3>.MuiGrid-item{padding:12px}.MuiGrid-spacing-xs-4{width:calc(100% + 32px);margin:-16px}.MuiGrid-spacing-xs-4>.MuiGrid-item{padding:16px}.MuiGrid-spacing-xs-5{width:calc(100% + 40px);margin:-20px}.MuiGrid-spacing-xs-5>.MuiGrid-item{padding:20px}.MuiGrid-spacing-xs-6{width:calc(100% + 48px);margin:-24px}.MuiGrid-spacing-xs-6>.MuiGrid-item{padding:24px}.MuiGrid-spacing-xs-7{width:calc(100% + 56px);margin:-28px}.MuiGrid-spacing-xs-7>.MuiGrid-item{padding:28px}.MuiGrid-spacing-xs-8{width:calc(100% + 64px);margin:-32px}.MuiGrid-spacing-xs-8>.MuiGrid-item{padding:32px}.MuiGrid-spacing-xs-9{width:calc(100% + 72px);margin:-36px}.MuiGrid-spacing-xs-9>.MuiGrid-item{padding:36px}.MuiGrid-spacing-xs-10{width:calc(100% + 80px);margin:-40px}.MuiGrid-spacing-xs-10>.MuiGrid-item{padding:40px}.MuiGrid-grid-xs-auto{flex-grow:0;max-width:none;flex-basis:auto}.MuiGrid-grid-xs-true{flex-grow:1;max-width:100%;flex-basis:0}.MuiGrid-grid-xs-1{flex-grow:0;max-width:8.333333%;flex-basis:8.333333%}.MuiGrid-grid-xs-2{flex-grow:0;max-width:16.666667%;flex-basis:16.666667%}.MuiGrid-grid-xs-3{flex-grow:0;max-width:25%;flex-basis:25%}.MuiGrid-grid-xs-4{flex-grow:0;max-width:33.333333%;flex-basis:33.333333%}.MuiGrid-grid-xs-5{flex-grow:0;max-width:41.666667%;flex-basis:41.666667%}.MuiGrid-grid-xs-6{flex-grow:0;max-width:50%;flex-basis:50%}.MuiGrid-grid-xs-7{flex-grow:0;max-width:58.333333%;flex-basis:58.333333%}.MuiGrid-grid-xs-8{flex-grow:0;max-width:66.666667%;flex-basis:66.666667%}.MuiGrid-grid-xs-9{flex-grow:0;max-width:75%;flex-basis:75%}.MuiGrid-grid-xs-10{flex-grow:0;max-width:83.333333%;flex-basis:83.333333%}.MuiGrid-grid-xs-11{flex-grow:0;max-width:91.666667%;flex-basis:91.666667%}.MuiGrid-grid-xs-12{flex-grow:0;max-width:100%;flex-basis:100%}@media (min-width:600px){.MuiGrid-grid-sm-auto{flex-grow:0;max-width:none;flex-basis:auto}.MuiGrid-grid-sm-true{flex-grow:1;max-width:100%;flex-basis:0}.MuiGrid-grid-sm-1{flex-grow:0;max-width:8.333333%;flex-basis:8.333333%}.MuiGrid-grid-sm-2{flex-grow:0;max-width:16.666667%;flex-basis:16.666667%}.MuiGrid-grid-sm-3{flex-grow:0;max-width:25%;flex-basis:25%}.MuiGrid-grid-sm-4{flex-grow:0;max-width:33.333333%;flex-basis:33.333333%}.MuiGrid-grid-sm-5{flex-grow:0;max-width:41.666667%;flex-basis:41.666667%}.MuiGrid-grid-sm-6{flex-grow:0;max-width:50%;flex-basis:50%}.MuiGrid-grid-sm-7{flex-grow:0;max-width:58.333333%;flex-basis:58.333333%}.MuiGrid-grid-sm-8{flex-grow:0;max-width:66.666667%;flex-basis:66.666667%}.MuiGrid-grid-sm-9{flex-grow:0;max-width:75%;flex-basis:75%}.MuiGrid-grid-sm-10{flex-grow:0;max-width:83.333333%;flex-basis:83.333333%}.MuiGrid-grid-sm-11{flex-grow:0;max-width:91.666667%;flex-basis:91.666667%}.MuiGrid-grid-sm-12{flex-grow:0;max-width:100%;flex-basis:100%}}@media (min-width:960px){.MuiGrid-grid-md-auto{flex-grow:0;max-width:none;flex-basis:auto}.MuiGrid-grid-md-true{flex-grow:1;max-width:100%;flex-basis:0}.MuiGrid-grid-md-1{flex-grow:0;max-width:8.333333%;flex-basis:8.333333%}.MuiGrid-grid-md-2{flex-grow:0;max-width:16.666667%;flex-basis:16.666667%}.MuiGrid-grid-md-3{flex-grow:0;max-width:25%;flex-basis:25%}.MuiGrid-grid-md-4{flex-grow:0;max-width:33.333333%;flex-basis:33.333333%}.MuiGrid-grid-md-5{flex-grow:0;max-width:41.666667%;flex-basis:41.666667%}.MuiGrid-grid-md-6{flex-grow:0;max-width:50%;flex-basis:50%}.MuiGrid-grid-md-7{flex-grow:0;max-width:58.333333%;flex-basis:58.333333%}.MuiGrid-grid-md-8{flex-grow:0;max-width:66.666667%;flex-basis:66.666667%}.MuiGrid-grid-md-9{flex-grow:0;max-width:75%;flex-basis:75%}.MuiGrid-grid-md-10{flex-grow:0;max-width:83.333333%;flex-basis:83.333333%}.MuiGrid-grid-md-11{flex-grow:0;max-width:91.666667%;flex-basis:91.666667%}.MuiGrid-grid-md-12{flex-grow:0;max-width:100%;flex-basis:100%}}@media (min-width:1280px){.MuiGrid-grid-lg-auto{flex-grow:0;max-width:none;flex-basis:auto}.MuiGrid-grid-lg-true{flex-grow:1;max-width:100%;flex-basis:0}.MuiGrid-grid-lg-1{flex-grow:0;max-width:8.333333%;flex-basis:8.333333%}.MuiGrid-grid-lg-2{flex-grow:0;max-width:16.666667%;flex-basis:16.666667%}.MuiGrid-grid-lg-3{flex-grow:0;max-width:25%;flex-basis:25%}.MuiGrid-grid-lg-4{flex-grow:0;max-width:33.333333%;flex-basis:33.333333%}.MuiGrid-grid-lg-5{flex-grow:0;max-width:41.666667%;flex-basis:41.666667%}.MuiGrid-grid-lg-6{flex-grow:0;max-width:50%;flex-basis:50%}.MuiGrid-grid-lg-7{flex-grow:0;max-width:58.333333%;flex-basis:58.333333%}.MuiGrid-grid-lg-8{flex-grow:0;max-width:66.666667%;flex-basis:66.666667%}.MuiGrid-grid-lg-9{flex-grow:0;max-width:75%;flex-basis:75%}.MuiGrid-grid-lg-10{flex-grow:0;max-width:83.333333%;flex-basis:83.333333%}.MuiGrid-grid-lg-11{flex-grow:0;max-width:91.666667%;flex-basis:91.666667%}.MuiGrid-grid-lg-12{flex-grow:0;max-width:100%;flex-basis:100%}}@media (min-width:1920px){.MuiGrid-grid-xl-auto{flex-grow:0;max-width:none;flex-basis:auto}.MuiGrid-grid-xl-true{flex-grow:1;max-width:100%;flex-basis:0}.MuiGrid-grid-xl-1{flex-grow:0;max-width:8.333333%;flex-basis:8.333333%}.MuiGrid-grid-xl-2{flex-grow:0;max-width:16.666667%;flex-basis:16.666667%}.MuiGrid-grid-xl-3{flex-grow:0;max-width:25%;flex-basis:25%}.MuiGrid-grid-xl-4{flex-grow:0;max-width:33.333333%;flex-basis:33.333333%}.MuiGrid-grid-xl-5{flex-grow:0;max-width:41.666667%;flex-basis:41.666667%}.MuiGrid-grid-xl-6{flex-grow:0;max-width:50%;flex-basis:50%}.MuiGrid-grid-xl-7{flex-grow:0;max-width:58.333333%;flex-basis:58.333333%}.MuiGrid-grid-xl-8{flex-grow:0;max-width:66.666667%;flex-basis:66.666667%}.MuiGrid-grid-xl-9{flex-grow:0;max-width:75%;flex-basis:75%}.MuiGrid-grid-xl-10{flex-grow:0;max-width:83.333333%;flex-basis:83.333333%}.MuiGrid-grid-xl-11{flex-grow:0;max-width:91.666667%;flex-basis:91.666667%}.MuiGrid-grid-xl-12{flex-grow:0;max-width:100%;flex-basis:100%}}.MuiPaper-root{color:rgba(0,0,0,.87);transition:box-shadow .3s cubic-bezier(.4,0,.2,1) 0s;background-color:#fff}.MuiPaper-rounded{border-radius:4px}.MuiPaper-outlined{border:1px solid rgba(0,0,0,.12)}.MuiPaper-elevation0{box-shadow:none}.MuiPaper-elevation1{box-shadow:0 1px 3px 0 rgba(0,0,0,.12),0 1px 1px 0 rgba(0,0,0,.1),0 2px 1px -1px rgba(0,0,0,.08)}.MuiPaper-elevation2{box-shadow:0 1px 5px 0 rgba(0,0,0,.12),0 2px 2px 0 rgba(0,0,0,.1),0 3px 1px -2px rgba(0,0,0,.08)}.MuiPaper-elevation3{box-shadow:0 1px 8px 0 rgba(0,0,0,.12),0 3px 4px 0 rgba(0,0,0,.1),0 3px 3px -2px rgba(0,0,0,.08)}.MuiPaper-elevation4{box-shadow:0 2px 4px -1px rgba(0,0,0,.12),0 4px 5px 0 rgba(0,0,0,.1),0 1px 10px 0 rgba(0,0,0,.08)}.MuiPaper-elevation5{box-shadow:0 3px 5px -1px rgba(0,0,0,.12),0 5px 8px 0 rgba(0,0,0,.1),0 1px 14px 0 rgba(0,0,0,.08)}.MuiPaper-elevation6{box-shadow:0 3px 5px -1px rgba(0,0,0,.12),0 6px 10px 0 rgba(0,0,0,.1),0 1px 18px 0 rgba(0,0,0,.08)}.MuiPaper-elevation7{box-shadow:0 4px 5px -2px rgba(0,0,0,.12),0 7px 10px 1px rgba(0,0,0,.1),0 2px 16px 1px rgba(0,0,0,.08)}.MuiPaper-elevation8{box-shadow:0 5px 5px -3px rgba(0,0,0,.12),0 8px 10px 1px rgba(0,0,0,.1),0 3px 14px 2px rgba(0,0,0,.08)}.MuiPaper-elevation9{box-shadow:0 5px 6px -3px rgba(0,0,0,.12),0 9px 12px 1px rgba(0,0,0,.1),0 3px 16px 2px rgba(0,0,0,.08)}.MuiPaper-elevation10{box-shadow:0 6px 6px -3px rgba(0,0,0,.12),0 10px 14px 1px rgba(0,0,0,.1),0 4px 18px 3px rgba(0,0,0,.08)}.MuiPaper-elevation11{box-shadow:0 6px 7px -4px rgba(0,0,0,.12),0 11px 15px 1px rgba(0,0,0,.1),0 4px 20px 3px rgba(0,0,0,.08)}.MuiPaper-elevation12{box-shadow:0 7px 8px -4px rgba(0,0,0,.12),0 12px 17px 2px rgba(0,0,0,.1),0 5px 22px 4px rgba(0,0,0,.08)}.MuiPaper-elevation13{box-shadow:0 7px 8px -4px rgba(0,0,0,.12),0 13px 19px 2px rgba(0,0,0,.1),0 5px 24px 4px rgba(0,0,0,.08)}.MuiPaper-elevation14{box-shadow:0 7px 9px -4px rgba(0,0,0,.12),0 14px 21px 2px rgba(0,0,0,.1),0 5px 26px 4px rgba(0,0,0,.08)}.MuiPaper-elevation15{box-shadow:0 8px 9px -5px rgba(0,0,0,.12),0 15px 22px 2px rgba(0,0,0,.1),0 6px 28px 5px rgba(0,0,0,.08)}.MuiPaper-elevation16{box-shadow:0 8px 10px -5px rgba(0,0,0,.12),0 16px 24px 2px rgba(0,0,0,.1),0 6px 30px 5px rgba(0,0,0,.08)}.MuiPaper-elevation17{box-shadow:0 8px 11px -5px rgba(0,0,0,.12),0 17px 26px 2px rgba(0,0,0,.1),0 6px 32px 5px rgba(0,0,0,.08)}.MuiPaper-elevation18{box-shadow:0 9px 11px -5px rgba(0,0,0,.12),0 18px 28px 2px rgba(0,0,0,.1),0 7px 34px 6px rgba(0,0,0,.08)}.MuiPaper-elevation19{box-shadow:0 9px 12px -6px rgba(0,0,0,.12),0 19px 29px 2px rgba(0,0,0,.1),0 7px 36px 6px rgba(0,0,0,.08)}.MuiPaper-elevation20{box-shadow:0 10px 13px -6px rgba(0,0,0,.12),0 20px 31px 3px rgba(0,0,0,.1),0 8px 38px 7px rgba(0,0,0,.08)}.MuiPaper-elevation21{box-shadow:0 10px 13px -6px rgba(0,0,0,.12),0 21px 33px 3px rgba(0,0,0,.1),0 8px 40px 7px rgba(0,0,0,.08)}.MuiPaper-elevation22{box-shadow:0 10px 14px -6px rgba(0,0,0,.12),0 22px 35px 3px rgba(0,0,0,.1),0 8px 42px 7px rgba(0,0,0,.08)}.MuiPaper-elevation23{box-shadow:0 11px 14px -7px rgba(0,0,0,.12),0 23px 36px 3px rgba(0,0,0,.1),0 9px 44px 8px rgba(0,0,0,.08)}.MuiPaper-elevation24{box-shadow:0 11px 15px -7px rgba(0,0,0,.12),0 24px 38px 3px rgba(0,0,0,.1),0 9px 46px 8px rgba(0,0,0,.08)}.MuiTypography-root{margin:0}.MuiTypography-body2{font-size:.875rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:400;line-height:1.43;letter-spacing:.01071em}.MuiTypography-body1{font-size:1rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:400;line-height:1.5;letter-spacing:.00938em}.MuiTypography-caption{font-size:.75rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:400;line-height:1.66;letter-spacing:.03333em}.MuiTypography-button{font-size:.875rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:500;line-height:1.75;letter-spacing:.02857em;text-transform:uppercase}.MuiTypography-h1{font-size:6rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:300;line-height:1.167;letter-spacing:-.01562em}.MuiTypography-h2{font-size:3.75rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:300;line-height:1.2;letter-spacing:-.00833em}.MuiTypography-h3{font-size:3rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:400;line-height:1.167;letter-spacing:0}.MuiTypography-h4{font-size:2.125rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:400;line-height:1.235;letter-spacing:.00735em}.MuiTypography-h5{font-size:1.5rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:400;line-height:1.334;letter-spacing:0}.MuiTypography-h6{font-size:1.25rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:500;line-height:1.6;letter-spacing:.0075em}.MuiTypography-subtitle1{font-size:1rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:400;line-height:1.75;letter-spacing:.00938em}.MuiTypography-subtitle2{font-size:.875rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:500;line-height:1.57;letter-spacing:.00714em}.MuiTypography-overline{font-size:.75rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:400;line-height:2.66;letter-spacing:.08333em;text-transform:uppercase}.MuiTypography-srOnly{width:1px;height:1px;overflow:hidden;position:absolute}.MuiTypography-alignLeft{text-align:left}.MuiTypography-alignCenter{text-align:center}.MuiTypography-alignRight{text-align:right}.MuiTypography-alignJustify{text-align:justify}.MuiTypography-noWrap{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.MuiTypography-gutterBottom{margin-bottom:.35em}.MuiTypography-paragraph{margin-bottom:16px}.MuiTypography-colorInherit{color:inherit}.MuiTypography-colorPrimary{color:#11209f}.MuiTypography-colorSecondary{color:#f5a623}.MuiTypography-colorTextPrimary{color:rgba(0,0,0,.87)}.MuiTypography-colorTextSecondary{color:rgba(0,0,0,.54)}.MuiTypography-colorError{color:#ff1744}.MuiTypography-displayInline{display:inline}.MuiTypography-displayBlock{display:block}.MuiButtonBase-root{color:inherit;border:0;cursor:pointer;margin:0;display:inline-flex;outline:0;padding:0;position:relative;align-items:center;user-select:none;border-radius:0;vertical-align:middle;-moz-appearance:none;justify-content:center;text-decoration:none;background-color:transparent;-webkit-appearance:none;-webkit-tap-highlight-color:transparent}.MuiButtonBase-root::-moz-focus-inner{border-style:none}.MuiButtonBase-root.Mui-disabled{cursor:default;pointer-events:none}.MuiSvgIcon-root{fill:currentColor;width:1em;height:1em;display:inline-block;font-size:1.5rem;transition:fill .2s cubic-bezier(.4,0,.2,1) 0s;flex-shrink:0;user-select:none}.MuiSvgIcon-colorPrimary{color:#11209f}.MuiSvgIcon-colorSecondary{color:#f5a623}.MuiSvgIcon-colorAction{color:rgba(0,0,0,.54)}.MuiSvgIcon-colorError{color:#ff1744}.MuiSvgIcon-colorDisabled{color:rgba(0,0,0,.26)}.MuiSvgIcon-fontSizeInherit{font-size:inherit}.MuiSvgIcon-fontSizeSmall{font-size:1.25rem}.MuiSvgIcon-fontSizeLarge{font-size:2.1875rem}.MuiAvatar-root{width:40px;height:40px;display:flex;overflow:hidden;position:relative;font-size:1.25rem;align-items:center;flex-shrink:0;font-family:Roboto,Helvetica,Arial,sans-serif;line-height:1;user-select:none;border-radius:50%;justify-content:center}.MuiAvatar-colorDefault{color:#fff;background-color:#bdbdbd}.MuiAvatar-rounded{border-radius:4px}.MuiAvatar-square{border-radius:0}.MuiAvatar-img{color:transparent;width:100%;height:100%;object-fit:cover;text-align:center;text-indent:10000px}.MuiAvatar-fallback{width:75%;height:75%}.MuiFab-root{color:rgba(0,0,0,.87);width:56px;height:56px;padding:0;font-size:.875rem;min-width:0;box-shadow:0 3px 5px -1px rgba(0,0,0,.12),0 6px 10px 0 rgba(0,0,0,.1),0 1px 18px 0 rgba(0,0,0,.08);box-sizing:border-box;min-height:36px;transition:background-color 250ms cubic-bezier(.4,0,.2,1) 0s,box-shadow 250ms cubic-bezier(.4,0,.2,1) 0s,border 250ms cubic-bezier(.4,0,.2,1) 0s;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:500;line-height:1.75;border-radius:50%;letter-spacing:.02857em;text-transform:uppercase;background-color:#e0e0e0}.MuiFab-root:active{box-shadow:0 7px 8px -4px rgba(0,0,0,.12),0 12px 17px 2px rgba(0,0,0,.1),0 5px 22px 4px rgba(0,0,0,.08)}.MuiFab-root.Mui-focusVisible{box-shadow:0 3px 5px -1px rgba(0,0,0,.12),0 6px 10px 0 rgba(0,0,0,.1),0 1px 18px 0 rgba(0,0,0,.08)}.MuiFab-root:hover{text-decoration:none;background-color:#d5d5d5}.MuiFab-root.Mui-disabled{color:rgba(0,0,0,.26);box-shadow:none;background-color:rgba(0,0,0,.12)}@media (hover:none){.MuiFab-root:hover{background-color:#e0e0e0}}.MuiFab-root:hover.Mui-disabled{background-color:rgba(0,0,0,.12)}.MuiFab-label{width:100%;display:inherit;align-items:inherit;justify-content:inherit}.MuiFab-primary{color:#fff;background-color:#11209f}.MuiFab-primary:hover{background-color:#0b166f}@media (hover:none){.MuiFab-primary:hover{background-color:#11209f}}.MuiFab-secondary{color:#000;background-color:#f5a623}.MuiFab-secondary:hover{background-color:#ab7418}@media (hover:none){.MuiFab-secondary:hover{background-color:#f5a623}}.MuiFab-extended{width:auto;height:48px;padding:0 16px;min-width:48px;min-height:auto;border-radius:24px}.MuiFab-extended.MuiFab-sizeSmall{width:auto;height:34px;padding:0 8px;min-width:34px;border-radius:17px}.MuiFab-extended.MuiFab-sizeMedium{width:auto;height:40px;padding:0 16px;min-width:40px;border-radius:20px}.MuiFab-colorInherit{color:inherit}.MuiFab-sizeSmall{width:40px;height:40px}.MuiFab-sizeMedium{width:48px;height:48px}.MuiCard-root{overflow:hidden}.MuiCardActionArea-root{width:100%;display:block;text-align:inherit}.MuiCardActionArea-root:hover .MuiCardActionArea-focusHighlight{opacity:.08}.MuiCardActionArea-root.Mui-focusVisible .MuiCardActionArea-focusHighlight{opacity:.12}.MuiCardActionArea-focusHighlight{top:0;left:0;right:0;bottom:0;opacity:0;overflow:hidden;position:absolute;transition:opacity 250ms cubic-bezier(.4,0,.2,1) 0s;border-radius:inherit;pointer-events:none;background-color:currentcolor}.MuiCardContent-root{padding:16px}.MuiCardContent-root:last-child{padding-bottom:24px}.MuiCardMedia-root{display:block;background-size:cover;background-repeat:no-repeat;background-position:center}.MuiCardMedia-media{width:100%}.MuiCardMedia-img{object-fit:cover}.MuiCardHeader-root{display:flex;padding:16px;align-items:center}.MuiCardHeader-avatar{flex:0 0 auto;margin-right:16px}.MuiCardHeader-action{flex:0 0 auto;align-self:flex-start;margin-top:-8px;margin-right:-8px}.MuiCardHeader-content{flex:1 1 auto}.MuiButton-root{color:rgba(0,0,0,.87);padding:6px 16px;font-size:.875rem;min-width:64px;box-sizing:border-box;transition:background-color 250ms cubic-bezier(.4,0,.2,1) 0s,box-shadow 250ms cubic-bezier(.4,0,.2,1) 0s,border 250ms cubic-bezier(.4,0,.2,1) 0s;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:500;line-height:1.75;border-radius:4px;letter-spacing:.02857em;text-transform:uppercase}.MuiButton-root:hover{text-decoration:none;background-color:rgba(0,0,0,.08)}.MuiButton-root.Mui-disabled{color:rgba(0,0,0,.26)}@media (hover:none){.MuiButton-root:hover{background-color:transparent}}.MuiButton-root:hover.Mui-disabled{background-color:transparent}.MuiButton-label{width:100%;display:inherit;align-items:inherit;justify-content:inherit}.MuiButton-text{padding:6px 8px}.MuiButton-textPrimary{color:#11209f}.MuiButton-textPrimary:hover{background-color:rgba(17,32,159,.08)}@media (hover:none){.MuiButton-textPrimary:hover{background-color:transparent}}.MuiButton-textSecondary{color:#f5a623}.MuiButton-textSecondary:hover{background-color:rgba(245,166,35,.08)}@media (hover:none){.MuiButton-textSecondary:hover{background-color:transparent}}.MuiButton-outlined{border:1px solid rgba(0,0,0,.23);padding:5px 15px}.MuiButton-outlined.Mui-disabled{border:1px solid rgba(0,0,0,.26)}.MuiButton-outlinedPrimary{color:#11209f;border:1px solid rgba(17,32,159,.5)}.MuiButton-outlinedPrimary:hover{border:1px solid #11209f;background-color:rgba(17,32,159,.08)}@media (hover:none){.MuiButton-outlinedPrimary:hover{background-color:transparent}}.MuiButton-outlinedSecondary{color:#f5a623;border:1px solid rgba(245,166,35,.5)}.MuiButton-outlinedSecondary:hover{border:1px solid #f5a623;background-color:rgba(245,166,35,.08)}.MuiButton-outlinedSecondary.Mui-disabled{border:1px solid rgba(0,0,0,.26)}@media (hover:none){.MuiButton-outlinedSecondary:hover{background-color:transparent}}.MuiButton-contained{color:rgba(0,0,0,.87);box-shadow:0 1px 5px 0 rgba(0,0,0,.12),0 2px 2px 0 rgba(0,0,0,.1),0 3px 1px -2px rgba(0,0,0,.08);background-color:#e0e0e0}.MuiButton-contained:hover{box-shadow:0 2px 4px -1px rgba(0,0,0,.12),0 4px 5px 0 rgba(0,0,0,.1),0 1px 10px 0 rgba(0,0,0,.08);background-color:#d5d5d5}.MuiButton-contained.Mui-focusVisible{box-shadow:0 3px 5px -1px rgba(0,0,0,.12),0 6px 10px 0 rgba(0,0,0,.1),0 1px 18px 0 rgba(0,0,0,.08)}.MuiButton-contained:active{box-shadow:0 5px 5px -3px rgba(0,0,0,.12),0 8px 10px 1px rgba(0,0,0,.1),0 3px 14px 2px rgba(0,0,0,.08)}.MuiButton-contained.Mui-disabled{color:rgba(0,0,0,.26);box-shadow:none;background-color:rgba(0,0,0,.12)}@media (hover:none){.MuiButton-contained:hover{box-shadow:0 1px 5px 0 rgba(0,0,0,.12),0 2px 2px 0 rgba(0,0,0,.1),0 3px 1px -2px rgba(0,0,0,.08);background-color:#e0e0e0}}.MuiButton-contained:hover.Mui-disabled{background-color:rgba(0,0,0,.12)}.MuiButton-containedPrimary{color:#fff;background-color:#11209f}.MuiButton-containedPrimary:hover{background-color:#0b166f}@media (hover:none){.MuiButton-containedPrimary:hover{background-color:#11209f}}.MuiButton-containedSecondary{color:#000;background-color:#f5a623}.MuiButton-containedSecondary:hover{background-color:#ab7418}@media (hover:none){.MuiButton-containedSecondary:hover{background-color:#f5a623}}.MuiButton-disableElevation{box-shadow:none}.MuiButton-disableElevation:hover{box-shadow:none}.MuiButton-disableElevation.Mui-focusVisible{box-shadow:none}.MuiButton-disableElevation:active{box-shadow:none}.MuiButton-disableElevation.Mui-disabled{box-shadow:none}.MuiButton-colorInherit{color:inherit;border-color:currentColor}.MuiButton-textSizeSmall{padding:4px 5px;font-size:.8125rem}.MuiButton-textSizeLarge{padding:8px 11px;font-size:.9375rem}.MuiButton-outlinedSizeSmall{padding:3px 9px;font-size:.8125rem}.MuiButton-outlinedSizeLarge{padding:7px 21px;font-size:.9375rem}.MuiButton-containedSizeSmall{padding:4px 10px;font-size:.8125rem}.MuiButton-containedSizeLarge{padding:8px 22px;font-size:.9375rem}.MuiButton-fullWidth{width:100%}.MuiButton-startIcon{display:inherit;margin-left:-4px;margin-right:8px}.MuiButton-startIcon.MuiButton-iconSizeSmall{margin-left:-2px}.MuiButton-endIcon{display:inherit;margin-left:8px;margin-right:-4px}.MuiButton-endIcon.MuiButton-iconSizeSmall{margin-right:-2px}.MuiButton-iconSizeSmall>:first-child{font-size:18px}.MuiButton-iconSizeMedium>:first-child{font-size:20px}.MuiButton-iconSizeLarge>:first-child{font-size:22px}.MuiIconButton-root{flex:0 0 auto;color:rgba(0,0,0,.54);padding:12px;overflow:visible;font-size:1.5rem;text-align:center;transition:background-color 150ms cubic-bezier(.4,0,.2,1) 0s;border-radius:50%}.MuiIconButton-root:hover{background-color:rgba(0,0,0,.08)}.MuiIconButton-root.Mui-disabled{color:rgba(0,0,0,.26);background-color:transparent}@media (hover:none){.MuiIconButton-root:hover{background-color:transparent}}.MuiIconButton-edgeStart{margin-left:-12px}.MuiIconButton-sizeSmall.MuiIconButton-edgeStart{margin-left:-3px}.MuiIconButton-edgeEnd{margin-right:-12px}.MuiIconButton-sizeSmall.MuiIconButton-edgeEnd{margin-right:-3px}.MuiIconButton-colorInherit{color:inherit}.MuiIconButton-colorPrimary{color:#11209f}.MuiIconButton-colorPrimary:hover{background-color:rgba(17,32,159,.08)}@media (hover:none){.MuiIconButton-colorPrimary:hover{background-color:transparent}}.MuiIconButton-colorSecondary{color:#f5a623}.MuiIconButton-colorSecondary:hover{background-color:rgba(245,166,35,.08)}@media (hover:none){.MuiIconButton-colorSecondary:hover{background-color:transparent}}.MuiIconButton-sizeSmall{padding:3px;font-size:1.125rem}.MuiIconButton-label{width:100%;display:flex;align-items:inherit;justify-content:inherit}.jss335{flex-grow:1}.jss336{border:none;height:auto;padding:32px;box-shadow:0 7px 9px -4px rgba(17,32,159,.12),0 14px 21px 2px rgba(17,32,159,.1),0 5px 26px 4px rgba(17,32,159,.08);margin-top:32px;margin-left:32px;margin-right:16px;margin-bottom:16px;background-image:linear-gradient(141deg,#1fa2ff,#12d8fa,#a6ffcb)}@media (max-width:959.95px){.jss336{margin:8px;padding:16px}}.jss337{width:100%;height:auto;background-size:cover;background-image:url(/assets/landing-site-cover-image.svg);background-repeat:no-repeat;background-position:center center}.jss338{border-bottom:4px;border-bottom-color:#f5a623;border-bottom-style:solid}.jss339{margin-top:16px}.jss340{width:32px;height:32px;background-color:#11209f}.jss341{color:#fff;width:24px;height:24px}.jss342{font-size:42px;font-weight:300}@media (max-width:599.95px){.jss342{font-size:28px}}.jss343{color:#11209f;font-size:42px;font-weight:600}@media (max-width:599.95px){.jss343{font-size:28px}}.jss344{font-size:20px;font-weight:400}@media (max-width:599.95px){.jss344{font-size:16px}}.jss345{padding:48px;background:linear-gradient(to right,#4ca1af,#c4e0e5);margin-top:48px}@media (max-width:599.95px){.jss345{padding:16px;margin-top:32px}}.jss346{color:#212121;padding:16px;font-weight:600}@media (max-width:599.95px){.jss346{padding:16px}}.jss347{margin:8px;background:#3c5a99}.jss348{margin:8px;background:#1da1f2}.jss349{margin:8px;background:#212121}.jss350{color:#444;padding:64px 8px 40px 8px;font-size:28px;font-weight:500}@media (max-width:599.95px){.jss350{font-size:24px}}.jss351{width:100%}.jss352{height:100%}.jss353{height:100%;box-shadow:0 11px 15px -7px rgba(17,32,159,.12),0 24px 38px 3px rgba(17,32,159,.1),0 9px 46px 8px rgba(17,32,159,.08)}.jss354{height:100%}.jss355{height:100%}.jss356{margin-top:64px;padding-bottom:64px;background-color:#f0f8ff}.jss357{width:60px;height:60px}.jss359{font-size:16px;padding-left:50px;margin-bottom:20px;padding-right:50px}.jss360{min-height:50px}.jss361{padding-top:64px}@media (max-width:959.95px){.jss361{padding-top:32px;padding-left:16px;padding-right:16px}}.jss362{margin-top:-24px}.jss363{padding-top:48px}.jss364{color:#1c4c7a;font-family:Roboto Condensed,Roboto,sans-serif;margin-bottom:8px}@media (max-width:599.95px){.jss364{font-size:32px}}.jss365{font-size:22px;font-weight:200;line-height:1.8;margin-bottom:8px}.jss366{font-size:22px;line-height:1.8;margin-bottom:8px}.jss367{font-size:22px;line-height:1.8}.jss368{color:#fff;border:0;padding:10px 30px 10px 30px;font-size:18px;background:linear-gradient(45deg,#2196f3 30%,#21cbf3 90%);box-shadow:0 3px 5px 2px rgba(33,203,243,.3);margin-top:24px;border-radius:3px}.jss369{padding:16px}.jss370{padding-bottom:16px}.jss371{width:200px;height:200px}@media (max-width:599.95px){.jss371{width:100px;height:100px}}.jss372{color:#fff;background:#006192}@media (max-width:599.95px){.jss373{font-size:20px}}@media (max-width:599.95px){.jss374{font-size:16px}}.jss375{margin-top:64px;padding-bottom:64px;background-color:#f0f8ff}.jss310{text-align:center}.MuiAppBar-root{width:100%;display:flex;z-index:1100;box-sizing:border-box;flex-shrink:0;flex-direction:column}.MuiAppBar-positionFixed{top:0;left:auto;right:0;position:fixed}@media print{.MuiAppBar-positionFixed{position:absolute}}.MuiAppBar-positionAbsolute{top:0;left:auto;right:0;position:absolute}.MuiAppBar-positionSticky{top:0;left:auto;right:0;position:sticky}.MuiAppBar-positionStatic{position:static;transform:translateZ(0)}.MuiAppBar-positionRelative{position:relative}.MuiAppBar-colorDefault{color:rgba(0,0,0,.87);background-color:#f5f5f5}.MuiAppBar-colorPrimary{color:#fff;background-color:#11209f}.MuiAppBar-colorSecondary{color:#000;background-color:#f5a623}.jss311{flex-grow:1}.jss312{background:#fff;box-shadow:0 2px 4px 0 rgba(0,0,0,.1)}.jss313{font-size:16px;min-height:65px;text-transform:none}.jss314{width:100%;height:350px;padding:0;background-size:cover;background-image:url(/assets/blog-site-cover.jpg);background-repeat:no-repeat;background-position:center center}@media (max-width:599.95px){.jss314{height:200px}}.jss315{height:100%;padding:80px;background:rgba(0,0,0,.2)}@media (max-width:599.95px){.jss315{padding:64px}}.jss316{color:#fff;font-size:80px;font-weight:400}@media (max-width:599.95px){.jss316{font-size:40px}}.jss317{height:100%}.jss318{height:100%}.jss319{height:220px}.jss320{padding-top:32px}.jss321{left:0;bottom:0;height:55px;position:absolute;margin-bottom:8px}.jss322{line-height:1.3}.jss323{margin-top:8px;margin-bottom:50px}.jss324{padding:16px}.jss325{background:#f0f8ff}.jss326{display:none}@media (min-width:960px){.jss326{margin:16px;display:flex}}.jss179{flex-grow:1;padding-top:5px}.jss180{padding-top:0;padding-block-start:80}.jss181{margin-top:24px}.jss182{margin-top:24px}.jss183{margin-top:24px}.jss184{margin:8px}.jss185{margin-right:8px}.jss186{margin-left:8px}.jss187{font-size:20px}.jss188{color:#fff;padding-top:8px;padding-bottom:8px}.jss189{color:#999;margin-top:24px;margin-left:8px;margin-right:8px;margin-bottom:24px}.jss190{padding-top:32px}.jss191{margin-left:8px;margin-right:8px}.jss192{background:#f0f8ff}.jss193{margin:16px;display:flex}.MuiDivider-root{border:none;height:1px;margin:0;flex-shrink:0;background-color:rgba(0,0,0,.12)}.MuiDivider-absolute{left:0;width:100%;bottom:0;position:absolute}.MuiDivider-inset{margin-left:72px}.MuiDivider-light{background-color:rgba(0,0,0,.08)}.MuiDivider-middle{margin-left:16px;margin-right:16px}.MuiDivider-vertical{width:1px;height:100%}.MuiPopover-paper{outline:0;position:absolute;max-width:calc(100% - 32px);min-width:16px;max-height:calc(100% - 32px);min-height:16px;overflow-x:hidden;overflow-y:auto}.MuiMenu-paper{max-height:calc(100% - 96px);-webkit-overflow-scrolling:touch}.MuiMenu-list{outline:0}.MuiToolbar-root{display:flex;position:relative;align-items:center}.MuiToolbar-gutters{padding-left:16px;padding-right:16px}@media (min-width:600px){.MuiToolbar-gutters{padding-left:24px;padding-right:24px}}.MuiToolbar-regular{min-height:56px}@media (min-width:0px) and (orientation:landscape){.MuiToolbar-regular{min-height:48px}}@media (min-width:600px){.MuiToolbar-regular{min-height:64px}}.MuiToolbar-dense{min-height:48px}@media print{.MuiDialog-root{position:absolute!important}}.MuiDialog-scrollPaper{display:flex;align-items:center;justify-content:center}.MuiDialog-scrollBody{overflow-x:hidden;overflow-y:auto;text-align:center}.MuiDialog-scrollBody:after{width:0;height:100%;content:"";display:inline-block;vertical-align:middle}.MuiDialog-container{height:100%;outline:0}@media print{.MuiDialog-container{height:auto}}.MuiDialog-paper{margin:32px;position:relative;overflow-y:auto}@media print{.MuiDialog-paper{box-shadow:none;overflow-y:visible}}.MuiDialog-paperScrollPaper{display:flex;max-height:calc(100% - 64px);flex-direction:column}.MuiDialog-paperScrollBody{display:inline-block;text-align:left;vertical-align:middle}.MuiDialog-paperWidthFalse{max-width:calc(100% - 64px)}.MuiDialog-paperWidthXs{max-width:444px}@media (max-width:507.95px){.MuiDialog-paperWidthXs.MuiDialog-paperScrollBody{max-width:calc(100% - 64px)}}.MuiDialog-paperWidthSm{max-width:600px}@media (max-width:663.95px){.MuiDialog-paperWidthSm.MuiDialog-paperScrollBody{max-width:calc(100% - 64px)}}.MuiDialog-paperWidthMd{max-width:960px}@media (max-width:1023.95px){.MuiDialog-paperWidthMd.MuiDialog-paperScrollBody{max-width:calc(100% - 64px)}}.MuiDialog-paperWidthLg{max-width:1280px}@media (max-width:1343.95px){.MuiDialog-paperWidthLg.MuiDialog-paperScrollBody{max-width:calc(100% - 64px)}}.MuiDialog-paperWidthXl{max-width:1920px}@media (max-width:1983.95px){.MuiDialog-paperWidthXl.MuiDialog-paperScrollBody{max-width:calc(100% - 64px)}}.MuiDialog-paperFullWidth{width:calc(100% - 64px)}.MuiDialog-paperFullScreen{width:100%;height:100%;margin:0;max-width:100%;max-height:none;border-radius:0}.MuiDialog-paperFullScreen.MuiDialog-paperScrollBody{margin:0;max-width:100%}.jss160{margin-left:16px;margin-right:16px;margin-bottom:24px}.jss161{background:#11209f}.jss162{margin-right:16px}.jss163{display:flex;flex-wrap:wrap}html{box-sizing:border-box;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}*,::after,::before{box-sizing:inherit}b,strong{font-weight:bolder}body{color:rgba(0,0,0,.87);margin:0;font-size:.875rem;font-family:Roboto,Helvetica,Arial,sans-serif;font-weight:400;line-height:1.43;letter-spacing:.01071em;background-color:#fff}@media print{body{background-color:#fff}}body::backdrop{background-color:#fff}.MuiDrawer-docked{flex:0 0 auto}.MuiDrawer-paper{top:0;flex:1 0 auto;height:100%;display:flex;outline:0;z-index:1200;position:fixed;overflow-y:auto;flex-direction:column;-webkit-overflow-scrolling:touch}.MuiDrawer-paperAnchorLeft{left:0;right:auto}.MuiDrawer-paperAnchorRight{left:auto;right:0}.MuiDrawer-paperAnchorTop{top:0;left:0;right:0;bottom:auto;height:auto;max-height:100%}.MuiDrawer-paperAnchorBottom{top:auto;left:0;right:0;bottom:0;height:auto;max-height:100%}.MuiDrawer-paperAnchorDockedLeft{border-right:1px solid rgba(0,0,0,.12)}.MuiDrawer-paperAnchorDockedTop{border-bottom:1px solid rgba(0,0,0,.12)}.MuiDrawer-paperAnchorDockedRight{border-left:1px solid rgba(0,0,0,.12)}.MuiDrawer-paperAnchorDockedBottom{border-top:1px solid rgba(0,0,0,.12)}.jss1{flex-grow:1}.jss2{color:#000;background:#fff;box-shadow:0 4px 8px 0 rgba(0,0,0,.1)}.jss3{margin-right:16px}.jss4{flex-grow:1}.jss5{margin:10px}.jss6{margin:8px;font-size:16px;text-transform:none}.jss7{margin:8px;padding-left:40}.jss8{display:none}@media (min-width:960px){.jss8{display:flex}}.jss9{display:flex}@media (min-width:960px){.jss9{display:none}}.jss10{padding-top:8px;padding-left:16px;padding-right:16px;padding-bottom:8px}.jss11{color:#666}.jss12{margin-left:45%}.jss13{margin:8px}.jss14{width:40px;height:40px;margin:5px}.jss15{min-width:300px}.jss386{flex-grow:1;margin-top:0}.jss387{padding:16px}.jss388{margin-right:8px}.jss389{display:flex;align-items:center;margin-bottom:10px}.jss390{margin-top:0;padding-top:0;margin-bottom:0;padding-bottom:0}
+  </style>
+  <link href="/styles/vendor-1.4.7.css" rel="stylesheet" type="text/css"/>
+  <link href="/styles/app-1.4.7.css" rel="stylesheet" type="text/css"/>
+  <link href="/assets/github-markdown.css" rel="stylesheet" type="text/css"/>
+  <link href="/assets/pilcrow.css" rel="stylesheet" type="text/css"/>
+  <link href="/assets/hljs-github.min.css" rel="stylesheet" type="text/css"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap" rel="stylesheet"/>
+  <script async="" defer="defer" src="https://www.google.com/recaptcha/api.js?render=explicit" type="text/javascript">
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-91686131-4">
+  </script>
+  <script>
+   function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-91686131-4")
+  </script>
+  <script>
+   !function(e,t,n,c,o,a,f){e.fbq||(o=e.fbq=function(){o.callMethod?o.callMethod.apply(o,arguments):o.queue.push(arguments)},e._fbq||(e._fbq=o),(o.push=o).loaded=!0,o.version="2.0",o.queue=[],(a=t.createElement(n)).async=!0,a.src="https://connect.facebook.net/en_US/fbevents.js",(f=t.getElementsByTagName(n)[0]).parentNode.insertBefore(a,f))}(window,document,"script"),fbq("init","784211865395927"),fbq("track","PageView")
+  </script>
+  <noscript>
+   <img height="1" src="https://www.facebook.com/tr?id=784211865395927&amp;ev=PageView&amp;noscript=1" style="display:none" width="1"/>
+  </noscript>
+  <!-- End Facebook Pixel Code -->
+ </head>
+ <body>
+  <div id="root">
+   <div style="max-width:1444px;margin:0 auto;float:float: none">
+    <div class="jss1">
+     <header class="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed jss2 MuiAppBar-colorPrimary mui-fixed MuiPaper-elevation4">
+      <div class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters">
+       <a class="MuiAvatar-root MuiAvatar-circle jss5" href="/">
+        <img alt="Logo" class="MuiAvatar-img" src="/assets/AfterAcademyLogo.svg"/>
+       </a>
+       <h6 class="MuiTypography-root jss4 MuiTypography-h6">
+        AfterAcademy
+       </h6>
+       <div class="jss8">
+        <a aria-disabled="false" class="MuiButtonBase-root MuiButton-root MuiButton-text jss6 MuiButton-colorInherit" href="/tech-interview" role="button" tabindex="0">
+         <span class="MuiButton-label">
+          Interview Kit
+         </span>
+        </a>
+        <a aria-disabled="false" class="MuiButtonBase-root MuiButton-root MuiButton-text jss6 MuiButton-colorInherit" href="/blogs" role="button" tabindex="0">
+         <span class="MuiButton-label">
+          Blogs
+         </span>
+        </a>
+        <a aria-disabled="false" class="MuiButtonBase-root MuiButton-root MuiButton-text jss6 MuiButton-colorInherit" href="https://janisharali.com" tabindex="0" target="_blank">
+         <span class="MuiButton-label">
+          Mentor Ali
+         </span>
+        </a>
+        <a aria-disabled="false" class="MuiButtonBase-root MuiButton-root MuiButton-text jss6 MuiButton-colorInherit" href="https://amitshekhar.me" tabindex="0" target="_blank">
+         <span class="MuiButton-label">
+          Mentor Amit
+         </span>
+        </a>
+       </div>
+       <div class="jss9">
+        <button aria-haspopup="true" aria-label="show more" class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit" tabindex="0" type="button">
+         <span class="MuiIconButton-label">
+          <svg aria-hidden="true" class="MuiSvgIcon-root" focusable="false" role="presentation" viewbox="0 0 24 24">
+           <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z">
+           </path>
+          </svg>
+         </span>
+        </button>
+       </div>
+      </div>
+     </header>
+    </div>
+    <div style="margin-top:60px">
+     <div class="jss179">
+      <div class="MuiGrid-root jss192 MuiGrid-container MuiGrid-align-items-xs-center MuiGrid-justify-xs-center">
+       <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-sm-11 MuiGrid-grid-md-10">
+       </div>
+      </div>
+      <div class="MuiGrid-root jss180 MuiGrid-container MuiGrid-justify-xs-center">
+       <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-7">
+        <div class="jss181">
+         <div class="MuiCardHeader-root">
+          <div class="MuiCardHeader-avatar">
+           <div aria-label="Admin AfterAcademy" class="MuiAvatar-root MuiAvatar-circle">
+            <img class="MuiAvatar-img" src="https://afteracademy.com/assets/AfterAcademyLogo.svg"/>
+           </div>
+          </div>
+          <div class="MuiCardHeader-content">
+           <span class="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock">
+            Admin AfterAcademy
+           </span>
+           <span class="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock">
+            18 Dec 2019
+           </span>
+          </div>
+         </div>
+        </div>
+        <div class="typewriter-blog-content">
+         <div id="content">
+          <article class="template">
+           <div class="postContent">
+            <div class="notesSource">
+             <div class="postField postField--body" id="editor">
+              <section class="section--first section--last">
+               <div class="section-divider layoutSingleColumn-template">
+                <hr class="section-divider"/>
+               </div>
+               <div class="section-content">
+                <div class="section-inner layoutSingleColumn-template">
+                 <div>
+                  <h2 class="graf--h1">
+                   Time and Space Complexity Analysis of Algorithm
+                  </h2>
+                  <div class="graf-image graf-caption">
+                   <img class="graf-image" src="/images/time-and-space-complexity-analysis-of-algorithm-banner-695ba316ae0bd71d.png"/>
+                  </div>
+                  <p class="graf--p">
+                   Every day we come across many problems and we find one or more than one solutions to that particular problem. Some solutions may be efficient as compared to others and some solutions may be less efficient. Generally, we tend to use the most efficient solution.
+                  </p>
+                  <p class="graf--p">
+                   <b class="graf--bold">
+                    For example,
+                   </b>
+                   while going from your home to your office or school or college, there can be "n" number of paths. But you choose only one path to go to your destination i.e. the shortest path.
+                  </p>
+                  <p class="graf--p">
+                   The same idea we apply in the case of the
+                   <b class="graf--bold">
+                    computational problems or problem-solving via computer.
+                   </b>
+                   We have one computational problem and we can design various solutions i.e. algorithms and we choose the most efficient algorithm out of those developed algorithms.
+                  </p>
+                  <p class="graf--p">
+                   <b class="graf--bold">
+                    Critical Ideas to think!
+                   </b>
+                  </p>
+                  <ul>
+                   <li>
+                    What is a computational problem? How we extract relevant detail and transform a real-life problem into a computational problem?
+                   </li>
+                  </ul>
+                  <h4 class="graf--h3">
+                   What is an Algorithm?
+                  </h4>
+                  <p class="graf--p">
+                   In computer science, whenever we want to solve some computational problem then we define a set of steps that need to be followed to solve that problem. These steps are collectively known as an algorithm.
+                  </p>
+                  <p class="graf--p">
+                   For example, you have two integers "a" and "b" and you want to find the sum of those two number. How will you solve this? One possible solution for the above problem can be:
+                  </p>
+                  <ul>
+                   <li>
+                    Take two integers as input
+                   </li>
+                   <li>
+                    create a variable "
+                    <i class="graf--italic">
+                     sum
+                    </i>
+                    " to store the sum of two integers
+                   </li>
+                   <li>
+                    put the sum of those two variables in the "
+                    <i class="graf--italic">
+                     sum
+                    </i>
+                    " variable
+                   </li>
+                   <li>
+                    return the "
+                    <i class="graf--italic">
+                     sum
+                    </i>
+                    " variable
+                   </li>
+                  </ul>
+                  <pre><code class="language-java graf graf--code">//taking two integers as input
+int findSum(int a, int b) 
+{
+    int sum; // creating the sum variable
+    sum = a + b; // storing the sum of a and b
+    return sum; // returning the sum variable
+}</code></pre>
+                  <p class="graf--p">
+                   In the above example, you will find three things i.e. input, algorithm, and output:
+                  </p>
+                  <div class="graf-image graf-caption">
+                   <img class="graf-image" src="/images/time-and-space-complexity-analysis-of-algorithm-flow-of-algorithm-3df63a24cb959397.png"/>
+                  </div>
+                  <ul>
+                   <li>
+                    <b class="graf--bold">
+                     Input:
+                    </b>
+                    Input is something for which you need to write an algorithm and transform it into the desired output. Just like in machines where you give some raw product and the machine transforms the raw product into some desirable product. In our example, the input is the two numbers i.e. "a" and "b". Before writing an algorithm, you should find the data type of input, distribution or range of input and other relevant details related to it. So critically analyse your input before writing the solution.
+                   </li>
+                   <li>
+                    <b class="graf--bold">
+                     Algorithm:
+                    </b>
+                    An algorithm is well-defined steps by step procedure that take some value or set of values as input and produce some value or set of values as output. In the above example, we are having three steps to find the sum of two numbers. So, all three steps are collectively called an algorithm to find the sum of two numbers.
+                   </li>
+                   <li>
+                    <b class="graf--bold">
+                     Output:
+                    </b>
+                    Output is the desired result in the problem. For example, if we are finding the sum of two integers a and b then for every value of a and b it must produce the correct sum as an output.
+                   </li>
+                  </ul>
+                  <h4 class="graf--h3">
+                   What do you mean by a good Algorithm?
+                  </h4>
+                  <p class="graf--p">
+                   There can be many algorithms for a particular problem. So, how will you classify an algorithm to be good and others to be bad? Let's understand the properties of a good algorithm:
+                  </p>
+                  <ul>
+                   <li>
+                    <b class="graf--bold">
+                     Correctness:
+                    </b>
+                    An algorithm is said to be correct if for every set of input it halts with the correct output. If you are not getting the correct output for any particular set of input, then your algorithm is wrong.
+                   </li>
+                   <li>
+                    <b class="graf--bold">
+                     Finiteness:
+                    </b>
+                    Generally, people ignore this but it is one of the important factors in algorithm evaluation. The algorithm must always terminate after a finite number of steps. For example, in the case of recursion and loop, your algorithm should terminate otherwise you will end up having a stack overflow and infinite loop scenario respectively.
+                   </li>
+                   <li>
+                    <b class="graf--bold">
+                     Efficiency:
+                    </b>
+                    An efficient algorithm is always used. By the term efficiency, we mean to say that:
+                   </li>
+                  </ul>
+                  <ol>
+                   <li>
+                    The algorithm should efficiently use the resources available to the system.
+                   </li>
+                   <li>
+                    The computational time (the time taken to generate an output corresponding to a particular input) should be as less as possible.
+                   </li>
+                   <li>
+                    The memory used by the algorithm should also be as less as possible. Generally, there is a trade-off between computational time and memory. So, we need to find if the time is more important than space or vice-versa and then write the algorithm accordingly.
+                   </li>
+                  </ol>
+                  <p class="graf--p">
+                   So, we have seen the three factors that can be used to evaluate an algorithm. Out of these three factors, the most important one is the efficiency of algorithms. So let's dive deeper into the efficiency of the algorithm.
+                  </p>
+                  <h4 class="graf--h3">
+                   Algorithm Efficiency
+                  </h4>
+                  <p class="graf--p">
+                   The efficiency of an algorithm is mainly defined by two factors i.e. space and time. A good algorithm is one that is taking less time and less space, but this is not possible all the time. There is a trade-off between time and space. If you want to reduce the time, then space might increase. Similarly, if you want to reduce the space, then the time may increase. So, you have to compromise with either space or time. Let's learn more about space and time complexity of algorithms.
+                  </p>
+                  <h4 class="graf--h3">
+                   Space Complexity
+                  </h4>
+                  <p class="graf--p">
+                   Space Complexity of an algorithm denotes the total space used or needed by the algorithm for its working, for various input sizes. For example:
+                  </p>
+                  <pre><code class="language-java graf graf--code">vector&lt;int&gt; myVec(n);
+for(int i = 0; i &lt; n; i++)
+    cin &gt;&gt; myVec[i]; </code></pre>
+                  <p class="graf--p">
+                   In the above example, we are creating a vector of size n. So the space complexity of the above code is in the order of "n" i.e. if n will increase, the space requirement will also increase accordingly.
+                  </p>
+                  <p class="graf--p">
+                   Even when you are creating a variable then you need some space for your algorithm to run. All the space required for the algorithm is collectively called the Space Complexity of the algorithm.
+                  </p>
+                  <p class="graf--p">
+                   <b class="graf--bold">
+                    NOTE:
+                   </b>
+                   In normal programming, you will be allowed to use 256MB of space for a particular problem. So, you can't create an array of size more 10^8 because you will be allowed to use only 256MB. Also, you can't create an array of size more than 10^6 in a function because the maximum space allotted to a function is 4MB. So, to use an array of more size, you can create a global array.
+                  </p>
+                  <h4 class="graf--h3">
+                   Time Complexity
+                  </h4>
+                  <p class="graf--p">
+                   The time complexity is the number of operations an algorithm performs to complete its task with respect to
+                   <b class="graf--bold">
+                    input size
+                   </b>
+                   (considering that each operation takes the same amount of time). The algorithm that performs the task in the smallest number of operations is considered the most efficient one.
+                  </p>
+                  <blockquote class="graf--blockquote">
+                   <b class="graf--bold">
+                    Input Size:
+                   </b>
+                   Input size is defined as total number of elements present in the input. For a given problem we characterize the input size
+                   <b class="graf--bold">
+                    n
+                   </b>
+                   approproately. For example:
+                  </blockquote>
+                  <blockquote class="graf--blockquote">
+                   <i class="graf--italic">
+                    Sorting problem: Total number of item to be sorted
+                   </i>
+                  </blockquote>
+                  <blockquote class="graf--blockquote">
+                   <i class="graf--italic">
+                    Graph Problem: Total number of vertices and edges
+                   </i>
+                  </blockquote>
+                  <blockquote class="graf--blockquote">
+                   <i class="graf--italic">
+                    Numerical Problem: Total number of bits needed to represent a number
+                   </i>
+                  </blockquote>
+                  <p class="graf--p">
+                   The time taken by an algorithm also depends on the computing speed of the system that you are using, but we ignore those external factors and we are only concerned on the number of times a particular statement is being executed with respect to the input size. Let's say, for executing one statement, the time taken is 1sec, then what is the time taken for executing n statements, It will take n seconds.
+                  </p>
+                  <p class="graf--p">
+                   Suppose you are having one problem and you wrote three algorithms for the same problem. Now, you need to choose one out of those three algorithms. How will you do that?
+                  </p>
+                  <ul>
+                   <li>
+                    One thing that you can do is just run all the three algorithms on three different computers, provide same input and find the time taken by all the three algorithms and choose the one that is taking the least amount of time. Is it ok? No, all the systems might be using some different processors. So, the processing speed might vary. So, we can't use this approach to find the most efficient algorithm.
+                   </li>
+                   <li>
+                    Another thing that you can do is run all the three algorithms on the same computer and try to find the time taken by the algorithm and choose the best. But here also, you might get wrong results because, at the time of execution of a program, there are other things that are executing along with your program, so you might get the wrong time.
+                   </li>
+                  </ul>
+                  <p class="graf--p">
+                   <b class="graf--bold">
+                    NOTE:
+                   </b>
+                   One thing that is to be noted here is that we are finding the time taken by different algorithms for the same input because if we change the input then the efficient algorithm might take more time as compared to the less efficient one because the input size is different for both algorithms.
+                  </p>
+                  <p class="graf--p">
+                   So, we have seen that we can't judge an algorithm by calculating the time taken during its execution in a particular system. We need some standard notation to analyse the algorithm. We use
+                   <i class="graf--italic">
+                    <b class="graf--bold">
+                     Asymptotic notation
+                    </b>
+                   </i>
+                   to analyse any algorithm and based on that we find the most efficient algorithm. Here in Asymptotic notation, we do not consider the system configuration, rather we consider the
+                   <b class="graf--bold">
+                    order of growth
+                   </b>
+                   of the input. We try to find how the time or the space taken by the algorithm will increase/decrease after increasing/decreasing the input size.
+                  </p>
+                  <p class="graf--p">
+                   There are three asymptotic notations that are used to represent the time complexity of an algorithm. They are:
+                  </p>
+                  <ul>
+                   <li>
+                    <b class="graf--bold">
+                     Θ Notation (theta)
+                    </b>
+                   </li>
+                   <li>
+                    <b class="graf--bold">
+                     Big O Notation
+                    </b>
+                   </li>
+                   <li>
+                    <b class="graf--bold">
+                     Ω Notation
+                    </b>
+                   </li>
+                  </ul>
+                  <p class="graf--p">
+                   Before learning about these three asymptotic notation, we should learn about the best, average, and the worst case of an algorithm.
+                  </p>
+                  <h4 class="graf--h3">
+                   Best case, Average case, and Worst case
+                  </h4>
+                  <p class="graf--p">
+                   An algorithm can have different time for different inputs. It may take 1 second for some input and 10 seconds for some other input.
+                  </p>
+                  <blockquote class="graf--blockquote">
+                   <b class="graf--bold">
+                    For example:
+                   </b>
+                   We have one array named "
+                   <i class="graf--italic">
+                    arr"
+                   </i>
+                   and an integer "
+                   <i class="graf--italic">
+                    k
+                   </i>
+                   ". we need to find if that integer "
+                   <i class="graf--italic">
+                    k
+                   </i>
+                   " is present in the array "
+                   <i class="graf--italic">
+                    arr
+                   </i>
+                   " or not? If the integer is there, then return 1 other return 0. Try to make an algorithm for this question.
+                  </blockquote>
+                  <p class="graf--p">
+                   The following information can be extracted from the above question:
+                  </p>
+                  <ul>
+                   <li>
+                    <b class="graf--bold">
+                     Input:
+                    </b>
+                    Here our input is an integer array of size "n" and we have one integer "k" that we need to search for in that array.
+                   </li>
+                   <li>
+                    <b class="graf--bold">
+                     Output:
+                    </b>
+                    If the element "k" is found in the array, then we have return 1, otherwise we have to return 0.
+                   </li>
+                  </ul>
+                  <p class="graf--p">
+                   Now, one possible solution for the above problem can be linear search i.e. we will traverse each and every element of the array and compare that element with "k". If it is equal to "k" then return 1, otherwise, keep on comparing for more elements in the array and if you reach at the end of the array and you did not find any element, then return 0.
+                  </p>
+                  <pre><code class="language-java graf graf--code">/*
+* @type of arr: integer array
+* @type of n: integer (size of integer array)
+* @type of k: integer (integer to be searched)
+*/
+int searchK(int arr[], int n, int k) 
+{  
+    // for-loop to iterate with each element in the array
+    for (int i = 0; i &lt; n; ++i) 
+    { 
+        // check if ith element is equal to "k" or not
+        if (arr[i] == k) 
+            return 1; // return 1, if you find "k"
+    } 
+    return 0; // return 0, if you didn't find "k"
+}
+
+
+/*
+* [Explanation]
+* i = 0 ------------&gt; will be executed once
+* i &lt; n ------------&gt; will be executed n+1 times
+* i++ --------------&gt; will be executed n times
+* if(arr[i] == k) --&gt; will be executed n times
+* return 1 ---------&gt; will be executed once(if "k" is there in the array)
+* return 0 ---------&gt; will be executed once(if "k" is not there in the array)
+*/</code></pre>
+                  <p class="graf--p">
+                   Each statement in code takes constant time, let's say "C", where "C" is some constant. So, whenever you declare an integer then it takes constant time when you change the value of some integer or other variables then it takes constant time, when you compare two variables then it takes constant time. So, if a statement is taking "C" amount of time and it is executed "N" times, then it will take C*N amount of time. Now, think of the following inputs to the above algorithm that we have just written:
+                  </p>
+                  <p class="graf--p">
+                   <b class="graf--bold">
+                    NOTE:
+                   </b>
+                   Here we assume that each statement is taking 1sec of time to execute.
+                  </p>
+                  <ul>
+                   <li>
+                    If the input array is [1, 2, 3, 4, 5] and you want to find if "1" is present in the array or not, then the if-condition of the code will be executed 1 time and it will find that the element 1 is there in the array. So, the if-condition will take 1 second here.
+                   </li>
+                   <li>
+                    If the input array is [1, 2, 3, 4, 5] and you want to find if "3" is present in the array or not, then the if-condition of the code will be executed 3 times and it will find that the element 3 is there in the array. So, the if-condition will take 3 seconds here.
+                   </li>
+                   <li>
+                    If the input array is [1, 2, 3, 4, 5] and you want to find if "6" is present in the array or not, then the if-condition of the code will be executed 5 times and it will find that the element 6 is not there in the array and the algorithm will return 0 in this case. So, the if-condition will take 5 seconds here.
+                   </li>
+                  </ul>
+                  <p class="graf--p">
+                   As you can see that for the same input array, we have different time for different values of "k". So, this can be divided into three cases:
+                  </p>
+                  <ul>
+                   <li>
+                    <b class="graf--bold">
+                     Best case:
+                    </b>
+                    This is the lower bound on running time of an algorithm. We must know the case that causes the minimum number of operations to be executed. In the above example, our array was [1, 2, 3, 4, 5] and we are finding if "1" is present in the array or not. So here, after only one comparison, you will get that your element is present in the array. So, this is the best case of your algorithm.
+                   </li>
+                   <li>
+                    <b class="graf--bold">
+                     Average case:
+                    </b>
+                    We calculate the running time for all possible inputs, sum all the calculated values and divide the sum by the total number of inputs. We must know (or predict) distribution of cases.
+                   </li>
+                   <li>
+                    <b class="graf--bold">
+                     Worst case:
+                    </b>
+                    This is the upper bound on running time of an algorithm. We must know the case that causes the maximum number of operations to be executed. In our example, the worst case can be if the given array is [1, 2, 3, 4, 5] and we try to find if element "6" is present in the array or not. Here, the if-condition of our loop will be executed 5 times and then the algorithm will give "0" as output.
+                   </li>
+                  </ul>
+                  <p class="graf--p">
+                   So, we learned about the best, average, and worst case of an algorithm. Now, let's get back to the asymptotic notation where we saw that we use three asymptotic notation to represent the complexity of an algorithm i.e. Θ Notation (theta), Ω Notation, Big O Notation.
+                  </p>
+                  <p class="graf--p">
+                   <b class="graf--bold">
+                    NOTE:
+                   </b>
+                   In the asymptotic analysis, we generally deal with large input size.
+                  </p>
+                  <h4 class="graf--h3">
+                   Θ Notation (theta)
+                  </h4>
+                  <p class="graf--p">
+                   The Θ Notation is used to find the average bound of an algorithm i.e. it defines an upper bound and a lower bound, and your algorithm will lie in between these levels. So, if a function is g(n), then the theta representation is shown as Θ(g(n)) and the relation is shown as:
+                  </p>
+                  <pre><code class="language-java graf graf--code">Θ(g(n)) = { f(n): there exist positive constants c1, c2 and n0
+          such that 0 ≤ c1g(n) ≤ f(n) ≤ c2g(n) for all n ≥ n0 }</code></pre>
+                  <p class="graf--p">
+                   <i class="graf--italic">
+                    The above expression can be read as
+                   </i>
+                   theta of g(n) is defined as set of all the functions f(n) for which there exists some positive constants c1, c2, and n0 such that c1*g(n) is less than or equal to f(n) and f(n) is less than or equal to c2*g(n) for all n that is greater than or equal to n0.
+                  </p>
+                  <p class="graf--p">
+                   For example:
+                  </p>
+                  <pre><code class="language-java graf graf--code">if f(n) = 2n² + 3n + 1
+and g(n) = n²
+then for c1 = 2, c2 = 6, and n0 = 1, we can say that f(n) = Θ(n²)</code></pre>
+                  <div class="graf-image graf-caption">
+                   <img class="graf-image" src="/images/time-and-space-complexity-analysis-of-algorithm-theta-notation-bd4dbe9a99a1bdb3.jpg"/>
+                  </div>
+                  <h4 class="graf--h3">
+                   Ω Notation
+                  </h4>
+                  <p class="graf--p">
+                   The Ω notation denotes the lower bound of an algorithm i.e. the time taken by the algorithm can't be lower than this. In other words, this is the fastest time in which the algorithm will return a result. Its the time taken by the algorithm when provided with its best-case input. So, if a function is g(n), then the omega representation is shown as Ω(g(n)) and the relation is shown as:
+                  </p>
+                  <pre><code class="language-java graf graf--code">Ω(g(n)) = { f(n): there exist positive constants c and n0 
+          such that 0 ≤ cg(n) ≤ f(n) for all n ≥ n0 }</code></pre>
+                  <p class="graf--p">
+                   <i class="graf--italic">
+                    The above expression can be read as
+                   </i>
+                   omega of g(n) is defined as set of all the functions f(n) for which there exist some constants c and n0 such that c*g(n) is less than or equal to f(n), for all n greater than or equal to n0.
+                  </p>
+                  <pre><code class="language-java graf graf--code">if f(n) = 2n² + 3n + 1
+and g(n) = n²
+then for c = 2 and n0 = 1, we can say that f(n) = Ω(n²)</code></pre>
+                  <div class="graf-image graf-caption">
+                   <img class="graf-image" src="/images/time-and-space-complexity-analysis-of-algorithm-omega-notation-c4af5e571b5272b3.jpg"/>
+                  </div>
+                  <h4 class="graf--h3">
+                   Big O Notation
+                  </h4>
+                  <p class="graf--p">
+                   The Big O notation defines the upper bound of any algorithm i.e. you algorithm can't take more time than this time. In other words, we can say that the big O notation denotes the maximum time taken by an algorithm or the worst-case time complexity of an algorithm. So, big O notation is the most used notation for the time complexity of an algorithm. So, if a function is g(n), then the big O representation of g(n) is shown as O(g(n)) and the relation is shown as:
+                  </p>
+                  <pre><code class="language-java graf graf--code">O(g(n)) = { f(n): there exist positive constants c and n0
+          such that 0 ≤ f(n) ≤ cg(n) for all n ≥ n0 }</code></pre>
+                  <p class="graf--p">
+                   <i class="graf--italic">
+                    The above expression can be read as
+                   </i>
+                   Big O of g(n) is defined as a set of functions f(n) for which there exist some constants c and n0 such that f(n) is greater than or equal to 0 and f(n) is smaller than or equal to c*g(n) for all n greater than or equal to n0.
+                  </p>
+                  <pre><code class="language-java graf graf--code">if f(n) = 2n² + 3n + 1
+and g(n) = n²
+then for c = 6 and n0 = 1, we can say that f(n) = O(n²)</code></pre>
+                  <div class="graf-image graf-caption">
+                   <img class="graf-image" src="/images/time-and-space-complexity-analysis-of-algorithm-big-o-notation-47d175715edaf571.jpg"/>
+                  </div>
+                  <h4 class="graf--h3">
+                   Big O notation example of Algorithms
+                  </h4>
+                  <p class="graf--p">
+                   Big O notation is the most used notation to express the time complexity of an algorithm. In this section of the blog, we will find the big O notation of various algorithms.
+                  </p>
+                  <p class="graf--p">
+                   <b class="graf--bold">
+                    Example 1: Finding the sum of the first n numbers.
+                   </b>
+                  </p>
+                  <p class="graf--p">
+                   In this example, we have to find the sum of first n numbers. For example, if n = 4, then our output should be 1 + 2 + 3 + 4 = 10. If n = 5, then the ouput should be 1 + 2 + 3 + 4 + 5 = 15. Let's try various solutions to this code and try to compare all those codes.
+                  </p>
+                  <blockquote class="graf--blockquote">
+                   <b class="graf--bold">
+                    O(1) solution
+                   </b>
+                  </blockquote>
+                  <pre><code class="language-java graf graf--code">// function taking input "n"
+int findSum(int n) 
+{
+    return n * (n+1) / 2; // this will take some constant time c1
+}</code></pre>
+                  <p class="graf--p">
+                   In the above code, there is only one statement and we know that a statement takes constant time for its execution. The basic idea is that if the statement is taking constant time, then it will take the same amount of time for all the input size and we denote this as
+                   <b class="graf--bold">
+                    <i class="graf--italic">
+                     O(1)
+                    </i>
+                   </b>
+                   .
+                  </p>
+                  <blockquote class="graf--blockquote">
+                   <b class="graf--bold">
+                    O(n) solution
+                   </b>
+                  </blockquote>
+                  <p class="graf--p">
+                   In this solution, we will run a loop from 1 to n and we will add these values to a variable named "sum".
+                  </p>
+                  <pre><code class="language-java graf graf--code">// function taking input "n"
+int findSum(int n) 
+{
+    int sum = 0; // -----------------&gt; it takes some constant time "c1"
+    for(int i = 1; i &lt;= n; ++i) // --&gt; here the comparision and increment will take place n times(c2*n) and the creation of i takes place with some constant time
+        sum = sum + i; // -----------&gt; this statement will be executed n times i.e. c3*n
+    return sum; // ------------------&gt; it takes some constant time "c4"
+}
+/*
+* Total time taken = time taken by all the statments to execute
+* here in our example we have 3 constant time taking statements i.e. "sum = 0", "i = 0", and "return sum", so we can add all the constatnts and replacce with some new constant "c"
+* apart from this, we have two statements running n-times i.e. "i &lt; n(in real n+1)" and "sum = sum  + i" i.e. c2*n + c3*n = c0*n
+* Total time taken = c0*n + c
+*/</code></pre>
+                  <p class="graf--p">
+                   The big O notation of the above code is O(c0*n) + O(c), where c and c0 are constants. So, the overall time complexity can be written as
+                   <b class="graf--bold">
+                    <i class="graf--italic">
+                     O(n)
+                    </i>
+                   </b>
+                   .
+                  </p>
+                  <blockquote class="graf--blockquote">
+                   <b class="graf--bold">
+                    O(n²) solution
+                   </b>
+                  </blockquote>
+                  <p class="graf--p">
+                   In this solution, we will increment the value of sum variable "i" times i.e. for i = 1, the sum variable will be incremented once i.e. sum = 1. For i = 2, the sum variable will be incremented twice. So, let's see the solution.
+                  </p>
+                  <pre><code class="language-java graf graf--code">// function taking input "n"
+int findSum(int n) 
+{
+    int sum = 0; // ---------------------&gt; constant time
+    for(int i = 1; i &lt;= n; ++i) 
+        for(int j = 1; j &lt;= i; ++j)
+            sum++; // -------------------&gt; it will run [n * (n + 1) / 2]
+    return sum; // ----------------------&gt; constant time
+}
+/*
+* Total time taken = time taken by all the statments to execute
+* the statement that is being executed most of the time is "sum++" i.e. n * (n + 1) / 2
+* So, total complexity will be: c1*n² + c2*n + c3 [c1 is for the constant terms of n², c2 is for the constant terms of n, and c3 is for rest of the constant time]
+*/</code></pre>
+                  <p class="graf--p">
+                   The big O notation of the above algorithm is O(c1*n²) +O( c2*n) + O(c3). Since we take the higher order of growth in big O. So, our expression will be reduced to
+                   <b class="graf--bold">
+                    <i class="graf--italic">
+                     O(n²)
+                    </i>
+                   </b>
+                   .
+                  </p>
+                  <p class="graf--p">
+                   So, until now, we saw 3 solutions for the same problem. Now, which algorithm will you prefer to use when you are finding the sum of first "n" numbers? If your answer is O(1) solution, then we have one bonus section for you at the end of this blog. We would prefer the O(1) solution because the time taken by the algorithm will be constant irrespective of the input size.
+                  </p>
+                  <p class="graf--p">
+                   <b class="graf--bold">
+                    Example 2: Searching Algorithm
+                   </b>
+                  </p>
+                  <p class="graf--p">
+                   In this part of the blog, we will find the time complexity of various searching algorithms like the linear search and the binary search.
+                  </p>
+                  <blockquote class="graf--blockquote">
+                   <b class="graf--bold">
+                    Linear Search
+                   </b>
+                  </blockquote>
+                  <p class="graf--p">
+                   In a linear search, we will be having one array and one element is also given to us. We need to find the index of that element in the array. For example, if our array is [8, 10, 3, 2, 9] and we want to find the position of "3", then our output should be 2 (0 based indexing). Following is the code for the same:
+                  </p>
+                  <pre><code class="language-java graf graf--code">/*
+* @type of arr: integer array
+* @type of n: integer(denoting size of arr)
+* @type of k: integer(element to be searched)
+*/
+int linearSearch(int arr[], int n, int k)
+{
+    for(int i = 0; i &lt; n; i++) 
+        if(arr[i] == k)
+            return i;
+    return -1;
+}
+/*
+* [Explanation]
+* i = 0 ------------&gt; will be executed once
+* i &lt; n ------------&gt; will be executed n+1 times
+* i++ --------------&gt; will be executed n times
+* if(arr[i] == k) --&gt; will be executed n times
+* return i ---------&gt; will be executed once(if "k" is there in the array)
+* return -1 --------&gt; will be executed once(if "k" is not there in the array)
+*/</code></pre>
+                  <div class="graf-image graf-caption">
+                   <img class="graf-image" src="/images/time-and-space-complexity-analysis-of-algorithm-linear-search-f7bdd37de84c1503.png"/>
+                  </div>
+                  <p class="graf--p">
+                   The worst-case time complexity of linear search is
+                   <b class="graf--bold">
+                    <i class="graf--italic">
+                     O(n)
+                    </i>
+                   </b>
+                   because in the worst case the "
+                   <i class="graf--italic">
+                    if(arr[i] == k)
+                   </i>
+                   " statement will be executed "n" times.
+                  </p>
+                  <blockquote class="graf--blockquote">
+                   <b class="graf--bold">
+                    Binary Search
+                   </b>
+                  </blockquote>
+                  <p class="graf--p">
+                   In a binary search, we will be having one sorted array and an element will be given. We have to find the position of that element in the array. To do so, we follow the below steps:
+                  </p>
+                  <ol>
+                   <li>
+                    Divide the whole array into two parts by finding the middle element of the array.
+                   </li>
+                   <li>
+                    Find if the middle element is equal to the element "k" that you are searching for. If it is equal, then return the value.
+                   </li>
+                   <li>
+                    If the middle element is not equal to element "k", then find if the element "k" is larger than or smaller than the middle element.
+                   </li>
+                   <li>
+                    If the element "k" is larger than the middle element, then we will perform the binary search in the [mid+1 to n] part of the array and if the element "k" is smaller than the middle element, then we will perform the binary search in the [0 to mid-1] part of the array.
+                   </li>
+                   <li>
+                    Again we will repeat from step number 2.
+                   </li>
+                  </ol>
+                  <p class="graf--p">
+                   Let write the code for the same:
+                  </p>
+                  <pre><code class="language-java graf graf--code">/*
+* @type of arr: integer array
+* @type of left: integer(left most index of arr)
+* @type of right: integer(right most index of arr)
+* @type of k: integer(element to be searched)
+* @return type: integer(index of element k(if found), otherwise return -1)
+*/
+int binarySearch(int arr[], int left, int right, int k) 
+{ 
+    while (left &lt;= right) { 
+        // finding the middle element
+        int mid = left + (right - left) / 2; 
+        // Check if k is present at middle 
+        if (arr[mid] == k) 
+            return mid; // if k is found, then return the mid index
+        // If k greater, ignore the left half of the array 
+        if (arr[mid] &lt; k) 
+            left = mid + 1; // update the left, right will remain same 
+        // If k is smaller, ignore the right half of the array
+        else
+            right = mid - 1; // update the right, left will remain same
+    } 
+    // if element is not found, then return -1 
+    return -1; 
+}</code></pre>
+                  <p class="graf--p">
+                   Let's understand the working of the above code with the help of one example.
+                  </p>
+                  <div class="graf-image graf-caption">
+                   <img class="graf-image" src="/images/time-and-space-complexity-analysis-of-algorithm-binary-search-eeb7cfc42f854428.png"/>
+                  </div>
+                  <p class="graf--p">
+                   <b class="graf--bold">
+                    Finding the Time Complexity of Binary Search
+                   </b>
+                  </p>
+                  <ul>
+                   <li>
+                    For finding the element "k", let's say after "ith" iteration, the iteration of Binary search stops i.e. the size of the array becomes 1. Also, we are reducing the size of our array by half after every iteration.
+                   </li>
+                   <li>
+                    So, during 1st iteration the size of the array is "n", during 2nd iteration the size of the array is "n/2", during 3rd iteration the size of the array is "(n/2)/2 = n/2²", during 4th iteration the size of the array is "((n/2)/2)/2 = n/2³", and so on.
+                   </li>
+                   <li>
+                    So, after the
+                    <b class="graf--bold">
+                     <i class="graf--italic">
+                      ith
+                     </i>
+                    </b>
+                    iteration, the size of the array will be n/2^i. Also, after the
+                    <b class="graf--bold">
+                     ith
+                    </b>
+                    iteration, the length of the array will become 1. So, the following relation should hold true:
+                   </li>
+                  </ul>
+                  <pre><code class="language-java graf graf--code">=&gt; n/2^i = 1
+=&gt; n = 2^i
+=&gt; log2 (n) = log2 (2^i)    [applying log2 both sides]
+=&gt; log2 (n) = i * log2 (2)  
+=&gt; i = log2 (n)             [as logn (n) = 1]</code></pre>
+                  <p class="graf--p">
+                   So, the worst-case time complexity of Binary Search is
+                   <i class="graf--italic">
+                    <b class="graf--bold">
+                     log2 (n)
+                    </b>
+                   </i>
+                   .
+                  </p>
+                  <p class="graf--p">
+                   <b class="graf--bold">
+                    Example 2: Sorting Algorithm
+                   </b>
+                  </p>
+                  <p class="graf--p">
+                   In this part of the blog, we will learn about the time complexity of the various sorting algorithm. Sorting algorithms are used to sort a given array in ascending or descending order. So, let's start with the Selection Sort.
+                  </p>
+                  <blockquote class="graf--blockquote">
+                   <b class="graf--bold">
+                    Selection Sort
+                   </b>
+                  </blockquote>
+                  <p class="graf--p">
+                   In selection sort, in the first pass, we find the minimum element of the array and put it in the first place. In the second pass, we find the second smallest element of the array and put it in the second place and so on.
+                  </p>
+                  <pre><code class="language-java graf graf--code">/*
+* @type of arr: integer array
+* @type of n: integer(length of arr)
+*/
+void selectionSort(int arr[], int n)  
+{  
+    // move from index 0 to n-1  
+    for (int i = 0; i &lt; n-1; i++)  
+    {
+        // finding the minimum element  
+        int minIndex = i;  
+        for (int j = i+1; j &lt; n; j++)  
+            if (arr[j] &lt; arr[minIndex])  
+                minIndex = j;  
+        // Swap the found minimum element with the ith element  
+        swap(arr[minIndex], arr[i]);  
+    }  
+}</code></pre>
+                  <p class="graf--p">
+                   The worst-case time complexity of Selection Sort is
+                   <i class="graf--italic">
+                    <b class="graf--bold">
+                     O(n²)
+                    </b>
+                   </i>
+                   .
+                  </p>
+                  <blockquote class="graf--blockquote">
+                   <b class="graf--bold">
+                    Bubble Sort
+                   </b>
+                  </blockquote>
+                  <p class="graf--p">
+                   In bubble sort, we compare the adjacent elements and put the smallest element before the largest element. For example, if the two adjacent elements are [4, 1], then the final output will be [1, 4].
+                  </p>
+                  <pre><code class="language-java graf graf--code">/*
+* @type of arr: integer array
+* @type of n: integer(length of arr)
+*/
+void bubbleSort(int arr[], int n)  
+{  
+    // move from index 0 to n-1
+    for (int i = 0; i &lt; n-1; i++)        
+        for (int j = 0; j &lt; n-i-1; j++)  
+            if (arr[j] &gt; arr[j+1])          // comparing adjacent elements
+                swap(arr[j], arr[j+1]);   // swapping elements
+}</code></pre>
+                  <p class="graf--p">
+                   The worst-case time complexity of Bubble Sort is
+                   <b class="graf--bold">
+                    <i class="graf--italic">
+                     O(n²)
+                    </i>
+                   </b>
+                   .
+                  </p>
+                  <blockquote class="graf--blockquote">
+                   <b class="graf--bold">
+                    Insertion Sort
+                   </b>
+                  </blockquote>
+                  <p class="graf--p">
+                   In Insertion sort, we start with the 1st element and check if that element is smaller than the 0th element. If it is smaller then we put that element at the desired place otherwise we check for 2nd element. If the 2nd element is smaller than 0th or 1st element, then we put the 2nd element at the desired place and so on.
+                  </p>
+                  <pre><code class="language-java graf graf--code">/*
+* @type of arr: integer array
+* @type of n: integer(length of arr)
+*/
+void insertionSort(int arr[], int n)  
+{  
+    for (int i = 1; i &lt; n; i++) 
+    {  
+        int key = arr[i];  // select value to be inserted
+        int j = i - 1;     // position where number is to be inserted
+        // check if previous no. is larger than value to be inserted
+        while (j &gt;= 0 &amp;&amp; arr[j] &gt; key) 
+        {  
+            arr[j + 1] = arr[j];  
+            j = j - 1;  
+        }  
+        // changing the value
+        arr[j + 1] = key;  
+    }  
+} </code></pre>
+                  <p class="graf--p">
+                   The worst-case time complexity of Insertion Sort is
+                   <b class="graf--bold">
+                    <i class="graf--italic">
+                     O(n²)
+                    </i>
+                   </b>
+                   .
+                  </p>
+                  <blockquote class="graf--blockquote">
+                   <b class="graf--bold">
+                    Merge Sort
+                   </b>
+                  </blockquote>
+                  <p class="graf--p">
+                   Merger Sort uses Divide and Conquer technique(you will learn more about divide and conquer in this Data Structure series). The following steps are involved in Merge Sort:
+                  </p>
+                  <ul>
+                   <li>
+                    Divide the array into two halves by finding the middle element.
+                   </li>
+                   <li>
+                    Call the Merge Sort function on the first half and the second half.
+                   </li>
+                   <li>
+                    Now, merge the two halves by calling the Merge function.
+                   </li>
+                  </ul>
+                  <p class="graf--p">
+                   Here, we will use recursion, so to learn about recursion, you can read from
+                   <a class="markup--anchor" href="https://afteracademy.com/blog/what-is-recursion-in-programming" target="_blank">
+                    here
+                   </a>
+                   ).
+                  </p>
+                  <pre><code class="language-java graf graf--code">void merge(int* arr, int start, int mid, int end) 
+{
+	int temp[end - start + 1];        // creating temporary array
+	int i = start, j = mid+1, k = 0;
+	while(i &lt;= mid &amp;&amp; j &lt;= end)       // traverse and add smaller of both elements in temp 
+	{
+		if(arr[i] &lt;= arr[j]) 
+		{
+			temp[k] = arr[i];
+			k += 1; i += 1;
+		}
+		else 
+		{
+			temp[k] = arr[j];
+			k += 1; j += 1;
+		}
+	}
+	// add the elements left in the 1st interval
+	while(i &lt;= mid) 
+	{
+		temp[k] = arr[i];
+		k += 1; i += 1;
+	}
+	// add the elements left in the 2nd interval
+	while(j &lt;= end) 
+	{
+		temp[k] = arr[j];
+		k += 1; j += 1;
+	}
+	// updating the original array to have the sorted elements
+	for(i = start; i &lt;= end; i += 1) 
+	{
+		arr[i] = temp[i - start]
+	}
+}
+
+
+/*
+* @type of arr: integer array
+* @type of start: starting index of arr
+* @type of end: eningd index of arr
+*/
+void mergeSort(int *arr, int start, int end) 
+{
+	if(start &lt; end) 
+	{
+		int mid = (start + end) / 2; // finding middle element
+		mergeSort(arr, start, mid);  // calling mergeSort for first half
+		mergeSort(arr, mid+1, end);  // calling mergeSort for second half
+		merge(arr, start, mid, end); // calling merge function to merge the arrays
+	}
+}</code></pre>
+                  <p class="graf--p">
+                   The worst-case time complexity of Merge Sort is
+                   <b class="graf--bold">
+                    <i class="graf--italic">
+                     O(n log(n) )
+                    </i>
+                   </b>
+                   .
+                  </p>
+                  <p class="graf--p">
+                   The following table shows the best case, average case, and worst-case time complexity of various sorting algorithms:
+                  </p>
+                  <pre><code class="language-java graf graf--code">-----------------------------------------------------------------------------
+|Sorting Algorithm |    Best Case     |   Average Case   |    Worst Case    |
+|------------------|------------------|------------------|------------------|
+|Selection Sort    |       Ω(n²)      |      θ(n²)       |       O(n²)      |
+|Bubble Sort       |       Ω(n)       |      θ(n²)       |       O(n²)      |
+|Insertion Sort    |       Ω(n)       |      θ(n²)       |       O(n²)      |
+|Merge Sort        |   Ω(n logn(n))   |   θ(n logn(n))   |   O(n logn(n))   |
+|Quick Sort        |   Ω(n logn(n))   |   θ(n logn(n))   |       O(n²)      |
+|Heap Sort         |   Ω(n logn(n))   |   θ(n logn(n))   |   O(n logn(n))   |
+|Radix Sort        |      Ω(nk)       |      θ(nk)       |       O(nk)      |
+|Bucket Sort       |     Ω(n + k)     |     θ(n + k)     |       O(n²)      |
+-----------------------------------------------------------------------------</code></pre>
+                  <h4 class="graf--h3">
+                   Bonus Section :)
+                  </h4>
+                  <p class="graf--p">
+                   So, here is one bonus section for you. This will help you in choosing the best solution for a particular question that you will be solving on
+                   <a class="markup--anchor" href="https://afteracademy.com/tech-interview/ds-algo-problem-set/top-problems" target="_blank">
+                    our website
+                   </a>
+                   .
+                  </p>
+                  <p class="graf--p">
+                   So, when you solve some coding questions, then you will be given some input constraints and based on those constraints you have to decide the time complexity of your algorithm. Generally, a typical computer system executes 10^18 operations in one second. So, if the time limit for a particular question is one second and you are trying to execute more than 10^18 instruction per second, then you will get
+                   <i class="graf--italic">
+                    Time Limit Exceed(TLE)
+                   </i>
+                   error. So, based on the input size, you should decide the time complexity of your algorithm. The following table will help you to decide the time complexity of your algorithm based on the input size:
+                  </p>
+                  <pre><code class="language-java graf graf--code">--------------------------------
+|Input Size |  Max Complexity  |
+|-----------|------------------|
+|10^18      |       O(logn)    |
+|10^8       |       O(n)       |
+|10^7       |       O(nlogn)   |
+|10^4       |       O(n^2)     |
+|10^2       |       O(n^3)     |
+|9*10       |       O(n^4)     |
+-------------------------------- </code></pre>
+                  <p class="graf--p">
+                   Use this table to decide the complexity of your code before writing the code for any problem and get rid of the TLE (thank me by solving questions from
+                   <a class="markup--anchor" href="https://afteracademy.com/tech-interview/ds-algo-problem-set/top-problems" target="_blank">
+                    here
+                   </a>
+                   ;))
+                  </p>
+                  <h4 class="graf--h3">
+                   Conclusion
+                  </h4>
+                  <p class="graf--p">
+                   In this blog, we learned about the time and space complexity of an algorithm. We saw how these two factors are used to analyse the efficiency of an algorithm. So, basically, there is a trade-off between time and space. If time is less then in most of the cases, space will be more and vice versa. That's it for this blog. Hope you learned something new today.
+                  </p>
+                  <h4 class="graf--h3">
+                   What to do after reading this blog?
+                  </h4>
+                  <p class="graf--p">
+                   After having a good idea of the time and space complexity, you can learn about the concept of
+                   <a class="markup--anchor" href="https://afteracademy.com/tech-interview/ds-algo-concepts/iteration-and-two-pointer-approach" target="_blank">
+                    Iteration and Two pointer approach
+                   </a>
+                   .
+                  </p>
+                  <p class="graf--p">
+                   <a class="markup--anchor" href="https://afteracademy.com/problems/selection-sort" target="_blank">
+                    Solve the selection sort problem.
+                   </a>
+                  </p>
+                  <p class="graf--p">
+                   <a class="markup--anchor" href="https://afteracademy.com/problems/insertion-sort" target="_blank">
+                    Solve the insertion sort problem.
+                   </a>
+                  </p>
+                  <p class="graf--p">
+                   Also, you can start solving some commonly asked question of Google, Facebook, Yahoo, Amazon, etc. from
+                   <a class="markup--anchor" href="https://afteracademy.com/tech-interview/ds-algo-problem-set/top-problems" target="_blank">
+                    here
+                   </a>
+                   .
+                  </p>
+                  <p class="graf--p">
+                   Do share this blog with your friends to spread the knowledge. Visit our
+                   <a class="markup--anchor" href="https://www.youtube.com/afteracademy" target="_blank">
+                    YouTube channel
+                   </a>
+                   for more content.
+                  </p>
+                  <p class="graf--p">
+                   Keep Learning :)
+                  </p>
+                  <p class="graf--p">
+                   <b class="graf--bold">
+                    Team AfterAcademy!
+                   </b>
+                  </p>
+                 </div>
+                </div>
+               </div>
+              </section>
+             </div>
+            </div>
+           </div>
+          </article>
+         </div>
+        </div>
+       </div>
+       <div class="MuiGrid-root jss190 MuiGrid-container MuiGrid-align-items-xs-center MuiGrid-justify-xs-center">
+        <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-11 MuiGrid-grid-sm-11 MuiGrid-grid-md-10">
+         <div class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-4">
+          <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-10 MuiGrid-grid-md-9">
+           <hr class="MuiDivider-root"/>
+          </div>
+          <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-12">
+           <h5 class="MuiTypography-root MuiTypography-h5">
+            <div class="MuiBox-root jss310">
+             Recommended for You
+            </div>
+           </h5>
+          </div>
+          <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4">
+           <div class="MuiPaper-root MuiCard-root jss317 MuiPaper-elevation8 MuiPaper-rounded">
+            <a aria-disabled="false" class="MuiButtonBase-root MuiCardActionArea-root jss318" href="/blog/lru-cache-implementation" role="button" tabindex="0">
+             <img alt="LRU Cache Implementation" class="MuiCardMedia-root jss319 MuiCardMedia-media MuiCardMedia-img" src="/images/lru-cache-implementation-banner-ebe818c64bd8a6ba.png" title="LRU Cache Implementation"/>
+             <div class="MuiCardContent-root">
+              <h2 class="MuiTypography-root jss322 MuiTypography-h6">
+               LRU Cache Implementation
+              </h2>
+              <p class="MuiTypography-root jss323 MuiTypography-body2 MuiTypography-colorTextSecondary">
+               Design and implement a data structure for Least Recently Used(LRU) cache. Your data structure must support two operations: get(key) and put(). The problem expects a constant time solution
+              </p>
+             </div>
+             <div class="MuiCardHeader-root jss321">
+              <div class="MuiCardHeader-avatar">
+               <div aria-label="Admin AfterAcademy" class="MuiAvatar-root MuiAvatar-circle">
+                <img class="MuiAvatar-img" src="https://afteracademy.com/assets/AfterAcademyLogo.svg"/>
+               </div>
+              </div>
+              <div class="MuiCardHeader-content">
+               <span class="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock">
+                Admin AfterAcademy
+               </span>
+               <span class="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock">
+                13 Oct 2020
+               </span>
+              </div>
+             </div>
+             <span class="MuiCardActionArea-focusHighlight">
+             </span>
+            </a>
+           </div>
+          </div>
+          <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4">
+           <div class="MuiPaper-root MuiCard-root jss317 MuiPaper-elevation8 MuiPaper-rounded">
+            <a aria-disabled="false" class="MuiButtonBase-root MuiCardActionArea-root jss318" href="/blog/surrounded-regions" role="button" tabindex="0">
+             <img alt="Surrounded regions" class="MuiCardMedia-root jss319 MuiCardMedia-media MuiCardMedia-img" src="/images/surrounded-regions-banner-160ec9bc66850bab.png" title="Surrounded regions"/>
+             <div class="MuiCardContent-root">
+              <h2 class="MuiTypography-root jss322 MuiTypography-h6">
+               Surrounded regions
+              </h2>
+              <p class="MuiTypography-root jss323 MuiTypography-body2 MuiTypography-colorTextSecondary">
+               Given a 2-D matrix board where every element is either 'O' or 'X', write a program to replace 'O' with 'X' if surrounded by 'X'. It is a famous problem based on the concept of flood fill algorithms
+              </p>
+             </div>
+             <div class="MuiCardHeader-root jss321">
+              <div class="MuiCardHeader-avatar">
+               <div aria-label="Admin AfterAcademy" class="MuiAvatar-root MuiAvatar-circle">
+                <img class="MuiAvatar-img" src="https://afteracademy.com/assets/AfterAcademyLogo.svg"/>
+               </div>
+              </div>
+              <div class="MuiCardHeader-content">
+               <span class="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock">
+                Admin AfterAcademy
+               </span>
+               <span class="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock">
+                23 Sep 2020
+               </span>
+              </div>
+             </div>
+             <span class="MuiCardActionArea-focusHighlight">
+             </span>
+            </a>
+           </div>
+          </div>
+          <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4">
+           <div class="MuiPaper-root MuiCard-root jss317 MuiPaper-elevation8 MuiPaper-rounded">
+            <a aria-disabled="false" class="MuiButtonBase-root MuiCardActionArea-root jss318" href="/blog/knight-on-chessboard" role="button" tabindex="0">
+             <img alt="Knight on chessboard" class="MuiCardMedia-root jss319 MuiCardMedia-media MuiCardMedia-img" src="/images/knight-on-chessboard-banner-56b65d951f683fa2.png" title="Knight on chessboard"/>
+             <div class="MuiCardContent-root">
+              <h2 class="MuiTypography-root jss322 MuiTypography-h6">
+               Knight on chessboard
+              </h2>
+              <p class="MuiTypography-root jss323 MuiTypography-body2 MuiTypography-colorTextSecondary">
+               Given a square chessboard of A x B size, the position of Knight (C, D) and the position of a target (E, F) is given. Write a program to find out the minimum steps a Knight will take to reach the target position. This problem is a good example of BFS algorithm.
+              </p>
+             </div>
+             <div class="MuiCardHeader-root jss321">
+              <div class="MuiCardHeader-avatar">
+               <div aria-label="Admin AfterAcademy" class="MuiAvatar-root MuiAvatar-circle">
+                <img class="MuiAvatar-img" src="https://afteracademy.com/assets/AfterAcademyLogo.svg"/>
+               </div>
+              </div>
+              <div class="MuiCardHeader-content">
+               <span class="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock">
+                Admin AfterAcademy
+               </span>
+               <span class="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock">
+                7 Sep 2020
+               </span>
+              </div>
+             </div>
+             <span class="MuiCardActionArea-focusHighlight">
+             </span>
+            </a>
+           </div>
+          </div>
+          <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4">
+           <div class="MuiPaper-root MuiCard-root jss317 MuiPaper-elevation8 MuiPaper-rounded">
+            <a aria-disabled="false" class="MuiButtonBase-root MuiCardActionArea-root jss318" href="/blog/merge-two-bst" role="button" tabindex="0">
+             <img alt="Merge Two BST" class="MuiCardMedia-root jss319 MuiCardMedia-media MuiCardMedia-img" src="/images/merge-two-bst-banner-063284a17ea10c3d.png" title="Merge Two BST"/>
+             <div class="MuiCardContent-root">
+              <h2 class="MuiTypography-root jss322 MuiTypography-h6">
+               Merge Two BST
+              </h2>
+              <p class="MuiTypography-root jss323 MuiTypography-body2 MuiTypography-colorTextSecondary">
+               Given two binary search trees with root nodes as tree1 and tree2 of size n and m, write a program to return an array of integers that contains all the elements of tree1 and tree2 in non-decreasing order. The expected time complexity is O(m+n).
+              </p>
+             </div>
+             <div class="MuiCardHeader-root jss321">
+              <div class="MuiCardHeader-avatar">
+               <div aria-label="Admin AfterAcademy" class="MuiAvatar-root MuiAvatar-circle">
+                <img class="MuiAvatar-img" src="https://afteracademy.com/assets/AfterAcademyLogo.svg"/>
+               </div>
+              </div>
+              <div class="MuiCardHeader-content">
+               <span class="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock">
+                Admin AfterAcademy
+               </span>
+               <span class="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock">
+                1 Sep 2020
+               </span>
+              </div>
+             </div>
+             <span class="MuiCardActionArea-focusHighlight">
+             </span>
+            </a>
+           </div>
+          </div>
+          <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4">
+           <div class="MuiPaper-root MuiCard-root jss317 MuiPaper-elevation8 MuiPaper-rounded">
+            <a aria-disabled="false" class="MuiButtonBase-root MuiCardActionArea-root jss318" href="/blog/odd-even-linked-list" role="button" tabindex="0">
+             <img alt="Odd Even Linked List" class="MuiCardMedia-root jss319 MuiCardMedia-media MuiCardMedia-img" src="/images/odd-even-linked-list-banner-5858716dbef91ff1.png" title="Odd Even Linked List"/>
+             <div class="MuiCardContent-root">
+              <h2 class="MuiTypography-root jss322 MuiTypography-h6">
+               Odd Even Linked List
+              </h2>
+              <p class="MuiTypography-root jss323 MuiTypography-body2 MuiTypography-colorTextSecondary">
+               Given a singly linked list, write a program to group all odd nodes together followed by the even nodes. You should try to do it in place and the program should run in O(n) time complexity.
+              </p>
+             </div>
+             <div class="MuiCardHeader-root jss321">
+              <div class="MuiCardHeader-avatar">
+               <div aria-label="Admin AfterAcademy" class="MuiAvatar-root MuiAvatar-circle">
+                <img class="MuiAvatar-img" src="https://afteracademy.com/assets/AfterAcademyLogo.svg"/>
+               </div>
+              </div>
+              <div class="MuiCardHeader-content">
+               <span class="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock">
+                Admin AfterAcademy
+               </span>
+               <span class="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock">
+                21 Aug 2020
+               </span>
+              </div>
+             </div>
+             <span class="MuiCardActionArea-focusHighlight">
+             </span>
+            </a>
+           </div>
+          </div>
+          <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4">
+           <div class="MuiPaper-root MuiCard-root jss317 MuiPaper-elevation8 MuiPaper-rounded">
+            <a aria-disabled="false" class="MuiButtonBase-root MuiCardActionArea-root jss318" href="/blog/quick-sort" role="button" tabindex="0">
+             <img alt="Quick Sort" class="MuiCardMedia-root jss319 MuiCardMedia-media MuiCardMedia-img" src="/images/quick-sort-banner-fd872a087c519dde.png" title="Quick Sort"/>
+             <div class="MuiCardContent-root">
+              <h2 class="MuiTypography-root jss322 MuiTypography-h6">
+               Quick Sort
+              </h2>
+              <p class="MuiTypography-root jss323 MuiTypography-body2 MuiTypography-colorTextSecondary">
+               Sorting is a process of arranging items systematically. There are several ways to sort a list of items. A very useful sorting algorithm in all of the sorting algorithms is quicksort. Given an array of integers arr[], write a program to sort the array in ascending order using Quick Sort.
+              </p>
+             </div>
+             <div class="MuiCardHeader-root jss321">
+              <div class="MuiCardHeader-avatar">
+               <div aria-label="Admin AfterAcademy" class="MuiAvatar-root MuiAvatar-circle">
+                <img class="MuiAvatar-img" src="https://afteracademy.com/assets/AfterAcademyLogo.svg"/>
+               </div>
+              </div>
+              <div class="MuiCardHeader-content">
+               <span class="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock">
+                Admin AfterAcademy
+               </span>
+               <span class="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock">
+                10 Aug 2020
+               </span>
+              </div>
+             </div>
+             <span class="MuiCardActionArea-focusHighlight">
+             </span>
+            </a>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="MuiGrid-root jss345 MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center MuiGrid-justify-xs-center">
+       <h4 class="MuiTypography-root jss346 MuiTypography-h4 MuiTypography-alignCenter">
+        Connect With Your Mentors
+       </h4>
+       <div class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-center">
+        <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4">
+         <div class="MuiGrid-root jss369 MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center MuiGrid-justify-xs-center">
+          <div class="MuiGrid-root jss370 MuiGrid-item">
+           <div class="MuiAvatar-root MuiAvatar-circle jss371">
+            <img alt="/assets/ali.jpg" class="MuiAvatar-img" src="/assets/ali.jpg"/>
+           </div>
+          </div>
+          <div class="MuiGrid-root MuiGrid-item">
+           <h5 class="MuiTypography-root jss373 MuiTypography-h5 MuiTypography-alignCenter">
+            Janishar Ali
+            <!-- -->
+           </h5>
+          </div>
+          <div class="MuiGrid-root MuiGrid-item">
+           <div class="MuiTypography-root jss374 MuiTypography-subtitle1 MuiTypography-alignCenter">
+            Founder | IIT-BHU | 10 Yrs Exp.
+           </div>
+          </div>
+          <div class="MuiGrid-root MuiGrid-item">
+           <a aria-disabled="false" class="MuiButtonBase-root MuiFab-root jss349 MuiFab-primary" href="https://janisharali.com" tabindex="0" target="_blank">
+            <span class="MuiFab-label">
+             <svg aria-hidden="true" class="MuiSvgIcon-root" focusable="false" role="presentation" viewbox="0 0 24 24">
+              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 14H4v-4h11v4zm0-5H4V9h11v4zm5 5h-4V9h4v9z">
+              </path>
+             </svg>
+            </span>
+           </a>
+           <a aria-disabled="false" class="MuiButtonBase-root MuiFab-root jss348 MuiFab-primary" href="https://twitter.com/janisharali" tabindex="0" target="_blank">
+            <span class="MuiFab-label">
+             <svg aria-hidden="true" class="MuiSvgIcon-root" focusable="false" role="presentation" viewbox="0 0 24 24">
+              <path d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z">
+              </path>
+             </svg>
+            </span>
+           </a>
+          </div>
+         </div>
+        </div>
+        <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4">
+         <div class="MuiGrid-root jss369 MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center MuiGrid-justify-xs-center">
+          <div class="MuiGrid-root jss370 MuiGrid-item">
+           <div class="MuiAvatar-root MuiAvatar-circle jss371">
+            <img alt="/assets/amit.jpg" class="MuiAvatar-img" src="/assets/amit.jpg"/>
+           </div>
+          </div>
+          <div class="MuiGrid-root MuiGrid-item">
+           <h5 class="MuiTypography-root jss373 MuiTypography-h5 MuiTypography-alignCenter">
+            Amit Shekhar
+            <!-- -->
+           </h5>
+          </div>
+          <div class="MuiGrid-root MuiGrid-item">
+           <div class="MuiTypography-root jss374 MuiTypography-subtitle1 MuiTypography-alignCenter">
+            Founder | IIT-BHU | 10 Yrs Exp.
+           </div>
+          </div>
+          <div class="MuiGrid-root MuiGrid-item">
+           <a aria-disabled="false" class="MuiButtonBase-root MuiFab-root jss349 MuiFab-primary" href="https://amitshekhar.me" tabindex="0" target="_blank">
+            <span class="MuiFab-label">
+             <svg aria-hidden="true" class="MuiSvgIcon-root" focusable="false" role="presentation" viewbox="0 0 24 24">
+              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 14H4v-4h11v4zm0-5H4V9h11v4zm5 5h-4V9h4v9z">
+              </path>
+             </svg>
+            </span>
+           </a>
+           <a aria-disabled="false" class="MuiButtonBase-root MuiFab-root jss348 MuiFab-primary" href="https://twitter.com/amitiitbhu" tabindex="0" target="_blank">
+            <span class="MuiFab-label">
+             <svg aria-hidden="true" class="MuiSvgIcon-root" focusable="false" role="presentation" viewbox="0 0 24 24">
+              <path d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z">
+              </path>
+             </svg>
+            </span>
+           </a>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <footer style="flex-grow:1;margin-top:0">
+     <hr class="MuiDivider-root"/>
+     <div class="MuiGrid-root MuiGrid-container" style="padding:16px">
+      <div class="MuiGrid-root" style="padding:8px">
+       <p class="MuiTypography-root MuiTypography-body2" style="display:flex;align-items:center">
+        <svg aria-hidden="true" class="MuiSvgIcon-root" focusable="false" role="presentation" style="margin-right:8px" viewbox="0 0 24 24">
+         <defs>
+          <path d="M24 0v24H0V0h24z" id="a">
+          </path>
+         </defs>
+         <path d="M10.08 10.86c.05-.33.16-.62.3-.87s.34-.46.59-.62c.24-.15.54-.22.91-.23.23.01.44.05.63.13.2.09.38.21.52.36s.25.33.34.53.13.42.14.64h1.79c-.02-.47-.11-.9-.28-1.29s-.4-.73-.7-1.01-.66-.5-1.08-.66-.88-.23-1.39-.23c-.65 0-1.22.11-1.7.34s-.88.53-1.2.92-.56.84-.71 1.36S8 11.29 8 11.87v.27c0 .58.08 1.12.23 1.64s.39.97.71 1.35.72.69 1.2.91 1.05.34 1.7.34c.47 0 .91-.08 1.32-.23s.77-.36 1.08-.63.56-.58.74-.94.29-.74.3-1.15h-1.79c-.01.21-.06.4-.15.58s-.21.33-.36.46-.32.23-.52.3c-.19.07-.39.09-.6.1-.36-.01-.66-.08-.89-.23-.25-.16-.45-.37-.59-.62s-.25-.55-.3-.88-.08-.67-.08-1v-.27c0-.35.03-.68.08-1.01zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z">
+         </path>
+        </svg>
+        Copyright 2022, MindOrks Nextgen Private Limited
+       </p>
+      </div>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script type="text/javascript">
+   window.__PRELOADED_STATE__={contactData:{formData:{email:"",name:"",phone:"",message:"",isWriting:!1,isNameError:!1,isEmailError:!1,isPhoneError:!1,isMessageError:!1,dismissMsg:!1},successMessage:null,errorMessage:null,isSending:!1},loginData:{data:null,isLoggingIn:!1,isLoggingOut:!1,isLoggedIn:!1,isForcedLogout:!1,isTokenRefreshed:!1,isRedirectHome:!1,message:""},recaptchaData:{verified:!1,successMessage:null,errorMessage:null},blogListData:{data:{},latestBlogs:null,isFetching:!0,isFetchingLatestBlogs:!1,currentCategory:null,categories:[]},blogPageData:{blogId:"5df2498852902505c0896440",data:{_id:"5df2498852902505c0896440",likes:0,rank:0,title:"Time and Space Complexity Analysis of Algorithm",description:"In this blog, we will learn about the time and space complexity of an Algorithm. We will learn about worst case, average case, and best case of an algorithm. We will also see various asymptotic notations that are used to analyse an algorithm. So, let's learn the algorithm of an algorithm.",category:{_id:"5d232c8f8cadc249eef5d0cc",name:"ds-algo",title:"Data Structure & Algorithms"},author:{_id:"5d8dc1ce52e77816c998cb97",name:"Admin AfterAcademy",googleProfilePicUrl:"https://afteracademy.com/assets/AfterAcademyLogo.svg"},blogUrl:"time-and-space-complexity-analysis-of-algorithm",createdAt:"2019-12-12T14:07:04.978Z",updatedAt:"2020-08-20T15:58:46.023Z",imgUrl:"/images/time-and-space-complexity-analysis-of-algorithm-banner-695ba316ae0bd71d.png",publishedAt:"2019-12-18T08:55:01.992Z",text:'<h2 class="graf--h1">Time and Space Complexity Analysis of Algorithm</h2> <div class=\'graf-image graf-caption\'>\n\t\t\t\t\t\t\t\t\t<img src=/images/time-and-space-complexity-analysis-of-algorithm-banner-695ba316ae0bd71d.png class=\'graf-image\' />\n\t\t\t\t\t\t\t\t</div ><p class="graf--p">Every day we come across many problems and we find one or more than one solutions to that particular problem. Some solutions may be efficient as compared to others and some solutions may be less efficient. Generally, we tend to use the most efficient solution. </p><p class="graf--p"><b class="graf--bold">For example,</b> while going from your home to your office or school or college, there can be &quot;n&quot; number of paths. But you choose only one path to go to your destination i.e. the shortest path. </p><p class="graf--p">The same idea we apply in the case of the <b class="graf--bold">computational problems or problem-solving via computer. </b>We have one computational problem and we can design various solutions i.e. algorithms and we choose the most efficient algorithm out of those developed algorithms. </p><p class="graf--p"><b class="graf--bold">Critical Ideas to think!</b></p><ul><li>What is a computational problem? How we extract relevant detail and transform a real-life problem into a computational problem?</li></ul><h4 class="graf--h3">What is an Algorithm?</h4><p class="graf--p">In computer science, whenever we want to solve some computational problem then we define a set of steps that need to be followed to solve that problem. These steps are collectively known as an algorithm.</p><p class="graf--p">For example, you have two integers &quot;a&quot; and &quot;b&quot; and you want to find the sum of those two number. How will you solve this? One possible solution for the above problem can be:</p><ul><li>Take two integers as input</li><li>create a variable &quot;<i class="graf--italic">sum</i>&quot; to store the sum of two integers</li><li>put the sum of those two variables in the &quot;<i class="graf--italic">sum</i>&quot; variable</li><li>return the &quot;<i class="graf--italic">sum</i>&quot; variable</li></ul><pre><code class="language-java graf graf--code">//taking two integers as input\nint findSum(int a, int b) \n{\n    int sum; // creating the sum variable\n    sum = a + b; // storing the sum of a and b\n    return sum; // returning the sum variable\n}</code></pre><p class="graf--p">In the above example, you will find three things i.e. input, algorithm, and output:</p> <div class=\'graf-image graf-caption\'>\n\t\t\t\t\t\t\t\t\t<img src=/images/time-and-space-complexity-analysis-of-algorithm-flow-of-algorithm-3df63a24cb959397.png class=\'graf-image\' />\n\t\t\t\t\t\t\t\t</div ><ul><li><b class="graf--bold">Input:</b> Input is something for which you need to write an algorithm and transform it into the desired output. Just like in machines where you give some raw product and the machine transforms the raw product into some desirable product. In our example, the input is the two numbers i.e. &quot;a&quot; and &quot;b&quot;. Before writing an algorithm, you should find the data type of input, distribution or range of input and other relevant details related to it. So critically analyse your input before writing the solution.</li><li><b class="graf--bold">Algorithm:</b> An algorithm is well-defined steps by step procedure that take some value or set of values as input and produce some value or set of values as output. In the above example, we are having three steps to find the sum of two numbers. So, all three steps are collectively called an algorithm to find the sum of two numbers.</li><li><b class="graf--bold">Output:</b> Output is the desired result in the problem. For example, if we are finding the sum of two integers a and b then for every value of a and b it must produce the correct sum as an output.</li></ul><h4 class="graf--h3">What do you mean by a good Algorithm?</h4><p class="graf--p">There can be many algorithms for a particular problem. So, how will you classify an algorithm to be good and others to be bad? Let&#x27;s understand the properties of a good algorithm:</p><ul><li><b class="graf--bold">Correctness: </b>An algorithm is said to be correct if for every set of input it halts with the correct output. If you are not getting the correct output for any particular set of input, then your algorithm is wrong. </li><li><b class="graf--bold">Finiteness:</b> Generally, people ignore this but it is one of the important factors in algorithm evaluation. The algorithm must always terminate after a finite number of steps. For example, in the case of recursion and loop, your algorithm should terminate otherwise you will end up having a stack overflow and infinite loop scenario respectively.</li><li><b class="graf--bold">Efficiency:</b> An efficient algorithm is always used. By the term efficiency, we mean to say that:</li></ul><ol><li>The algorithm should efficiently use the resources available to the system.</li><li>The computational time (the time taken to generate an output corresponding to a particular input) should be as less as possible. </li><li>The memory used by the algorithm should also be as less as possible. Generally, there is a trade-off between computational time and memory. So, we need to find if the time is more important than space or vice-versa and then write the algorithm accordingly. </li></ol><p class="graf--p">So, we have seen the three factors that can be used to evaluate an algorithm. Out of these three factors, the most important one is the efficiency of algorithms. So let&#x27;s dive deeper into the efficiency of the algorithm.</p><h4 class="graf--h3">Algorithm Efficiency</h4><p class="graf--p">The efficiency of an algorithm is mainly defined by two factors i.e. space and time. A good algorithm is one that is taking less time and less space, but this is not possible all the time. There is a trade-off between time and space. If you want to reduce the time, then space might increase. Similarly, if you want to reduce the space, then the time may increase. So, you have to compromise with either space or time. Let&#x27;s learn more about space and time complexity of algorithms.</p><h4 class="graf--h3">Space Complexity</h4><p class="graf--p">Space Complexity of an algorithm denotes the total space used or needed by the algorithm for its working, for various input sizes. For example:</p><pre><code class="language-java graf graf--code">vector&lt;int&gt; myVec(n);\nfor(int i = 0; i &lt; n; i++)\n    cin &gt;&gt; myVec[i]; </code></pre><p class="graf--p">In the above example, we are creating a vector of size n. So the space complexity of the above code is in the order of &quot;n&quot; i.e. if n will increase, the space requirement will also increase accordingly.</p><p class="graf--p">Even when you are creating a variable then you need some space for your algorithm to run. All the space required for the algorithm is collectively called the Space Complexity of the algorithm.</p><p class="graf--p"><b class="graf--bold">NOTE:</b> In normal programming, you will be allowed to use 256MB of space for a particular problem. So, you can&#x27;t create an array of size more 10^8 because you will be allowed to use only 256MB. Also, you can&#x27;t create an array of size more than 10^6 in a function because the maximum space allotted to a function is 4MB. So, to use an array of more size, you can create a global array.</p><h4 class="graf--h3">Time Complexity</h4><p class="graf--p">The time complexity is the number of operations an algorithm performs to complete its task with respect to<b class="graf--bold"> input size</b> (considering that each operation takes the same amount of time). The algorithm that performs the task in the smallest number of operations is considered the most efficient one.</p><blockquote class="graf--blockquote"><b class="graf--bold">Input Size: </b>Input size is defined as total number of elements present in the input. For a given problem we characterize the input size<b class="graf--bold"> n </b>approproately. For example:</blockquote><blockquote class="graf--blockquote"><i class="graf--italic">Sorting problem: Total number of item to be sorted </i></blockquote><blockquote class="graf--blockquote"><i class="graf--italic">Graph Problem: Total number of vertices and edges </i></blockquote><blockquote class="graf--blockquote"><i class="graf--italic">Numerical Problem: Total number of bits needed to represent a number</i></blockquote><p class="graf--p">The time taken by an algorithm also depends on the computing speed of the system that you are using, but we ignore those external factors and we are only concerned on the number of times a particular statement is being executed with respect to the input size. Let&#x27;s say, for executing one statement, the time taken is 1sec, then what is the time taken for executing n statements, It will take n seconds.</p><p class="graf--p">Suppose you are having one problem and you wrote three algorithms for the same problem. Now, you need to choose one out of those three algorithms. How will you do that?</p><ul><li>One thing that you can do is just run all the three algorithms on three different computers, provide same input and find the time taken by all the three algorithms and choose the one that is taking the least amount of time. Is it ok? No, all the systems might be using some different processors. So, the processing speed might vary. So, we can&#x27;t use this approach to find the most efficient algorithm.</li><li>Another thing that you can do is run all the three algorithms on the same computer and try to find the time taken by the algorithm and choose the best. But here also, you might get wrong results because, at the time of execution of a program, there are other things that are executing along with your program, so you might get the wrong time.</li></ul><p class="graf--p"><b class="graf--bold">NOTE:</b> One thing that is to be noted here is that we are finding the time taken by different algorithms for the same input because if we change the input then the efficient algorithm might take more time as compared to the less efficient one because the input size is different for both algorithms.</p><p class="graf--p">So, we have seen that we can&#x27;t judge an algorithm by calculating the time taken during its execution in a particular system. We need some standard notation to analyse the algorithm. We use <i class="graf--italic"><b class="graf--bold">Asymptotic notation</b></i> to analyse any algorithm and based on that we find the most efficient algorithm. Here in Asymptotic notation, we do not consider the system configuration, rather we consider the <b class="graf--bold">order of growth</b> of the input. We try to find how the time or the space taken by the algorithm will increase/decrease after increasing/decreasing the input size.</p><p class="graf--p">There are three asymptotic notations that are used to represent the time complexity of an algorithm. They are:</p><ul><li><b class="graf--bold">Θ Notation (theta)</b></li><li><b class="graf--bold">Big O Notation</b></li><li><b class="graf--bold">Ω Notation</b></li></ul><p class="graf--p">Before learning about these three asymptotic notation, we should learn about the best, average, and the worst case of an algorithm.</p><h4 class="graf--h3">Best case, Average case, and Worst case</h4><p class="graf--p">An algorithm can have different time for different inputs. It may take 1 second for some input and 10 seconds for some other input.</p><blockquote class="graf--blockquote"><b class="graf--bold">For example:</b> We have one array named &quot;<i class="graf--italic">arr&quot;</i> and an integer &quot;<i class="graf--italic">k</i>&quot;. we need to find if that integer &quot;<i class="graf--italic">k</i>&quot; is present in the array &quot;<i class="graf--italic">arr</i>&quot; or not? If the integer is there, then return 1 other return 0. Try to make an algorithm for this question.</blockquote><p class="graf--p">The following information can be extracted from the above question:</p><ul><li><b class="graf--bold">Input:</b> Here our input is an integer array of size &quot;n&quot; and we have one integer &quot;k&quot; that we need to search for in that array.</li><li><b class="graf--bold">Output:</b> If the element &quot;k&quot; is found in the array, then we have return 1, otherwise we have to return 0.</li></ul><p class="graf--p">Now, one possible solution for the above problem can be linear search i.e. we will traverse each and every element of the array and compare that element with &quot;k&quot;. If it is equal to &quot;k&quot; then return 1, otherwise, keep on comparing for more elements in the array and if you reach at the end of the array and you did not find any element, then return 0.</p><pre><code class="language-java graf graf--code">/*\n* @type of arr: integer array\n* @type of n: integer (size of integer array)\n* @type of k: integer (integer to be searched)\n*/\nint searchK(int arr[], int n, int k) \n{  \n    // for-loop to iterate with each element in the array\n    for (int i = 0; i &lt; n; ++i) \n    { \n        // check if ith element is equal to "k" or not\n        if (arr[i] == k) \n            return 1; // return 1, if you find "k"\n    } \n    return 0; // return 0, if you didn\'t find "k"\n}\n\n\n/*\n* [Explanation]\n* i = 0 ------------&gt; will be executed once\n* i &lt; n ------------&gt; will be executed n+1 times\n* i++ --------------&gt; will be executed n times\n* if(arr[i] == k) --&gt; will be executed n times\n* return 1 ---------&gt; will be executed once(if "k" is there in the array)\n* return 0 ---------&gt; will be executed once(if "k" is not there in the array)\n*/</code></pre><p class="graf--p">Each statement in code takes constant time, let&#x27;s say &quot;C&quot;, where &quot;C&quot; is some constant. So, whenever you declare an integer then it takes constant time when you change the value of some integer or other variables then it takes constant time, when you compare two variables then it takes constant time. So, if a statement is taking &quot;C&quot; amount of time and it is executed &quot;N&quot; times, then it will take C*N amount of time. Now, think of the following inputs to the above algorithm that we have just written:</p><p class="graf--p"><b class="graf--bold">NOTE:</b> Here we assume that each statement is taking 1sec of time to execute.</p><ul><li>If the input array is [1, 2, 3, 4, 5] and you want to find if &quot;1&quot; is present in the array or not, then the if-condition of the code will be executed 1 time and it will find that the element 1 is there in the array. So, the if-condition will take 1 second here.</li><li>If the input array is [1, 2, 3, 4, 5] and you want to find if &quot;3&quot; is present in the array or not, then the if-condition of the code will be executed 3 times and it will find that the element 3 is there in the array. So, the if-condition will take 3 seconds here.</li><li>If the input array is [1, 2, 3, 4, 5] and you want to find if &quot;6&quot; is present in the array or not, then the if-condition of the code will be executed 5 times and it will find that the element 6 is not there in the array and the algorithm will return 0 in this case. So, the if-condition will take 5 seconds here.</li></ul><p class="graf--p">As you can see that for the same input array, we have different time for different values of &quot;k&quot;. So, this can be divided into three cases:</p><ul><li><b class="graf--bold">Best case:</b> This is the lower bound on running time of an algorithm. We must know the case that causes the minimum number of operations to be executed. In the above example, our array was [1, 2, 3, 4, 5] and we are finding if &quot;1&quot; is present in the array or not. So here, after only one comparison, you will get that your element is present in the array. So, this is the best case of your algorithm.</li><li><b class="graf--bold">Average case:</b> We calculate the running time for all possible inputs, sum all the calculated values and divide the sum by the total number of inputs. We must know (or predict) distribution of cases.</li><li><b class="graf--bold">Worst case:</b> This is the upper bound on running time of an algorithm. We must know the case that causes the maximum number of operations to be executed. In our example, the worst case can be if the given array is [1, 2, 3, 4, 5] and we try to find if element &quot;6&quot; is present in the array or not. Here, the if-condition of our loop will be executed 5 times and then the algorithm will give &quot;0&quot; as output. </li></ul><p class="graf--p">So, we learned about the best, average, and worst case of an algorithm. Now, let&#x27;s get back to the asymptotic notation where we saw that we use three asymptotic notation to represent the complexity of an algorithm i.e. Θ Notation (theta), Ω Notation, Big O Notation.</p><p class="graf--p"><b class="graf--bold">NOTE:</b> In the asymptotic analysis, we generally deal with large input size.</p><h4 class="graf--h3">Θ Notation (theta)</h4><p class="graf--p">The Θ Notation is used to find the average bound of an algorithm i.e. it defines an upper bound and a lower bound, and your algorithm will lie in between these levels. So, if a function is g(n), then the theta representation is shown as Θ(g(n)) and the relation is shown as:</p><pre><code class="language-java graf graf--code">Θ(g(n)) = { f(n): there exist positive constants c1, c2 and n0\n          such that 0 ≤ c1g(n) ≤ f(n) ≤ c2g(n) for all n ≥ n0 }</code></pre><p class="graf--p"><i class="graf--italic">The above expression can be read as</i> theta of g(n) is defined as set of all the functions f(n) for which there exists some positive constants c1, c2, and n0 such that c1*g(n) is less than or equal to f(n) and f(n) is less than or equal to c2*g(n) for all n that is greater than or equal to n0.</p><p class="graf--p">For example:</p><pre><code class="language-java graf graf--code">if f(n) = 2n² + 3n + 1\nand g(n) = n²\nthen for c1 = 2, c2 = 6, and n0 = 1, we can say that f(n) = Θ(n²)</code></pre> <div class=\'graf-image graf-caption\'>\n\t\t\t\t\t\t\t\t\t<img src=/images/time-and-space-complexity-analysis-of-algorithm-theta-notation-bd4dbe9a99a1bdb3.jpg class=\'graf-image\' />\n\t\t\t\t\t\t\t\t</div ><h4 class="graf--h3">Ω Notation</h4><p class="graf--p">The Ω notation denotes the lower bound of an algorithm i.e. the time taken by the algorithm can&#x27;t be lower than this. In other words, this is the fastest time in which the algorithm will return a result. Its the time taken by the algorithm when provided with its best-case input. So, if a function is g(n), then the omega representation is shown as Ω(g(n)) and the relation is shown as:</p><pre><code class="language-java graf graf--code">Ω(g(n)) = { f(n): there exist positive constants c and n0 \n          such that 0 ≤ cg(n) ≤ f(n) for all n ≥ n0 }</code></pre><p class="graf--p"><i class="graf--italic">The above expression can be read as </i>omega of g(n) is defined as set of all the functions f(n) for which there exist some constants c and n0 such that c*g(n) is less than or equal to f(n), for all n greater than or equal to n0.</p><pre><code class="language-java graf graf--code">if f(n) = 2n² + 3n + 1\nand g(n) = n²\nthen for c = 2 and n0 = 1, we can say that f(n) = Ω(n²)</code></pre> <div class=\'graf-image graf-caption\'>\n\t\t\t\t\t\t\t\t\t<img src=/images/time-and-space-complexity-analysis-of-algorithm-omega-notation-c4af5e571b5272b3.jpg class=\'graf-image\' />\n\t\t\t\t\t\t\t\t</div ><h4 class="graf--h3">Big O Notation</h4><p class="graf--p">The Big O notation defines the upper bound of any algorithm i.e. you algorithm can&#x27;t take more time than this time. In other words, we can say that the big O notation denotes the maximum time taken by an algorithm or the worst-case time complexity of an algorithm. So, big O notation is the most used notation for the time complexity of an algorithm. So, if a function is g(n), then the big O representation of g(n) is shown as O(g(n)) and the relation is shown as:</p><pre><code class="language-java graf graf--code">O(g(n)) = { f(n): there exist positive constants c and n0\n          such that 0 ≤ f(n) ≤ cg(n) for all n ≥ n0 }</code></pre><p class="graf--p"><i class="graf--italic">The above expression can be read as </i>Big O of g(n) is defined as a set of functions f(n) for which there exist some constants c and n0 such that f(n) is greater than or equal to 0 and f(n) is smaller than or equal to c*g(n) for all n greater than or equal to n0.</p><pre><code class="language-java graf graf--code">if f(n) = 2n² + 3n + 1\nand g(n) = n²\nthen for c = 6 and n0 = 1, we can say that f(n) = O(n²)</code></pre> <div class=\'graf-image graf-caption\'>\n\t\t\t\t\t\t\t\t\t<img src=/images/time-and-space-complexity-analysis-of-algorithm-big-o-notation-47d175715edaf571.jpg class=\'graf-image\' />\n\t\t\t\t\t\t\t\t</div ><h4 class="graf--h3">Big O notation example of Algorithms</h4><p class="graf--p">Big O notation is the most used notation to express the time complexity of an algorithm. In this section of the blog, we will find the big O notation of various algorithms. </p><p class="graf--p"><b class="graf--bold">Example 1: Finding the sum of the first n numbers.</b></p><p class="graf--p">In this example, we have to find the sum of first n numbers. For example, if n = 4, then our output should be 1 + 2 + 3 + 4 = 10. If n = 5, then the ouput should be 1 + 2 + 3 + 4 + 5 = 15. Let&#x27;s try various solutions to this code and try to compare all those codes.</p><blockquote class="graf--blockquote"><b class="graf--bold">O(1) solution</b></blockquote><pre><code class="language-java graf graf--code">// function taking input "n"\nint findSum(int n) \n{\n    return n * (n+1) / 2; // this will take some constant time c1\n}</code></pre><p class="graf--p">In the above code, there is only one statement and we know that a statement takes constant time for its execution. The basic idea is that if the statement is taking constant time, then it will take the same amount of time for all the input size and we denote this as <b class="graf--bold"><i class="graf--italic">O(1)</i></b>. </p><blockquote class="graf--blockquote"><b class="graf--bold">O(n) solution</b></blockquote><p class="graf--p">In this solution, we will run a loop from 1 to n and we will add these values to a variable named &quot;sum&quot;.</p><pre><code class="language-java graf graf--code">// function taking input "n"\nint findSum(int n) \n{\n    int sum = 0; // -----------------&gt; it takes some constant time "c1"\n    for(int i = 1; i &lt;= n; ++i) // --&gt; here the comparision and increment will take place n times(c2*n) and the creation of i takes place with some constant time\n        sum = sum + i; // -----------&gt; this statement will be executed n times i.e. c3*n\n    return sum; // ------------------&gt; it takes some constant time "c4"\n}\n/*\n* Total time taken = time taken by all the statments to execute\n* here in our example we have 3 constant time taking statements i.e. "sum = 0", "i = 0", and "return sum", so we can add all the constatnts and replacce with some new constant "c"\n* apart from this, we have two statements running n-times i.e. "i &lt; n(in real n+1)" and "sum = sum  + i" i.e. c2*n + c3*n = c0*n\n* Total time taken = c0*n + c\n*/</code></pre><p class="graf--p">The big O notation of the above code is O(c0*n) + O(c), where c and c0 are constants. So, the overall time complexity can be written as <b class="graf--bold"><i class="graf--italic">O(n)</i></b>.</p><blockquote class="graf--blockquote"><b class="graf--bold">O(n²) solution</b></blockquote><p class="graf--p">In this solution, we will increment the value of sum variable &quot;i&quot; times i.e. for i = 1, the sum variable will be incremented once i.e. sum = 1. For i = 2, the sum variable will be incremented twice. So, let&#x27;s see the solution.</p><pre><code class="language-java graf graf--code">// function taking input "n"\nint findSum(int n) \n{\n    int sum = 0; // ---------------------&gt; constant time\n    for(int i = 1; i &lt;= n; ++i) \n        for(int j = 1; j &lt;= i; ++j)\n            sum++; // -------------------&gt; it will run [n * (n + 1) / 2]\n    return sum; // ----------------------&gt; constant time\n}\n/*\n* Total time taken = time taken by all the statments to execute\n* the statement that is being executed most of the time is "sum++" i.e. n * (n + 1) / 2\n* So, total complexity will be: c1*n² + c2*n + c3 [c1 is for the constant terms of n², c2 is for the constant terms of n, and c3 is for rest of the constant time]\n*/</code></pre><p class="graf--p">The big O notation of the above algorithm is O(c1*n²) +O( c2*n) + O(c3). Since we take the higher order of growth in big O. So, our expression will be reduced to <b class="graf--bold"><i class="graf--italic">O(n²)</i></b>.</p><p class="graf--p">So, until now, we saw 3 solutions for the same problem. Now, which algorithm will you prefer to use when you are finding the sum of first &quot;n&quot; numbers? If your answer is O(1) solution, then we have one bonus section for you at the end of this blog. We would prefer the O(1) solution because the time taken by the algorithm will be constant irrespective of the input size.</p><p class="graf--p"><b class="graf--bold">Example 2: Searching Algorithm</b></p><p class="graf--p">In this part of the blog, we will find the time complexity of various searching algorithms like the linear search and the binary search.</p><blockquote class="graf--blockquote"><b class="graf--bold">Linear Search</b></blockquote><p class="graf--p">In a linear search, we will be having one array and one element is also given to us. We need to find the index of that element in the array. For example, if our array is [8, 10, 3, 2, 9] and we want to find the position of &quot;3&quot;, then our output should be 2 (0 based indexing). Following is the code for the same:</p><pre><code class="language-java graf graf--code">/*\n* @type of arr: integer array\n* @type of n: integer(denoting size of arr)\n* @type of k: integer(element to be searched)\n*/\nint linearSearch(int arr[], int n, int k)\n{\n    for(int i = 0; i &lt; n; i++) \n        if(arr[i] == k)\n            return i;\n    return -1;\n}\n/*\n* [Explanation]\n* i = 0 ------------&gt; will be executed once\n* i &lt; n ------------&gt; will be executed n+1 times\n* i++ --------------&gt; will be executed n times\n* if(arr[i] == k) --&gt; will be executed n times\n* return i ---------&gt; will be executed once(if "k" is there in the array)\n* return -1 --------&gt; will be executed once(if "k" is not there in the array)\n*/</code></pre> <div class=\'graf-image graf-caption\'>\n\t\t\t\t\t\t\t\t\t<img src=/images/time-and-space-complexity-analysis-of-algorithm-linear-search-f7bdd37de84c1503.png class=\'graf-image\' />\n\t\t\t\t\t\t\t\t</div ><p class="graf--p">The worst-case time complexity of linear search is <b class="graf--bold"><i class="graf--italic">O(n)</i></b> because in the worst case the &quot;<i class="graf--italic">if(arr[i] == k)</i>&quot; statement will be executed &quot;n&quot; times.</p><blockquote class="graf--blockquote"><b class="graf--bold">Binary Search</b></blockquote><p class="graf--p">In a binary search, we will be having one sorted array and an element will be given. We have to find the position of that element in the array. To do so, we follow the below steps:</p><ol><li>Divide the whole array into two parts by finding the middle element of the array.</li><li>Find if the middle element is equal to the element &quot;k&quot; that you are searching for. If it is equal, then return the value.</li><li>If the middle element is not equal to element &quot;k&quot;, then find if the element &quot;k&quot; is larger than or smaller than the middle element.</li><li>If the element &quot;k&quot; is larger than the middle element, then we will perform the binary search in the [mid+1 to n] part of the array and if the element &quot;k&quot; is smaller than the middle element, then we will perform the binary search in the [0 to mid-1] part of the array.</li><li>Again we will repeat from step number 2.</li></ol><p class="graf--p">Let write the code for the same:</p><pre><code class="language-java graf graf--code">/*\n* @type of arr: integer array\n* @type of left: integer(left most index of arr)\n* @type of right: integer(right most index of arr)\n* @type of k: integer(element to be searched)\n* @return type: integer(index of element k(if found), otherwise return -1)\n*/\nint binarySearch(int arr[], int left, int right, int k) \n{ \n    while (left &lt;= right) { \n        // finding the middle element\n        int mid = left + (right - left) / 2; \n        // Check if k is present at middle \n        if (arr[mid] == k) \n            return mid; // if k is found, then return the mid index\n        // If k greater, ignore the left half of the array \n        if (arr[mid] &lt; k) \n            left = mid + 1; // update the left, right will remain same \n        // If k is smaller, ignore the right half of the array\n        else\n            right = mid - 1; // update the right, left will remain same\n    } \n    // if element is not found, then return -1 \n    return -1; \n}</code></pre><p class="graf--p">Let&#x27;s understand the working of the above code with the help of one example.</p> <div class=\'graf-image graf-caption\'>\n\t\t\t\t\t\t\t\t\t<img src=/images/time-and-space-complexity-analysis-of-algorithm-binary-search-eeb7cfc42f854428.png class=\'graf-image\' />\n\t\t\t\t\t\t\t\t</div ><p class="graf--p"><b class="graf--bold">Finding the Time Complexity of Binary Search</b></p><ul><li>For finding the element &quot;k&quot;, let&#x27;s say after &quot;ith&quot; iteration, the iteration of Binary search stops i.e. the size of the array becomes 1. Also, we are reducing the size of our array by half after every iteration.</li><li>So, during 1st iteration the size of the array is &quot;n&quot;, during 2nd iteration the size of the array is &quot;n/2&quot;, during 3rd iteration the size of the array is &quot;(n/2)/2 = n/2²&quot;, during 4th iteration the size of the array is &quot;((n/2)/2)/2 = n/2³&quot;, and so on.</li><li>So, after the <b class="graf--bold"><i class="graf--italic">ith</i></b> iteration, the size of the array will be n/2^i. Also, after the <b class="graf--bold">ith</b> iteration, the length of the array will become 1. So, the following relation should hold true:</li></ul><pre><code class="language-java graf graf--code">=&gt; n/2^i = 1\n=&gt; n = 2^i\n=&gt; log2 (n) = log2 (2^i)    [applying log2 both sides]\n=&gt; log2 (n) = i * log2 (2)  \n=&gt; i = log2 (n)             [as logn (n) = 1]</code></pre><p class="graf--p">So, the worst-case time complexity of Binary Search is <i class="graf--italic"><b class="graf--bold">log2 (n)</b></i>.</p><p class="graf--p"><b class="graf--bold">Example 2: Sorting Algorithm</b></p><p class="graf--p">In this part of the blog, we will learn about the time complexity of the various sorting algorithm. Sorting algorithms are used to sort a given array in ascending or descending order. So, let&#x27;s start with the Selection Sort.</p><blockquote class="graf--blockquote"><b class="graf--bold">Selection Sort</b></blockquote><p class="graf--p">In selection sort, in the first pass, we find the minimum element of the array and put it in the first place. In the second pass, we find the second smallest element of the array and put it in the second place and so on.</p><pre><code class="language-java graf graf--code">/*\n* @type of arr: integer array\n* @type of n: integer(length of arr)\n*/\nvoid selectionSort(int arr[], int n)  \n{  \n    // move from index 0 to n-1  \n    for (int i = 0; i &lt; n-1; i++)  \n    {\n        // finding the minimum element  \n        int minIndex = i;  \n        for (int j = i+1; j &lt; n; j++)  \n            if (arr[j] &lt; arr[minIndex])  \n                minIndex = j;  \n        // Swap the found minimum element with the ith element  \n        swap(arr[minIndex], arr[i]);  \n    }  \n}</code></pre><p class="graf--p">The worst-case time complexity of Selection Sort is <i class="graf--italic"><b class="graf--bold">O(n²)</b></i>.</p><blockquote class="graf--blockquote"><b class="graf--bold">Bubble Sort</b></blockquote><p class="graf--p">In bubble sort, we compare the adjacent elements and put the smallest element before the largest element. For example, if the two adjacent elements are [4, 1], then the final output will be [1, 4].</p><pre><code class="language-java graf graf--code">/*\n* @type of arr: integer array\n* @type of n: integer(length of arr)\n*/\nvoid bubbleSort(int arr[], int n)  \n{  \n    // move from index 0 to n-1\n    for (int i = 0; i &lt; n-1; i++)        \n        for (int j = 0; j &lt; n-i-1; j++)  \n            if (arr[j] &gt; arr[j+1])          // comparing adjacent elements\n                swap(arr[j], arr[j+1]);   // swapping elements\n}</code></pre><p class="graf--p">The worst-case time complexity of Bubble Sort is <b class="graf--bold"><i class="graf--italic">O(n²)</i></b>.</p><blockquote class="graf--blockquote"><b class="graf--bold">Insertion Sort</b></blockquote><p class="graf--p">In Insertion sort, we start with the 1st element and check if that element is smaller than the 0th element. If it is smaller then we put that element at the desired place otherwise we check for 2nd element. If the 2nd element is smaller than 0th or 1st element, then we put the 2nd element at the desired place and so on.</p><pre><code class="language-java graf graf--code">/*\n* @type of arr: integer array\n* @type of n: integer(length of arr)\n*/\nvoid insertionSort(int arr[], int n)  \n{  \n    for (int i = 1; i &lt; n; i++) \n    {  \n        int key = arr[i];  // select value to be inserted\n        int j = i - 1;     // position where number is to be inserted\n        // check if previous no. is larger than value to be inserted\n        while (j &gt;= 0 && arr[j] &gt; key) \n        {  \n            arr[j + 1] = arr[j];  \n            j = j - 1;  \n        }  \n        // changing the value\n        arr[j + 1] = key;  \n    }  \n} </code></pre><p class="graf--p">The worst-case time complexity of Insertion Sort is <b class="graf--bold"><i class="graf--italic">O(n²)</i></b>.</p><blockquote class="graf--blockquote"><b class="graf--bold">Merge Sort</b></blockquote><p class="graf--p">Merger Sort uses Divide and Conquer technique(you will learn more about divide and conquer in this Data Structure series). The following steps are involved in Merge Sort:</p><ul><li>Divide the array into two halves by finding the middle element.</li><li>Call the Merge Sort function on the first half and the second half.</li><li>Now, merge the two halves by calling the Merge function.</li></ul><p class="graf--p">Here, we will use recursion, so to learn about recursion, you can read from <a class="markup--anchor" target="_blank" href="https://afteracademy.com/blog/what-is-recursion-in-programming">here</a>).</p><pre><code class="language-java graf graf--code">void merge(int* arr, int start, int mid, int end) \n{\n\tint temp[end - start + 1];        // creating temporary array\n\tint i = start, j = mid+1, k = 0;\n\twhile(i &lt;= mid && j &lt;= end)       // traverse and add smaller of both elements in temp \n\t{\n\t\tif(arr[i] &lt;= arr[j]) \n\t\t{\n\t\t\ttemp[k] = arr[i];\n\t\t\tk += 1; i += 1;\n\t\t}\n\t\telse \n\t\t{\n\t\t\ttemp[k] = arr[j];\n\t\t\tk += 1; j += 1;\n\t\t}\n\t}\n\t// add the elements left in the 1st interval\n\twhile(i &lt;= mid) \n\t{\n\t\ttemp[k] = arr[i];\n\t\tk += 1; i += 1;\n\t}\n\t// add the elements left in the 2nd interval\n\twhile(j &lt;= end) \n\t{\n\t\ttemp[k] = arr[j];\n\t\tk += 1; j += 1;\n\t}\n\t// updating the original array to have the sorted elements\n\tfor(i = start; i &lt;= end; i += 1) \n\t{\n\t\tarr[i] = temp[i - start]\n\t}\n}\n\n\n/*\n* @type of arr: integer array\n* @type of start: starting index of arr\n* @type of end: eningd index of arr\n*/\nvoid mergeSort(int *arr, int start, int end) \n{\n\tif(start &lt; end) \n\t{\n\t\tint mid = (start + end) / 2; // finding middle element\n\t\tmergeSort(arr, start, mid);  // calling mergeSort for first half\n\t\tmergeSort(arr, mid+1, end);  // calling mergeSort for second half\n\t\tmerge(arr, start, mid, end); // calling merge function to merge the arrays\n\t}\n}</code></pre><p class="graf--p">The worst-case time complexity of Merge Sort is <b class="graf--bold"><i class="graf--italic">O(n log(n) )</i></b>.</p><p class="graf--p">The following table shows the best case, average case, and worst-case time complexity of various sorting algorithms:</p><pre><code class="language-java graf graf--code">-----------------------------------------------------------------------------\n|Sorting Algorithm |    Best Case     |   Average Case   |    Worst Case    |\n|------------------|------------------|------------------|------------------|\n|Selection Sort    |       Ω(n²)      |      θ(n²)       |       O(n²)      |\n|Bubble Sort       |       Ω(n)       |      θ(n²)       |       O(n²)      |\n|Insertion Sort    |       Ω(n)       |      θ(n²)       |       O(n²)      |\n|Merge Sort        |   Ω(n logn(n))   |   θ(n logn(n))   |   O(n logn(n))   |\n|Quick Sort        |   Ω(n logn(n))   |   θ(n logn(n))   |       O(n²)      |\n|Heap Sort         |   Ω(n logn(n))   |   θ(n logn(n))   |   O(n logn(n))   |\n|Radix Sort        |      Ω(nk)       |      θ(nk)       |       O(nk)      |\n|Bucket Sort       |     Ω(n + k)     |     θ(n + k)     |       O(n²)      |\n-----------------------------------------------------------------------------</code></pre><h4 class="graf--h3">Bonus Section :)</h4><p class="graf--p">So, here is one bonus section for you. This will help you in choosing the best solution for a particular question that you will be solving on <a class="markup--anchor" target="_blank" href="https://afteracademy.com/tech-interview/ds-algo-problem-set/top-problems">our website</a>. </p><p class="graf--p">So, when you solve some coding questions, then you will be given some input constraints and based on those constraints you have to decide the time complexity of your algorithm. Generally, a typical computer system executes 10^18 operations in one second. So, if the time limit for a particular question is one second and you are trying to execute more than 10^18 instruction per second, then you will get <i class="graf--italic">Time Limit Exceed(TLE)</i> error. So, based on the input size, you should decide the time complexity of your algorithm. The following table will help you to decide the time complexity of your algorithm based on the input size:</p><pre><code class="language-java graf graf--code">--------------------------------\n|Input Size |  Max Complexity  |\n|-----------|------------------|\n|10^18      |       O(logn)    |\n|10^8       |       O(n)       |\n|10^7       |       O(nlogn)   |\n|10^4       |       O(n^2)     |\n|10^2       |       O(n^3)     |\n|9*10       |       O(n^4)     |\n-------------------------------- </code></pre><p class="graf--p">Use this table to decide the complexity of your code before writing the code for any problem and get rid of the TLE (thank me by solving questions from <a class="markup--anchor" target="_blank" href="https://afteracademy.com/tech-interview/ds-algo-problem-set/top-problems">here</a> ;))</p><h4 class="graf--h3">Conclusion</h4><p class="graf--p">In this blog, we learned about the time and space complexity of an algorithm. We saw how these two factors are used to analyse the efficiency of an algorithm. So, basically, there is a trade-off between time and space. If time is less then in most of the cases, space will be more and vice versa. That&#x27;s it for this blog. Hope you learned something new today. </p><h4 class="graf--h3">What to do after reading this blog?</h4><p class="graf--p">After having a good idea of the time and space complexity, you can learn about the concept of <a class="markup--anchor" target="_blank" href="https://afteracademy.com/tech-interview/ds-algo-concepts/iteration-and-two-pointer-approach">Iteration and Two pointer approach</a>.</p><p class="graf--p"><a class="markup--anchor" target="_blank" href="https://afteracademy.com/problems/selection-sort">Solve the selection sort problem.</a></p><p class="graf--p"><a class="markup--anchor" target="_blank" href="https://afteracademy.com/problems/insertion-sort">Solve the insertion sort problem.</a></p><p class="graf--p">Also, you can start solving some commonly asked question of Google, Facebook, Yahoo, Amazon, etc. from <a class="markup--anchor" target="_blank" href="https://afteracademy.com/tech-interview/ds-algo-problem-set/top-problems">here</a>.</p><p class="graf--p">Do share this blog with your friends to spread the knowledge. Visit our <a class="markup--anchor" target="_blank" href="https://www.youtube.com/afteracademy">YouTube channel</a> for more content.</p><p class="graf--p">Keep Learning :)</p><p class="graf--p"><b class="graf--bold">Team AfterAcademy!</b></p>'},author:{_id:"5d8dc1ce52e77816c998cb97",name:"Admin AfterAcademy",googleProfilePicUrl:"https://afteracademy.com/assets/AfterAcademyLogo.svg"},isFetching:!1,similarBlogs:[{_id:"5f6513ec7bf61d38b90ddf35",likes:0,rank:0,title:"LRU Cache Implementation",description:"Design and implement a data structure for Least Recently Used(LRU) cache. Your data structure must support two operations: get(key) and put(). The problem expects a constant time solution",category:{_id:"5d232c8f8cadc249eef5d0cc",name:"ds-algo",title:"Data Structure & Algorithms"},author:{_id:"5d8dc1ce52e77816c998cb97",name:"Admin AfterAcademy",googleProfilePicUrl:"https://afteracademy.com/assets/AfterAcademyLogo.svg"},blogUrl:"lru-cache-implementation",createdAt:"2020-09-18T20:09:16.873Z",updatedAt:"2020-10-13T04:57:43.313Z",imgUrl:"/images/lru-cache-implementation-banner-ebe818c64bd8a6ba.png",publishedAt:"2020-10-13T04:57:43.313Z",similarity:.5217391304347826},{_id:"5f55723bedeb1638409b1b4d",likes:0,rank:0,title:"Surrounded regions",description:"Given a 2-D matrix board where every element is either 'O' or 'X', write a program to replace 'O' with 'X' if surrounded by 'X'. It is a famous problem based on the concept of flood fill algorithms",category:{_id:"5d232c8f8cadc249eef5d0cc",name:"ds-algo",title:"Data Structure & Algorithms"},author:{_id:"5d8dc1ce52e77816c998cb97",name:"Admin AfterAcademy",googleProfilePicUrl:"https://afteracademy.com/assets/AfterAcademyLogo.svg"},blogUrl:"surrounded-regions",createdAt:"2020-09-06T23:35:23.829Z",updatedAt:"2020-09-23T04:58:17.855Z",imgUrl:"/images/surrounded-regions-banner-160ec9bc66850bab.png",publishedAt:"2020-09-23T04:58:17.855Z",similarity:.5208333333333334},{_id:"5f55730eedeb1638409b1b4e",likes:0,rank:0,title:"Knight on chessboard",description:"Given a square chessboard of A x B size, the position of Knight (C, D) and the position of a target (E, F) is given. Write a program to find out the minimum steps a Knight will take to reach the target position. This problem is a good example of BFS algorithm.",category:{_id:"5d232c8f8cadc249eef5d0cc",name:"ds-algo",title:"Data Structure & Algorithms"},author:{_id:"5d8dc1ce52e77816c998cb97",name:"Admin AfterAcademy",googleProfilePicUrl:"https://afteracademy.com/assets/AfterAcademyLogo.svg"},blogUrl:"knight-on-chessboard",createdAt:"2020-09-06T23:38:54.799Z",updatedAt:"2020-09-07T09:01:04.955Z",imgUrl:"/images/knight-on-chessboard-banner-56b65d951f683fa2.png",publishedAt:"2020-09-07T09:01:04.955Z",similarity:.5161290322580645},{_id:"5f3e38ff7bf61d38b90db9ce",likes:0,rank:0,title:"Merge Two BST",description:"Given two binary search trees with root nodes as tree1 and tree2 of size n and m, write a program to return an array of integers that contains all the elements of tree1 and tree2 in non-decreasing order. The expected time complexity is O(m+n).",category:{_id:"5d232c8f8cadc249eef5d0cc",name:"ds-algo",title:"Data Structure & Algorithms"},author:{_id:"5d8dc1ce52e77816c998cb97",name:"Admin AfterAcademy",googleProfilePicUrl:"https://afteracademy.com/assets/AfterAcademyLogo.svg"},blogUrl:"merge-two-bst",createdAt:"2020-08-20T08:49:03.665Z",updatedAt:"2020-09-01T13:14:32.096Z",imgUrl:"/images/merge-two-bst-banner-063284a17ea10c3d.png",publishedAt:"2020-09-01T13:14:32.096Z",similarity:1.0333333333333334},{_id:"5f1f733aedeb1638409aead5",likes:0,rank:0,title:"Odd Even Linked List",description:"Given a singly linked list, write a program to group all odd nodes together followed by the even nodes. You should try to do it in place and the program should run in O(n) time complexity.",category:{_id:"5d232c8f8cadc249eef5d0cc",name:"ds-algo",title:"Data Structure & Algorithms"},author:{_id:"5d8dc1ce52e77816c998cb97",name:"Admin AfterAcademy",googleProfilePicUrl:"https://afteracademy.com/assets/AfterAcademyLogo.svg"},blogUrl:"odd-even-linked-list",createdAt:"2020-07-28T00:37:14.647Z",updatedAt:"2020-08-21T03:28:32.853Z",imgUrl:"/images/odd-even-linked-list-banner-5858716dbef91ff1.png",publishedAt:"2020-08-21T03:28:32.853Z",similarity:1.0476190476190477},{_id:"5f1bfdae7bf61d38b90d98e0",likes:0,rank:0,title:"Quick Sort",description:"Sorting is a process of arranging items systematically. There are several ways to sort a list of items. A very useful sorting algorithm in all of the sorting algorithms is quicksort. Given an array of integers arr[], write a program to sort the array in ascending order using Quick Sort.",category:{_id:"5d232c8f8cadc249eef5d0cc",name:"ds-algo",title:"Data Structure & Algorithms"},author:{_id:"5d8dc1ce52e77816c998cb97",name:"Admin AfterAcademy",googleProfilePicUrl:"https://afteracademy.com/assets/AfterAcademyLogo.svg"},blogUrl:"quick-sort",createdAt:"2020-07-25T09:38:54.014Z",updatedAt:"2020-08-10T15:14:44.622Z",imgUrl:"/images/quick-sort-banner-fd872a087c519dde.png",publishedAt:"2020-08-10T15:14:44.622Z",similarity:.8017241379310345}],isSimilarBlogsFetching:!1},blogEditorData:{blogId:null,blogDetailsFormData:{title:"",description:"",imgUrl:"",blogUrl:"",category:"",categories:[],isWriting:!1,isTitleError:!1,isDescriptionError:!1,isImgUrlError:!1,isBlogUrlError:!1,isCategoryError:!1,isUploadingImage:!1,uploadedImageUrl:null},editorState:null,editorText:null,successMessage:null,errorMessage:null,isSending:!1,isMsgToShow:!1,isPublished:!1,isSubmitted:!1,isDraft:!0,isEditOfExistingBlog:!1,isFetchingBlogCategories:!1,isUploadingImage:!1,uploadedImageUrl:null},myBlogsData:{data:null,isSubmittedBlogsFetching:!0,isDraftBlogsFetching:!0,isPublishedBlogsFetching:!0,successMessage:null,errorMessage:null,isMsgToShow:!1,tabNames:["DRAFTS","SUBMISSIONS","PUBLISHED"],selectedTab:"DRAFTS",isFetchingBlog:!1,isDeletingBlog:!1,openEditorPage:!1},profileData:{profile:null,blogs:null,submissions:null,countries:null,states:null,cities:null,submissionNoMoreToLoad:!1,submissionTotalCount:null,isFetchingProfile:!1,isFetchingBlogs:!1,isFetchingSubmissions:!1,isUpdatingProfile:!1,isFetchingCountries:!1,isFetchingStates:!1,isFetchingCities:!1,successMessage:null,errorMessage:null,isMsgToShow:!1},blogAdminData:{data:null,isSubmittedBlogsFetching:!0,isPublishedBlogsFetching:!0,isBlogDetailFetching:!1,successMessage:null,errorMessage:null,isMsgToShow:!1,tabNames:["SUBMISSIONS","PUBLISHED"],selectedTab:"SUBMISSIONS",showPreview:!1,blogPreview:null,isUpdatingStatus:!1},prelaunchRegistrationData:{formData:{name:"",email:"",phone:"",isWriting:!1,isNameError:!1,isEmailError:!1,isPhoneError:!1,dismissMsg:!1},successMessage:null,errorMessage:null,isSending:!1},snippetEditorData:{snippetId:null,snippetDetailFormData:{title:"",isWriting:!1,isTitleError:!1},editorState:null,text:null,successMessage:null,errorMessage:null,isSending:!1,isMsgToShow:!1,isEditOfExistingSnippet:!1},mySnippetsData:{data:null,isMySnippetsFetching:!0,successMessage:null,errorMessage:null,isMsgToShow:!1,isFetchingSnippetDetail:!1,isDeletingSnippet:!1,openSnippetEditorPage:!1},curriculumData:{data:null,isFetching:!1,successMessage:null,errorMessage:null,isMsgToShow:!1},subjectData:{data:null,isFetching:!1,successMessage:null,errorMessage:null,isMsgToShow:!1},topicData:{data:null,progress:null,isFetchingProgress:!1,isFetching:!1,successMessage:null,errorMessage:null,isMsgToShow:!1},materialData:{data:null,isFetching:!1,successMessage:null,errorMessage:null,isMsgToShow:!1},codeEditorData:{data:null,currentSourceCode:null,currentTestCase:null,isFetchingQuestion:!1,successMessage:null,errorMessage:null,isMsgToShow:!1,changeCounter:1},codeConsoleData:{data:null,isPollingResult:!1,successMessage:null,errorMessage:null,isMsgToShow:!1},codeSubmissionData:{historyData:null,resultData:null,isFetchingHistory:!1,isPollingSubmissionResult:!1,successMessage:null,errorMessage:null,isMsgToShow:!1},searchData:{data:null,isSearching:!1,successMessage:null,errorMessage:null,isMsgToShow:!1},feedbackData:{isSending:!1,successMessage:null,errorMessage:null},advertisementData:{data:null,slots:[],page:null,isFetching:!1,successMessage:null,errorMessage:null},puzzleData:{result:null,isSubmitting:!1,successMessage:null,errorMessage:null,isMsgToShow:!1},appData:{currentPageTitle:null,updatedUserName:null}}
+  </script>
+  <script src="/assets/highlight.js" type="text/javascript">
+  </script>
+  <script src="/js/vendor-bundle-1.4.7.js" type="text/javascript">
+  </script>
+  <script src="/js/app-bundle-1.4.7.js" type="text/javascript">
+  </script>
+  <script type="text/javascript">
+   window.hljs.initHighlightingOnLoad()
+  </script>
+ </body>
+</html>
